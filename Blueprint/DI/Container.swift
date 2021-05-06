@@ -10,6 +10,10 @@ import Swinject
 import Presentation_ViewModel
 import Domain_UseCase
 import Data_Repository
+import Data_Mapper
+import Data_Api
+import Data_Cache
+import Data_Resource
 
 let container: Container = {
     let container = Container()
@@ -17,6 +21,10 @@ let container: Container = {
         ViewModelAssembly(),
         UseCaseAssembly(),
         RepositoryAssembly(),
+        MapperAssembly(),
+        ApiAssembly(),
+        CacheAssembly(),
+        ResourceAssembly(),
     ])
     return container
 }()

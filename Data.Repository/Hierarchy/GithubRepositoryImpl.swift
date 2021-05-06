@@ -10,68 +10,63 @@ import Combine
 import StoreFlowable
 import Domain_Model
 import Domain_Repository
+import Data_Mapper
+import Data_Api
+import Data_Cache
 
 struct GithubRepositoryImpl: GithubRepository {
 
+    private let githubService: GithubService
+    private let githubCache: GithubCache
+    private let githubOrgResponseMapper: GithubOrgResponseMapper
+    private let githubRepoResponseMapper: GithubRepoResponseMapper
+    private let githubOrgEntityMapper: GithubOrgEntityMapper
+    private let githubRepoEntityMapper: GithubRepoEntityMapper
+
+    init(githubService: GithubService, githubCache: GithubCache, githubOrgResponseMapper: GithubOrgResponseMapper, githubRepoResponseMapper: GithubRepoResponseMapper, githubOrgEntityMapper: GithubOrgEntityMapper, githubRepoEntityMapper: GithubRepoEntityMapper) {
+        self.githubService = githubService
+        self.githubCache = githubCache
+        self.githubOrgResponseMapper = githubOrgResponseMapper
+        self.githubRepoResponseMapper = githubRepoResponseMapper
+        self.githubOrgEntityMapper = githubOrgEntityMapper
+        self.githubRepoEntityMapper = githubRepoEntityMapper
+    }
+
     func followOrgs() -> StatePublisher<[GithubOrg]> {
-        Just(
-            State.fixed(content: StateContent.exist(rawContent: [
-                GithubOrg(id: GithubOrgId(1), name: GithubOrgName("hoge")),
-                GithubOrg(id: GithubOrgId(2), name: GithubOrgName("hoge")),
-                GithubOrg(id: GithubOrgId(3), name: GithubOrgName("hoge")),
-                GithubOrg(id: GithubOrgId(4), name: GithubOrgName("hoge")),
-                GithubOrg(id: GithubOrgId(5), name: GithubOrgName("hoge")),
-                GithubOrg(id: GithubOrgId(6), name: GithubOrgName("hoge")),
-                GithubOrg(id: GithubOrgId(7), name: GithubOrgName("hoge")),
-                GithubOrg(id: GithubOrgId(8), name: GithubOrgName("hoge")),
-                GithubOrg(id: GithubOrgId(9), name: GithubOrgName("hoge")),
-                GithubOrg(id: GithubOrgId(10), name: GithubOrgName("hoge")),
-                GithubOrg(id: GithubOrgId(11), name: GithubOrgName("hoge")),
-                GithubOrg(id: GithubOrgId(12), name: GithubOrgName("hoge")),
-                GithubOrg(id: GithubOrgId(13), name: GithubOrgName("hoge")),
-                GithubOrg(id: GithubOrgId(14), name: GithubOrgName("hoge")),
-                GithubOrg(id: GithubOrgId(15), name: GithubOrgName("hoge")),
-                GithubOrg(id: GithubOrgId(16), name: GithubOrgName("hoge")),
-            ]))
-        ).eraseToAnyPublisher()
+        let githubOrgsFlowable = GithubOrgsFlowableCallback(githubService: githubService, githubCache: githubCache, githubOrgResponseMapper: githubOrgResponseMapper).create()
+        return githubOrgsFlowable.publish().mapContent { data in
+            data.map { githubOrgEntity in
+                githubOrgEntityMapper.map(entity: githubOrgEntity)
+            }
+        }.eraseToAnyPublisher()
     }
 
     func refreshOrgs() -> AnyPublisher<Void, Never> {
-        Just(()).eraseToAnyPublisher()
+        let githubOrgsFlowable = GithubOrgsFlowableCallback(githubService: githubService, githubCache: githubCache, githubOrgResponseMapper: githubOrgResponseMapper).create()
+        return githubOrgsFlowable.refresh()
     }
 
     func requestAdditionalOrgs(continueWhenError: Bool) -> AnyPublisher<Void, Never> {
-        Just(()).eraseToAnyPublisher()
+        let githubOrgsFlowable = GithubOrgsFlowableCallback(githubService: githubService, githubCache: githubCache, githubOrgResponseMapper: githubOrgResponseMapper).create()
+        return githubOrgsFlowable.requestAdditionalData(continueWhenError: continueWhenError)
     }
 
     func followRepos(githubOrgName: GithubOrgName) -> StatePublisher<[GithubRepo]> {
-        Just(
-            State.fixed(content: StateContent.exist(rawContent: [
-                GithubRepo(id: GithubRepoId(1), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(2), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(3), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(4), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(5), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(6), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(7), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(8), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(9), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(10), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(11), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(12), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(13), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(14), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(15), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(16), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-            ]))
-        ).eraseToAnyPublisher()
+        let githubReposFlowable = GithubReposFlowableCallback(githubService: githubService, githubCache: githubCache, githubRepoResponseMapper: githubRepoResponseMapper, githubOrgName: githubOrgName).create()
+        return githubReposFlowable.publish().mapContent { data in
+            data.map { githubRepoEntity in
+                githubRepoEntityMapper.map(entity: githubRepoEntity)
+            }
+        }.eraseToAnyPublisher()
     }
 
     func refreshRepos(githubOrgName: GithubOrgName) -> AnyPublisher<Void, Never> {
-        Just(()).eraseToAnyPublisher()
+        let githubReposFlowable = GithubReposFlowableCallback(githubService: githubService, githubCache: githubCache, githubRepoResponseMapper: githubRepoResponseMapper, githubOrgName: githubOrgName).create()
+        return githubReposFlowable.refresh()
     }
 
     func requestAdditionalRepos(githubOrgName: GithubOrgName, continueWhenError: Bool) -> AnyPublisher<Void, Never> {
-        Just(()).eraseToAnyPublisher()
+        let githubReposFlowable = GithubReposFlowableCallback(githubService: githubService, githubCache: githubCache, githubRepoResponseMapper: githubRepoResponseMapper, githubOrgName: githubOrgName).create()
+        return githubReposFlowable.requestAdditionalData(continueWhenError: continueWhenError)
     }
 }

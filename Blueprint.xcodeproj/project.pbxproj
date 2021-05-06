@@ -36,6 +36,31 @@
 		E32EC21D2643EAE20062C0A8 /* StoreFlowable in Frameworks */ = {isa = PBXBuildFile; productRef = E32EC21C2643EAE20062C0A8 /* StoreFlowable */; };
 		E32EC2202643EBB40062C0A8 /* RepositoryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC21F2643EBB40062C0A8 /* RepositoryAssembly.swift */; };
 		E32EC2222643EE9C0062C0A8 /* StoreFlowable in Frameworks */ = {isa = PBXBuildFile; productRef = E32EC2212643EE9C0062C0A8 /* StoreFlowable */; };
+		E32EC2252643F75C0062C0A8 /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC2242643F75C0062C0A8 /* GithubService.swift */; };
+		E32EC2282643F9450062C0A8 /* GithubCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC2272643F9450062C0A8 /* GithubCache.swift */; };
+		E32EC22D264420230062C0A8 /* GithubOrgResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC22C264420230062C0A8 /* GithubOrgResponse.swift */; };
+		E32EC22F264420370062C0A8 /* GithubRepoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC22E264420370062C0A8 /* GithubRepoResponse.swift */; };
+		E32EC233264423620062C0A8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E32EC232264423620062C0A8 /* Alamofire */; };
+		E32EC2362644258B0062C0A8 /* DataRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC2352644258B0062C0A8 /* DataRequestExtension.swift */; };
+		E32EC238264426730062C0A8 /* ApiAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC237264426730062C0A8 /* ApiAssembly.swift */; };
+		E32EC23A264426D80062C0A8 /* CacheAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC239264426D80062C0A8 /* CacheAssembly.swift */; };
+		E32EC23C2644273E0062C0A8 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E32EC23B2644273E0062C0A8 /* Swinject */; };
+		E32EC23E264427430062C0A8 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E32EC23D264427430062C0A8 /* Swinject */; };
+		E32EC240264427730062C0A8 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E32EC23F264427730062C0A8 /* Swinject */; };
+		E32EC244264427980062C0A8 /* ResourceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC243264427980062C0A8 /* ResourceAssembly.swift */; };
+		E32EC247264429D30062C0A8 /* GithubOrgsFlowableCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC246264429D30062C0A8 /* GithubOrgsFlowableCallback.swift */; };
+		E32EC24A2644367F0062C0A8 /* GithubOrgEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC2492644367F0062C0A8 /* GithubOrgEntity.swift */; };
+		E32EC24C264436880062C0A8 /* GithubRepoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC24B264436880062C0A8 /* GithubRepoEntity.swift */; };
+		E32EC24E2644428D0062C0A8 /* GithubOrgsStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC24D2644428D0062C0A8 /* GithubOrgsStateManager.swift */; };
+		E32EC250264442DE0062C0A8 /* GithubReposStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC24F264442DE0062C0A8 /* GithubReposStateManager.swift */; };
+		E32EC252264443A70062C0A8 /* StoreFlowable in Frameworks */ = {isa = PBXBuildFile; productRef = E32EC251264443A70062C0A8 /* StoreFlowable */; };
+		E32EC256264449400062C0A8 /* GithubOrgResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC255264449400062C0A8 /* GithubOrgResponseMapper.swift */; };
+		E32EC25826444BE90062C0A8 /* GithubRepoResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC25726444BE90062C0A8 /* GithubRepoResponseMapper.swift */; };
+		E32EC25A2644507E0062C0A8 /* GithubReposFlowableCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC2592644507E0062C0A8 /* GithubReposFlowableCallback.swift */; };
+		E32EC25D264455810062C0A8 /* MapperAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC25C264455810062C0A8 /* MapperAssembly.swift */; };
+		E32EC25F264455ED0062C0A8 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E32EC25E264455ED0062C0A8 /* Swinject */; };
+		E32EC26326445B030062C0A8 /* GithubOrgEntityMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC26226445B030062C0A8 /* GithubOrgEntityMapper.swift */; };
+		E32EC26526445B100062C0A8 /* GithubRepoEntityMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC26426445B100062C0A8 /* GithubRepoEntityMapper.swift */; };
 		E357B0452635ACD700776A83 /* BlueprintApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E357B0442635ACD700776A83 /* BlueprintApp.swift */; };
 		E357B0492635ACD700776A83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E357B0482635ACD700776A83 /* Assets.xcassets */; };
 		E357B04C2635ACD700776A83 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E357B04B2635ACD700776A83 /* Preview Assets.xcassets */; };
@@ -600,6 +625,25 @@
 		E32EC2132643E9B80062C0A8 /* GithubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepository.swift; sourceTree = "<group>"; };
 		E32EC2182643EAC50062C0A8 /* GithubRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepositoryImpl.swift; sourceTree = "<group>"; };
 		E32EC21F2643EBB40062C0A8 /* RepositoryAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryAssembly.swift; sourceTree = "<group>"; };
+		E32EC2242643F75C0062C0A8 /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
+		E32EC2272643F9450062C0A8 /* GithubCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubCache.swift; sourceTree = "<group>"; };
+		E32EC22C264420230062C0A8 /* GithubOrgResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubOrgResponse.swift; sourceTree = "<group>"; };
+		E32EC22E264420370062C0A8 /* GithubRepoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepoResponse.swift; sourceTree = "<group>"; };
+		E32EC2352644258B0062C0A8 /* DataRequestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequestExtension.swift; sourceTree = "<group>"; };
+		E32EC237264426730062C0A8 /* ApiAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiAssembly.swift; sourceTree = "<group>"; };
+		E32EC239264426D80062C0A8 /* CacheAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheAssembly.swift; sourceTree = "<group>"; };
+		E32EC243264427980062C0A8 /* ResourceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceAssembly.swift; sourceTree = "<group>"; };
+		E32EC246264429D30062C0A8 /* GithubOrgsFlowableCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubOrgsFlowableCallback.swift; sourceTree = "<group>"; };
+		E32EC2492644367F0062C0A8 /* GithubOrgEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubOrgEntity.swift; sourceTree = "<group>"; };
+		E32EC24B264436880062C0A8 /* GithubRepoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepoEntity.swift; sourceTree = "<group>"; };
+		E32EC24D2644428D0062C0A8 /* GithubOrgsStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubOrgsStateManager.swift; sourceTree = "<group>"; };
+		E32EC24F264442DE0062C0A8 /* GithubReposStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubReposStateManager.swift; sourceTree = "<group>"; };
+		E32EC255264449400062C0A8 /* GithubOrgResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubOrgResponseMapper.swift; sourceTree = "<group>"; };
+		E32EC25726444BE90062C0A8 /* GithubRepoResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepoResponseMapper.swift; sourceTree = "<group>"; };
+		E32EC2592644507E0062C0A8 /* GithubReposFlowableCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubReposFlowableCallback.swift; sourceTree = "<group>"; };
+		E32EC25C264455810062C0A8 /* MapperAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapperAssembly.swift; sourceTree = "<group>"; };
+		E32EC26226445B030062C0A8 /* GithubOrgEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubOrgEntityMapper.swift; sourceTree = "<group>"; };
+		E32EC26426445B100062C0A8 /* GithubRepoEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepoEntityMapper.swift; sourceTree = "<group>"; };
 		E357B0412635ACD700776A83 /* Blueprint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blueprint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E357B0442635ACD700776A83 /* BlueprintApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueprintApp.swift; sourceTree = "<group>"; };
 		E357B0482635ACD700776A83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -821,6 +865,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E32EC233264423620062C0A8 /* Alamofire in Frameworks */,
+				E32EC23C2644273E0062C0A8 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -836,6 +882,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E32EC252264443A70062C0A8 /* StoreFlowable in Frameworks */,
+				E32EC23E264427430062C0A8 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -851,6 +899,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E32EC240264427730062C0A8 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -867,6 +916,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3AD0940263BB81C00C3DD00 /* Data_Resource.framework in Frameworks */,
+				E32EC25F264455ED0062C0A8 /* Swinject in Frameworks */,
 				E3AD0937263BB81600C3DD00 /* Data_Api.framework in Frameworks */,
 				E3AD0944263BB82300C3DD00 /* Domain_Model.framework in Frameworks */,
 				E3AD093C263BB81800C3DD00 /* Data_Cache.framework in Frameworks */,
@@ -949,6 +999,132 @@
 				E32EC21F2643EBB40062C0A8 /* RepositoryAssembly.swift */,
 			);
 			path = DI;
+			sourceTree = "<group>";
+		};
+		E32EC2232643F7460062C0A8 /* Hierarchy */ = {
+			isa = PBXGroup;
+			children = (
+				E32EC2242643F75C0062C0A8 /* GithubService.swift */,
+			);
+			path = Hierarchy;
+			sourceTree = "<group>";
+		};
+		E32EC2262643F9320062C0A8 /* Hierarchy */ = {
+			isa = PBXGroup;
+			children = (
+				E32EC2272643F9450062C0A8 /* GithubCache.swift */,
+				E32EC24D2644428D0062C0A8 /* GithubOrgsStateManager.swift */,
+				E32EC24F264442DE0062C0A8 /* GithubReposStateManager.swift */,
+			);
+			path = Hierarchy;
+			sourceTree = "<group>";
+		};
+		E32EC2292643F9C10062C0A8 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				E32EC239264426D80062C0A8 /* CacheAssembly.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		E32EC22A2643F9C60062C0A8 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				E32EC237264426730062C0A8 /* ApiAssembly.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		E32EC22B26441FCB0062C0A8 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				E32EC22C264420230062C0A8 /* GithubOrgResponse.swift */,
+				E32EC22E264420370062C0A8 /* GithubRepoResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		E32EC234264425800062C0A8 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				E32EC2352644258B0062C0A8 /* DataRequestExtension.swift */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		E32EC241264427800062C0A8 /* Hierarchy */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Hierarchy;
+			sourceTree = "<group>";
+		};
+		E32EC242264427880062C0A8 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				E32EC243264427980062C0A8 /* ResourceAssembly.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		E32EC245264428A10062C0A8 /* Flowable */ = {
+			isa = PBXGroup;
+			children = (
+				E32EC246264429D30062C0A8 /* GithubOrgsFlowableCallback.swift */,
+				E32EC2592644507E0062C0A8 /* GithubReposFlowableCallback.swift */,
+			);
+			path = Flowable;
+			sourceTree = "<group>";
+		};
+		E32EC248264430C60062C0A8 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				E32EC2492644367F0062C0A8 /* GithubOrgEntity.swift */,
+				E32EC24B264436880062C0A8 /* GithubRepoEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		E32EC253264448BD0062C0A8 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				E32EC254264448E30062C0A8 /* Github */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		E32EC254264448E30062C0A8 /* Github */ = {
+			isa = PBXGroup;
+			children = (
+				E32EC255264449400062C0A8 /* GithubOrgResponseMapper.swift */,
+				E32EC25726444BE90062C0A8 /* GithubRepoResponseMapper.swift */,
+			);
+			path = Github;
+			sourceTree = "<group>";
+		};
+		E32EC25B2644556C0062C0A8 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				E32EC25C264455810062C0A8 /* MapperAssembly.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		E32EC26026445AF20062C0A8 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				E32EC26126445AFB0062C0A8 /* Github */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		E32EC26126445AFB0062C0A8 /* Github */ = {
+			isa = PBXGroup;
+			children = (
+				E32EC26226445B030062C0A8 /* GithubOrgEntityMapper.swift */,
+				E32EC26426445B100062C0A8 /* GithubRepoEntityMapper.swift */,
+			);
+			path = Github;
 			sourceTree = "<group>";
 		};
 		E357B0382635ACD700776A83 = {
@@ -1149,6 +1325,7 @@
 			children = (
 				E32EC21E2643EBA30062C0A8 /* DI */,
 				E32EC2172643EAB50062C0A8 /* Hierarchy */,
+				E32EC245264428A10062C0A8 /* Flowable */,
 				E3AD081A263AF29300C3DD00 /* Info.plist */,
 			);
 			path = Data.Repository;
@@ -1166,6 +1343,10 @@
 		E3AD083A263AF2B600C3DD00 /* Data.Api */ = {
 			isa = PBXGroup;
 			children = (
+				E32EC22A2643F9C60062C0A8 /* DI */,
+				E32EC234264425800062C0A8 /* Global */,
+				E32EC2232643F7460062C0A8 /* Hierarchy */,
+				E32EC22B26441FCB0062C0A8 /* Response */,
 				E3AD083C263AF2B600C3DD00 /* Info.plist */,
 			);
 			path = Data.Api;
@@ -1183,6 +1364,9 @@
 		E3AD085C263AF2CD00C3DD00 /* Data.Cache */ = {
 			isa = PBXGroup;
 			children = (
+				E32EC2292643F9C10062C0A8 /* DI */,
+				E32EC2262643F9320062C0A8 /* Hierarchy */,
+				E32EC248264430C60062C0A8 /* Entity */,
 				E3AD085E263AF2CD00C3DD00 /* Info.plist */,
 			);
 			path = Data.Cache;
@@ -1200,6 +1384,8 @@
 		E3AD087E263AF81D00C3DD00 /* Data.Resource */ = {
 			isa = PBXGroup;
 			children = (
+				E32EC242264427880062C0A8 /* DI */,
+				E32EC241264427800062C0A8 /* Hierarchy */,
 				E3AD0880263AF81D00C3DD00 /* Info.plist */,
 			);
 			path = Data.Resource;
@@ -1217,6 +1403,9 @@
 		E3AD08A0263AF83400C3DD00 /* Data.Mapper */ = {
 			isa = PBXGroup;
 			children = (
+				E32EC25B2644556C0062C0A8 /* DI */,
+				E32EC26026445AF20062C0A8 /* Entity */,
+				E32EC253264448BD0062C0A8 /* Response */,
 				E3AD08A2263AF83400C3DD00 /* Info.plist */,
 			);
 			path = Data.Mapper;
@@ -1751,6 +1940,10 @@
 			dependencies = (
 			);
 			name = Data.Api;
+			packageProductDependencies = (
+				E32EC232264423620062C0A8 /* Alamofire */,
+				E32EC23B2644273E0062C0A8 /* Swinject */,
+			);
 			productName = Data.Api;
 			productReference = E3AD0839263AF2B600C3DD00 /* Data_Api.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1788,6 +1981,10 @@
 			dependencies = (
 			);
 			name = Data.Cache;
+			packageProductDependencies = (
+				E32EC23D264427430062C0A8 /* Swinject */,
+				E32EC251264443A70062C0A8 /* StoreFlowable */,
+			);
 			productName = Data.Cache;
 			productReference = E3AD085B263AF2CD00C3DD00 /* Data_Cache.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1825,6 +2022,9 @@
 			dependencies = (
 			);
 			name = Data.Resource;
+			packageProductDependencies = (
+				E32EC23F264427730062C0A8 /* Swinject */,
+			);
 			productName = Data.Resource;
 			productReference = E3AD087D263AF81D00C3DD00 /* Data_Resource.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1867,6 +2067,9 @@
 				E3AD0947263BB82300C3DD00 /* PBXTargetDependency */,
 			);
 			name = Data.Mapper;
+			packageProductDependencies = (
+				E32EC25E264455ED0062C0A8 /* Swinject */,
+			);
 			productName = Data.Mapper;
 			productReference = E3AD089F263AF83400C3DD00 /* Data_Mapper.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1960,6 +2163,7 @@
 					};
 					E3AD0838263AF2B600C3DD00 = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1250;
 					};
 					E3AD0840263AF2B600C3DD00 = {
 						CreatedOnToolsVersion = 12.5;
@@ -1967,6 +2171,7 @@
 					};
 					E3AD085A263AF2CD00C3DD00 = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1250;
 					};
 					E3AD0862263AF2CD00C3DD00 = {
 						CreatedOnToolsVersion = 12.5;
@@ -1974,6 +2179,7 @@
 					};
 					E3AD087C263AF81D00C3DD00 = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1250;
 					};
 					E3AD0884263AF81D00C3DD00 = {
 						CreatedOnToolsVersion = 12.5;
@@ -1981,6 +2187,7 @@
 					};
 					E3AD089E263AF83400C3DD00 = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1250;
 					};
 					E3AD08A6263AF83500C3DD00 = {
 						CreatedOnToolsVersion = 12.5;
@@ -2000,6 +2207,7 @@
 			packageReferences = (
 				E3AD0954263BE6FC00C3DD00 /* XCRemoteSwiftPackageReference "Swinject" */,
 				E32EC1FA2643D9800062C0A8 /* XCRemoteSwiftPackageReference "StoreFlowable.swift" */,
+				E32EC231264423620062C0A8 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = E357B0422635ACD700776A83 /* Products */;
 			projectDirPath = "";
@@ -2333,8 +2541,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E32EC247264429D30062C0A8 /* GithubOrgsFlowableCallback.swift in Sources */,
 				E32EC2192643EAC50062C0A8 /* GithubRepositoryImpl.swift in Sources */,
 				E32EC2202643EBB40062C0A8 /* RepositoryAssembly.swift in Sources */,
+				E32EC25A2644507E0062C0A8 /* GithubReposFlowableCallback.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2350,6 +2560,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E32EC22D264420230062C0A8 /* GithubOrgResponse.swift in Sources */,
+				E32EC2362644258B0062C0A8 /* DataRequestExtension.swift in Sources */,
+				E32EC22F264420370062C0A8 /* GithubRepoResponse.swift in Sources */,
+				E32EC2252643F75C0062C0A8 /* GithubService.swift in Sources */,
+				E32EC238264426730062C0A8 /* ApiAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2365,6 +2580,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E32EC250264442DE0062C0A8 /* GithubReposStateManager.swift in Sources */,
+				E32EC24A2644367F0062C0A8 /* GithubOrgEntity.swift in Sources */,
+				E32EC23A264426D80062C0A8 /* CacheAssembly.swift in Sources */,
+				E32EC24E2644428D0062C0A8 /* GithubOrgsStateManager.swift in Sources */,
+				E32EC2282643F9450062C0A8 /* GithubCache.swift in Sources */,
+				E32EC24C264436880062C0A8 /* GithubRepoEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2380,6 +2601,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E32EC244264427980062C0A8 /* ResourceAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2395,6 +2617,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E32EC25826444BE90062C0A8 /* GithubRepoResponseMapper.swift in Sources */,
+				E32EC26526445B100062C0A8 /* GithubRepoEntityMapper.swift in Sources */,
+				E32EC256264449400062C0A8 /* GithubOrgResponseMapper.swift in Sources */,
+				E32EC25D264455810062C0A8 /* MapperAssembly.swift in Sources */,
+				E32EC26326445B030062C0A8 /* GithubOrgEntityMapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3454,6 +3681,7 @@
 		E3AD0851263AF2B600C3DD00 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -3470,6 +3698,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.data.api;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -3480,6 +3709,7 @@
 		E3AD0852263AF2B600C3DD00 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -3544,6 +3774,7 @@
 		E3AD0873263AF2CD00C3DD00 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -3560,6 +3791,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.data.cache;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -3570,6 +3802,7 @@
 		E3AD0874263AF2CD00C3DD00 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -3634,6 +3867,7 @@
 		E3AD0895263AF81D00C3DD00 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -3650,6 +3884,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.data.resource;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -3660,6 +3895,7 @@
 		E3AD0896263AF81D00C3DD00 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -3724,6 +3960,7 @@
 		E3AD08B7263AF83500C3DD00 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -3740,6 +3977,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.data.mapper;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -3750,6 +3988,7 @@
 		E3AD08B8263AF83500C3DD00 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -4041,6 +4280,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		E32EC231264423620062C0A8 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.3;
+			};
+		};
 		E3AD0954263BE6FC00C3DD00 /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject.git";
@@ -4081,6 +4328,36 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E32EC1FA2643D9800062C0A8 /* XCRemoteSwiftPackageReference "StoreFlowable.swift" */;
 			productName = StoreFlowable;
+		};
+		E32EC232264423620062C0A8 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E32EC231264423620062C0A8 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		E32EC23B2644273E0062C0A8 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3AD0954263BE6FC00C3DD00 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		E32EC23D264427430062C0A8 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3AD0954263BE6FC00C3DD00 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		E32EC23F264427730062C0A8 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3AD0954263BE6FC00C3DD00 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		E32EC251264443A70062C0A8 /* StoreFlowable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E32EC1FA2643D9800062C0A8 /* XCRemoteSwiftPackageReference "StoreFlowable.swift" */;
+			productName = StoreFlowable;
+		};
+		E32EC25E264455ED0062C0A8 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3AD0954263BE6FC00C3DD00 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
 		};
 		E3AD0955263BE6FC00C3DD00 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;

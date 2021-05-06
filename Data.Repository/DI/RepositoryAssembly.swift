@@ -8,6 +8,9 @@
 import Foundation
 import Swinject
 import Domain_Repository
+import Data_Mapper
+import Data_Api
+import Data_Cache
 
 public struct RepositoryAssembly: Assembly {
 
@@ -15,8 +18,8 @@ public struct RepositoryAssembly: Assembly {
     }
 
     public func assemble(container: Container) {
-        container.register(GithubRepository.self) { _ in
-            GithubRepositoryImpl()
-        }
+        container.register(GithubRepository.self) { resolver in
+            GithubRepositoryImpl(githubService: resolver.resolve(GithubService.self)!, githubCache: resolver.resolve(GithubCache.self)!, githubOrgResponseMapper: resolver.resolve(GithubOrgResponseMapper.self)!, githubRepoResponseMapper: resolver.resolve(GithubRepoResponseMapper.self)!, githubOrgEntityMapper: resolver.resolve(GithubOrgEntityMapper.self)!, githubRepoEntityMapper: resolver.resolve(GithubRepoEntityMapper.self)!)
+        }.inObjectScope(.container)
     }
 }
