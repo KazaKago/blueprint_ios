@@ -7,60 +7,121 @@
 
 import Foundation
 import Combine
+import Domain_UseCase
 import Domain_Model
 
 public final class GithubOrgsViewModel: ObservableObject {
 
-    @Published public var githubOrgs: [GithubOrg] = [
-        GithubOrg(id: GithubOrgId(1), name: GithubOrgName("hoge")),
-        GithubOrg(id: GithubOrgId(2), name: GithubOrgName("hoge")),
-        GithubOrg(id: GithubOrgId(3), name: GithubOrgName("hoge")),
-        GithubOrg(id: GithubOrgId(4), name: GithubOrgName("hoge")),
-        GithubOrg(id: GithubOrgId(5), name: GithubOrgName("hoge")),
-        GithubOrg(id: GithubOrgId(5), name: GithubOrgName("hoge")),
-        GithubOrg(id: GithubOrgId(5), name: GithubOrgName("hoge")),
-        GithubOrg(id: GithubOrgId(5), name: GithubOrgName("hoge")),
-        GithubOrg(id: GithubOrgId(5), name: GithubOrgName("hoge")),
-        GithubOrg(id: GithubOrgId(5), name: GithubOrgName("hoge")),
-        GithubOrg(id: GithubOrgId(5), name: GithubOrgName("hoge")),
-        GithubOrg(id: GithubOrgId(5), name: GithubOrgName("hoge")),
-        GithubOrg(id: GithubOrgId(5), name: GithubOrgName("hoge")),
-        GithubOrg(id: GithubOrgId(5), name: GithubOrgName("hoge")),
-        GithubOrg(id: GithubOrgId(5), name: GithubOrgName("hoge")),
-        GithubOrg(id: GithubOrgId(5), name: GithubOrgName("hoge")),
-    ]
+    @Published public var githubOrgs: [GithubOrg] = []
     @Published public var isMainLoading: Bool = false
     @Published public var isAdditionalLoading: Bool = false
     @Published public var mainError: Error?
     @Published public var additionalError: Error?
+    private let followGithubOrgsUseCase: FollowGithubOrgsUseCase
+    private let refreshGithubOrgsUseCase: RefreshGithubOrgsUseCase
+    private let requestAdditionalGithubOrgsUseCase: RequestAdditionalGithubOrgsUseCase
     private var cancellableSet = Set<AnyCancellable>()
 
-    public init() {
+    public init(followGithubOrgsUseCase: FollowGithubOrgsUseCase, refreshGithubOrgsUseCase: RefreshGithubOrgsUseCase, requestAdditionalGithubOrgsUseCase: RequestAdditionalGithubOrgsUseCase) {
+        self.followGithubOrgsUseCase = followGithubOrgsUseCase
+        self.refreshGithubOrgsUseCase = refreshGithubOrgsUseCase
+        self.requestAdditionalGithubOrgsUseCase = requestAdditionalGithubOrgsUseCase
+    }
+
+    public func initialize() {
         cancellableSet.removeAll()
         subscribe()
     }
 
-    public func initialize() {
-        // TODO
-    }
-
     public func refresh() {
-        // TODO
+        refreshGithubOrgsUseCase.invoke()
+            .receive(on: DispatchQueue.main)
+            .sink {}
+            .store(in: &cancellableSet)
     }
 
     public func retry() {
-        // TODO
+        refreshGithubOrgsUseCase.invoke()
+            .receive(on: DispatchQueue.main)
+            .sink {}
+            .store(in: &cancellableSet)
     }
 
     public func requestAdditional() {
-        // TODO
+        requestAdditionalGithubOrgsUseCase.invoke(continueWhenError: false)
+            .receive(on: DispatchQueue.main)
+            .sink {}
+            .store(in: &cancellableSet)
     }
 
     public func retryAdditional() {
-        // TODO
+        requestAdditionalGithubOrgsUseCase.invoke(continueWhenError: true)
+            .receive(on: DispatchQueue.main)
+            .sink {}
+            .store(in: &cancellableSet)
     }
 
     private func subscribe() {
-        // TODO
+        followGithubOrgsUseCase.invoke()
+            .receive(on: DispatchQueue.main)
+            .sink { state in
+                state.doAction(
+                    onFixed: {
+                        state.content.doAction(
+                            onExist: { value in
+                                self.githubOrgs = value
+                                self.isMainLoading = false
+                                self.isAdditionalLoading = false
+                                self.mainError = nil
+                                self.additionalError = nil
+                            },
+                            onNotExist: {
+                                self.githubOrgs = []
+                                self.isMainLoading = true
+                                self.isAdditionalLoading = false
+                                self.mainError = nil
+                                self.additionalError = nil
+                            }
+                        )
+                    },
+                    onLoading: {
+                        state.content.doAction(
+                            onExist: { value in
+                                self.githubOrgs = value
+                                self.isMainLoading = false
+                                self.isAdditionalLoading = true
+                                self.mainError = nil
+                                self.additionalError = nil
+                            },
+                            onNotExist: {
+                                self.githubOrgs = []
+                                self.isMainLoading = true
+                                self.isAdditionalLoading = false
+                                self.mainError = nil
+                                self.additionalError = nil
+                            }
+                        )
+                    },
+                    onError: { error in
+                        state.content.doAction(
+                            onExist: { value in
+                                self.githubOrgs = value
+                                self.isMainLoading = false
+                                self.isAdditionalLoading = false
+                                self.mainError = nil
+                                self.additionalError = error
+                            },
+                            onNotExist: {
+                                self.githubOrgs = []
+                                self.isMainLoading = false
+                                self.isAdditionalLoading = false
+                                self.mainError = error
+                                self.additionalError = nil
+                            }
+                        )
+                    }
+                )
+            }
+            .store(in: &cancellableSet)
     }
 }
