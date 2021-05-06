@@ -29,6 +29,13 @@
 		E32EC20C2643E1F50062C0A8 /* RequestAdditionalGithubOrgsUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC20B2643E1F50062C0A8 /* RequestAdditionalGithubOrgsUseCaseImpl.swift */; };
 		E32EC20E2643E21E0062C0A8 /* RequestAdditionalGithubReposUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC20D2643E21E0062C0A8 /* RequestAdditionalGithubReposUseCase.swift */; };
 		E32EC2102643E2260062C0A8 /* RequestAdditionalGithubReposUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC20F2643E2260062C0A8 /* RequestAdditionalGithubReposUseCaseImpl.swift */; };
+		E32EC2142643E9B80062C0A8 /* GithubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC2132643E9B80062C0A8 /* GithubRepository.swift */; };
+		E32EC2162643E9F00062C0A8 /* StoreFlowable in Frameworks */ = {isa = PBXBuildFile; productRef = E32EC2152643E9F00062C0A8 /* StoreFlowable */; };
+		E32EC2192643EAC50062C0A8 /* GithubRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC2182643EAC50062C0A8 /* GithubRepositoryImpl.swift */; };
+		E32EC21B2643EADE0062C0A8 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E32EC21A2643EADE0062C0A8 /* Swinject */; };
+		E32EC21D2643EAE20062C0A8 /* StoreFlowable in Frameworks */ = {isa = PBXBuildFile; productRef = E32EC21C2643EAE20062C0A8 /* StoreFlowable */; };
+		E32EC2202643EBB40062C0A8 /* RepositoryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC21F2643EBB40062C0A8 /* RepositoryAssembly.swift */; };
+		E32EC2222643EE9C0062C0A8 /* StoreFlowable in Frameworks */ = {isa = PBXBuildFile; productRef = E32EC2212643EE9C0062C0A8 /* StoreFlowable */; };
 		E357B0452635ACD700776A83 /* BlueprintApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E357B0442635ACD700776A83 /* BlueprintApp.swift */; };
 		E357B0492635ACD700776A83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E357B0482635ACD700776A83 /* Assets.xcassets */; };
 		E357B04C2635ACD700776A83 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E357B04B2635ACD700776A83 /* Preview Assets.xcassets */; };
@@ -590,6 +597,9 @@
 		E32EC20B2643E1F50062C0A8 /* RequestAdditionalGithubOrgsUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAdditionalGithubOrgsUseCaseImpl.swift; sourceTree = "<group>"; };
 		E32EC20D2643E21E0062C0A8 /* RequestAdditionalGithubReposUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAdditionalGithubReposUseCase.swift; sourceTree = "<group>"; };
 		E32EC20F2643E2260062C0A8 /* RequestAdditionalGithubReposUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAdditionalGithubReposUseCaseImpl.swift; sourceTree = "<group>"; };
+		E32EC2132643E9B80062C0A8 /* GithubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepository.swift; sourceTree = "<group>"; };
+		E32EC2182643EAC50062C0A8 /* GithubRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepositoryImpl.swift; sourceTree = "<group>"; };
+		E32EC21F2643EBB40062C0A8 /* RepositoryAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryAssembly.swift; sourceTree = "<group>"; };
 		E357B0412635ACD700776A83 /* Blueprint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blueprint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E357B0442635ACD700776A83 /* BlueprintApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueprintApp.swift; sourceTree = "<group>"; };
 		E357B0482635ACD700776A83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -734,6 +744,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E32EC2162643E9F00062C0A8 /* StoreFlowable in Frameworks */,
 				E3AD0919263BB7C200C3DD00 /* Domain_Model.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -770,6 +781,7 @@
 			files = (
 				E3AD090C263BB79D00C3DD00 /* Domain_Model.framework in Frameworks */,
 				E3AD0907263BB79700C3DD00 /* Domain_UseCase.framework in Frameworks */,
+				E32EC2222643EE9C0062C0A8 /* StoreFlowable in Frameworks */,
 				E3AD0960263BF58D00C3DD00 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -788,9 +800,11 @@
 			files = (
 				E3AD0933263BB80100C3DD00 /* Data_Resource.framework in Frameworks */,
 				E3AD0923263BB7F600C3DD00 /* Domain_Repository.framework in Frameworks */,
+				E32EC21B2643EADE0062C0A8 /* Swinject in Frameworks */,
 				E3AD092B263BB7FB00C3DD00 /* Data_Cache.framework in Frameworks */,
 				E3AD092F263BB7FE00C3DD00 /* Data_Mapper.framework in Frameworks */,
 				E3AD091E263BB7F300C3DD00 /* Domain_Model.framework in Frameworks */,
+				E32EC21D2643EAE20062C0A8 /* StoreFlowable in Frameworks */,
 				E3AD0927263BB7F900C3DD00 /* Data_Api.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -899,18 +913,42 @@
 			children = (
 				E32EC1F62643CE550062C0A8 /* FollowGithubOrgsUseCase.swift */,
 				E32EC1F82643D89A0062C0A8 /* FollowGithubOrgsUseCaseImpl.swift */,
-				E32EC1FD2643DA890062C0A8 /* FollowGithubReposUseCase.swift */,
-				E32EC1FF2643DA950062C0A8 /* FollowGithubReposUseCaseImpl.swift */,
 				E32EC2012643E0C90062C0A8 /* RefreshGithubOrgsUseCase.swift */,
 				E32EC2032643E0D40062C0A8 /* RefreshGithubOrgsUseCaseImpl.swift */,
-				E32EC2052643E1730062C0A8 /* RefreshGithubReposUseCase.swift */,
-				E32EC2072643E17B0062C0A8 /* RefreshGithubReposUseCaseImpl.swift */,
 				E32EC2092643E1ED0062C0A8 /* RequestAdditionalGithubOrgsUseCase.swift */,
 				E32EC20B2643E1F50062C0A8 /* RequestAdditionalGithubOrgsUseCaseImpl.swift */,
+				E32EC1FD2643DA890062C0A8 /* FollowGithubReposUseCase.swift */,
+				E32EC1FF2643DA950062C0A8 /* FollowGithubReposUseCaseImpl.swift */,
+				E32EC2052643E1730062C0A8 /* RefreshGithubReposUseCase.swift */,
+				E32EC2072643E17B0062C0A8 /* RefreshGithubReposUseCaseImpl.swift */,
 				E32EC20D2643E21E0062C0A8 /* RequestAdditionalGithubReposUseCase.swift */,
 				E32EC20F2643E2260062C0A8 /* RequestAdditionalGithubReposUseCaseImpl.swift */,
 			);
 			path = Github;
+			sourceTree = "<group>";
+		};
+		E32EC2112643E99D0062C0A8 /* Hierarchy */ = {
+			isa = PBXGroup;
+			children = (
+				E32EC2132643E9B80062C0A8 /* GithubRepository.swift */,
+			);
+			path = Hierarchy;
+			sourceTree = "<group>";
+		};
+		E32EC2172643EAB50062C0A8 /* Hierarchy */ = {
+			isa = PBXGroup;
+			children = (
+				E32EC2182643EAC50062C0A8 /* GithubRepositoryImpl.swift */,
+			);
+			path = Hierarchy;
+			sourceTree = "<group>";
+		};
+		E32EC21E2643EBA30062C0A8 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				E32EC21F2643EBB40062C0A8 /* RepositoryAssembly.swift */,
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 		E357B0382635ACD700776A83 = {
@@ -1052,6 +1090,7 @@
 		E3AD07B2263AF17600C3DD00 /* Domain.Repository */ = {
 			isa = PBXGroup;
 			children = (
+				E32EC2112643E99D0062C0A8 /* Hierarchy */,
 				E3AD07B4263AF17600C3DD00 /* Info.plist */,
 			);
 			path = Domain.Repository;
@@ -1108,6 +1147,8 @@
 		E3AD0818263AF29300C3DD00 /* Data.Repository */ = {
 			isa = PBXGroup;
 			children = (
+				E32EC21E2643EBA30062C0A8 /* DI */,
+				E32EC2172643EAB50062C0A8 /* Hierarchy */,
 				E3AD081A263AF29300C3DD00 /* Info.plist */,
 			);
 			path = Data.Repository;
@@ -1535,6 +1576,9 @@
 				E3AD091C263BB7C200C3DD00 /* PBXTargetDependency */,
 			);
 			name = Domain.Repository;
+			packageProductDependencies = (
+				E32EC2152643E9F00062C0A8 /* StoreFlowable */,
+			);
 			productName = Domain.Repository;
 			productReference = E3AD07B1263AF17600C3DD00 /* Domain_Repository.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1620,6 +1664,7 @@
 			name = Presentation.ViewModel;
 			packageProductDependencies = (
 				E3AD095F263BF58D00C3DD00 /* Swinject */,
+				E32EC2212643EE9C0062C0A8 /* StoreFlowable */,
 			);
 			productName = Presentation.ViewModel;
 			productReference = E3AD07F5263AF1F100C3DD00 /* Presentation_ViewModel.framework */;
@@ -1665,6 +1710,10 @@
 				E3AD0936263BB80100C3DD00 /* PBXTargetDependency */,
 			);
 			name = Data.Repository;
+			packageProductDependencies = (
+				E32EC21A2643EADE0062C0A8 /* Swinject */,
+				E32EC21C2643EAE20062C0A8 /* StoreFlowable */,
+			);
 			productName = Data.Repository;
 			productReference = E3AD0817263AF29300C3DD00 /* Data_Repository.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1879,6 +1928,7 @@
 					};
 					E3AD07B0263AF17600C3DD00 = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1250;
 					};
 					E3AD07B8263AF17600C3DD00 = {
 						CreatedOnToolsVersion = 12.5;
@@ -1902,6 +1952,7 @@
 					};
 					E3AD0816263AF29300C3DD00 = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1250;
 					};
 					E3AD081E263AF29300C3DD00 = {
 						CreatedOnToolsVersion = 12.5;
@@ -2225,6 +2276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E32EC2142643E9B80062C0A8 /* GithubRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2281,6 +2333,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E32EC2192643EAC50062C0A8 /* GithubRepositoryImpl.swift in Sources */,
+				E32EC2202643EBB40062C0A8 /* RepositoryAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3028,6 +3082,7 @@
 		E3AD07C9263AF17600C3DD00 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -3044,6 +3099,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.domain.repository;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -3054,6 +3110,7 @@
 		E3AD07CA263AF17600C3DD00 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -3304,6 +3361,7 @@
 		E3AD082F263AF29300C3DD00 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -3320,6 +3378,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.data.repository;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -3330,6 +3389,7 @@
 		E3AD0830263AF29300C3DD00 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -3998,6 +4058,26 @@
 			productName = Swinject;
 		};
 		E32EC1FB2643D9800062C0A8 /* StoreFlowable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E32EC1FA2643D9800062C0A8 /* XCRemoteSwiftPackageReference "StoreFlowable.swift" */;
+			productName = StoreFlowable;
+		};
+		E32EC2152643E9F00062C0A8 /* StoreFlowable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E32EC1FA2643D9800062C0A8 /* XCRemoteSwiftPackageReference "StoreFlowable.swift" */;
+			productName = StoreFlowable;
+		};
+		E32EC21A2643EADE0062C0A8 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3AD0954263BE6FC00C3DD00 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		E32EC21C2643EAE20062C0A8 /* StoreFlowable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E32EC1FA2643D9800062C0A8 /* XCRemoteSwiftPackageReference "StoreFlowable.swift" */;
+			productName = StoreFlowable;
+		};
+		E32EC2212643EE9C0062C0A8 /* StoreFlowable */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E32EC1FA2643D9800062C0A8 /* XCRemoteSwiftPackageReference "StoreFlowable.swift" */;
 			productName = StoreFlowable;

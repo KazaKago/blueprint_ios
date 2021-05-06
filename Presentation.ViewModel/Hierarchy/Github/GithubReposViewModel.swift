@@ -36,28 +36,28 @@ public final class GithubReposViewModel : ObservableObject {
     }
 
     public func refresh() {
-        refreshGithubReposUseCase.invoke()
+        refreshGithubReposUseCase.invoke(githubOrgName: githubOrgName)
             .receive(on: DispatchQueue.main)
             .sink {}
             .store(in: &cancellableSet)
     }
 
     public func retry() {
-        refreshGithubReposUseCase.invoke()
+        refreshGithubReposUseCase.invoke(githubOrgName: githubOrgName)
             .receive(on: DispatchQueue.main)
             .sink {}
             .store(in: &cancellableSet)
     }
 
     public func requestAdditional() {
-        requestAdditionalGithubReposUseCase.invoke(continueWhenError: false)
+        requestAdditionalGithubReposUseCase.invoke(githubOrgName: githubOrgName, continueWhenError: false)
             .receive(on: DispatchQueue.main)
             .sink {}
             .store(in: &cancellableSet)
     }
 
     public func retryAdditional() {
-        requestAdditionalGithubReposUseCase.invoke(continueWhenError: true)
+        requestAdditionalGithubReposUseCase.invoke(githubOrgName: githubOrgName, continueWhenError: true)
             .receive(on: DispatchQueue.main)
             .sink {}
             .store(in: &cancellableSet)

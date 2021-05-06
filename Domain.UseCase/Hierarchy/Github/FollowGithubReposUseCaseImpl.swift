@@ -9,29 +9,17 @@ import Foundation
 import Combine
 import StoreFlowable
 import Domain_Model
+import Domain_Repository
 
-class FollowGithubReposUseCaseImpl: FollowGithubReposUseCase {
+struct FollowGithubReposUseCaseImpl: FollowGithubReposUseCase {
+
+    private let githubRepository: GithubRepository
+
+    init(githubRepository: GithubRepository) {
+        self.githubRepository = githubRepository
+    }
 
     func invoke(githubOrgName: GithubOrgName) -> StatePublisher<[GithubRepo]> {
-        Just(
-            State.fixed(content: StateContent.exist(rawContent: [
-                GithubRepo(id: GithubRepoId(1), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(2), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(3), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(4), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(5), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(5), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(5), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(5), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(5), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(5), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(5), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(5), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(5), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(5), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(5), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-                GithubRepo(id: GithubRepoId(5), name: "hoge", url: URL(string: "https://blog.kazakago.com")!),
-            ]))
-        ).eraseToAnyPublisher()
+        githubRepository.followRepos(githubOrgName: githubOrgName)
     }
 }

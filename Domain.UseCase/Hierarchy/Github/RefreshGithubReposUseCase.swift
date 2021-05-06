@@ -7,8 +7,9 @@
 
 import Foundation
 import Combine
+import Domain_Model
 
 public protocol RefreshGithubReposUseCase {
 
-    func invoke() -> AnyPublisher<Void, Never>
+    func invoke(githubOrgName: GithubOrgName) -> AnyPublisher<Void, Never>
 }

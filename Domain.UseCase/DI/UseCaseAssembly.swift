@@ -7,6 +7,7 @@
 
 import Foundation
 import Swinject
+import Domain_Repository
 
 public struct UseCaseAssembly: Assembly {
 
@@ -14,23 +15,23 @@ public struct UseCaseAssembly: Assembly {
     }
 
     public func assemble(container: Container) {
-        container.register(FollowGithubOrgsUseCase.self) { _ in
-            FollowGithubOrgsUseCaseImpl()
+        container.register(FollowGithubOrgsUseCase.self) { resolver in
+            FollowGithubOrgsUseCaseImpl(githubRepository: resolver.resolve(GithubRepository.self)!)
         }
-        container.register(FollowGithubReposUseCase.self) { _ in
-            FollowGithubReposUseCaseImpl()
+        container.register(FollowGithubReposUseCase.self) { resolver in
+            FollowGithubReposUseCaseImpl(githubRepository: resolver.resolve(GithubRepository.self)!)
         }
-        container.register(RefreshGithubOrgsUseCase.self) { _ in
-            RefreshGithubOrgsUseCaseImpl()
+        container.register(RefreshGithubOrgsUseCase.self) { resolver in
+            RefreshGithubOrgsUseCaseImpl(githubRepository: resolver.resolve(GithubRepository.self)!)
         }
-        container.register(RefreshGithubReposUseCase.self) { _ in
-            RefreshGithubReposUseCaseImpl()
+        container.register(RefreshGithubReposUseCase.self) { resolver in
+            RefreshGithubReposUseCaseImpl(githubRepository: resolver.resolve(GithubRepository.self)!)
         }
-        container.register(RequestAdditionalGithubOrgsUseCase.self) { _ in
-            RequestAdditionalGithubOrgsUseCaseImpl()
+        container.register(RequestAdditionalGithubOrgsUseCase.self) { resolver in
+            RequestAdditionalGithubOrgsUseCaseImpl(githubRepository: resolver.resolve(GithubRepository.self)!)
         }
-        container.register(RequestAdditionalGithubReposUseCase.self) { _ in
-            RequestAdditionalGithubReposUseCaseImpl()
+        container.register(RequestAdditionalGithubReposUseCase.self) { resolver in
+            RequestAdditionalGithubReposUseCaseImpl(githubRepository: resolver.resolve(GithubRepository.self)!)
         }
     }
 }

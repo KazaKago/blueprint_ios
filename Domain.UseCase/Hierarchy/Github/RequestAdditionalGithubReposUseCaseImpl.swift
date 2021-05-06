@@ -7,10 +7,18 @@
 
 import Foundation
 import Combine
+import Domain_Model
+import Domain_Repository
 
-class RequestAdditionalGithubReposUseCaseImpl: RequestAdditionalGithubReposUseCase {
+struct RequestAdditionalGithubReposUseCaseImpl: RequestAdditionalGithubReposUseCase {
 
-    func invoke(continueWhenError: Bool) -> AnyPublisher<Void, Never> {
-        Just(()).eraseToAnyPublisher()
+    private let githubRepository: GithubRepository
+
+    init(githubRepository: GithubRepository) {
+        self.githubRepository = githubRepository
+    }
+
+    func invoke(githubOrgName: GithubOrgName, continueWhenError: Bool) -> AnyPublisher<Void, Never> {
+        githubRepository.requestAdditionalRepos(githubOrgName: githubOrgName, continueWhenError: continueWhenError)
     }
 }

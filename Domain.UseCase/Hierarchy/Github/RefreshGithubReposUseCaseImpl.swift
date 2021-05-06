@@ -7,10 +7,18 @@
 
 import Foundation
 import Combine
+import Domain_Model
+import Domain_Repository
 
-class RefreshGithubReposUseCaseImpl: RefreshGithubReposUseCase {
+struct RefreshGithubReposUseCaseImpl: RefreshGithubReposUseCase {
 
-    func invoke() -> AnyPublisher<Void, Never> {
-        Just(()).eraseToAnyPublisher()
+    private let githubRepository: GithubRepository
+
+    init(githubRepository: GithubRepository) {
+        self.githubRepository = githubRepository
+    }
+
+    func invoke(githubOrgName: GithubOrgName) -> AnyPublisher<Void, Never> {
+        githubRepository.refreshRepos(githubOrgName: githubOrgName)
     }
 }
