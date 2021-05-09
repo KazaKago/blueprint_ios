@@ -14,7 +14,7 @@ public struct CacheAssembly: Assembly {
     }
 
     public func assemble(container: Container) {
-        container.register(GithubCache.self) { resolver in
+        container.register(GithubCache.self) { _ in
             GithubCache()
         }.inObjectScope(.container)
     }
