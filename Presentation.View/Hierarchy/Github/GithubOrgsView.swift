@@ -45,7 +45,7 @@ struct GithubOrgsView: View {
                             .multilineTextAlignment(.center)
                         Spacer()
                             .frame(height: 4)
-                        Button("Retry") {
+                        Button("retry".localized) {
                             githubOrgsViewModel.retry()
                         }
                     }
@@ -53,11 +53,16 @@ struct GithubOrgsView: View {
                 }
             }
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    NavigationLink(destination: AboutView()) {
+                        Text("action_about".localized)
+                    }
+                }
                 ToolbarItem() {
                     if githubOrgsViewModel.isMainLoading || githubOrgsViewModel.isAdditionalLoading {
                         ProgressView()
                     } else {
-                        Button("Refresh") {
+                        Button("refresh".localized) {
                             githubOrgsViewModel.refresh()
                             if let first = githubOrgsViewModel.githubOrgs.first {
                                 withAnimation {
@@ -68,7 +73,7 @@ struct GithubOrgsView: View {
                     }
                 }
             }
-            .navigationBarTitle("Blueprint")
+            .navigationBarTitle("app_name".localized)
             .onAppear {
                 githubOrgsViewModel.initialize()
             }

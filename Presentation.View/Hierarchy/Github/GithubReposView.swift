@@ -48,7 +48,7 @@ struct GithubReposView: View {
                             .multilineTextAlignment(.center)
                         Spacer()
                             .frame(height: 4)
-                        Button("Retry") {
+                        Button("retry".localized) {
                             githubReposViewModel.retry()
                         }
                     }
@@ -56,11 +56,11 @@ struct GithubReposView: View {
                 }
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem() {
                     if githubReposViewModel.isMainLoading || githubReposViewModel.isAdditionalLoading {
                         ProgressView()
                     } else {
-                        Button("Refresh") {
+                        Button("refresh".localized) {
                             githubReposViewModel.refresh()
                             if let first = githubReposViewModel.githubRepos.first {
                                 withAnimation { scrollProxy.scrollTo(first.id) }

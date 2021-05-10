@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  Blueprint
+
+  Created by Kensuke Tamura on 2021/05/10.
+  
+*/
+
+"app_name" = "Blueprint";
+"retry" = "Retry";
+"refresh" = "Refresh";
+"id" = "ID: %1$d";
+"action_about" = "About";
+"about_title" = "About";
+"about_ver" = "Ver. %1$@ (%2$d)";
+"about_develop_by" = "Develop by %1$@";
+"about_email" = "Email";
+"about_web_site" = "Website";
+"about_copyright" = "© %1$d %2$@";

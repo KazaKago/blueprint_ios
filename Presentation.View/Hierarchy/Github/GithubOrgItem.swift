@@ -14,7 +14,7 @@ struct GithubOrgItem: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("ID: \(githubOrg.id.value)")
+            Text(String(format: "id".localized, githubOrg.id.value))
                 .font(.caption)
             Spacer()
                 .frame(height: 4)

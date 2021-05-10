@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Blueprint
+
+  Created by Kensuke Tamura on 2021/05/10.
+  
+*/
+
+"developer_name" = "KazaKago";
+"developer_website_url" = "https://blog.kazakago.com/";
+"developer_mail_address" = "kazakago@gmail.com";

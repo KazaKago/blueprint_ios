@@ -21,5 +21,8 @@ public struct ViewModelAssembly: Assembly {
         container.register(GithubReposViewModel.self) { resolver, githubOrgName in
             GithubReposViewModel(followGithubReposUseCase: resolver.resolve(FollowGithubReposUseCase.self)!, refreshGithubReposUseCase: resolver.resolve(RefreshGithubReposUseCase.self)!, requestAdditionalGithubReposUseCase: resolver.resolve(RequestAdditionalGithubReposUseCase.self)!, githubOrgName: githubOrgName)
         }
+        container.register(AboutViewModel.self) { resolver in
+            AboutViewModel(getAboutInfoUseCase: resolver.resolve(GetAboutInfoUseCase.self)!)
+        }
     }
 }

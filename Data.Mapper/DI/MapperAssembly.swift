@@ -26,5 +26,11 @@ public struct MapperAssembly: Assembly {
         container.register(GithubRepoEntityMapper.self) { _ in
             GithubRepoEntityMapper()
         }.inObjectScope(.container)
+        container.register(AppInfoEntityMapper.self) { _ in
+            AppInfoEntityMapper()
+        }.inObjectScope(.container)
+        container.register(DeveloperInfoEntityMapper.self) { _ in
+            DeveloperInfoEntityMapper()
+        }.inObjectScope(.container)
     }
 }

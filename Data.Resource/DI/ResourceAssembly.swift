@@ -14,8 +14,11 @@ public struct ResourceAssembly: Assembly {
     }
 
     public func assemble(container: Container) {
-//        container.register(GithubRepository.self) { resolver in
-//            GithubRepositoryImpl(githubService: resolver.resolve(GithubService.self)!, githubCache: resolver.resolve(GithubCache.self)!)
-//        }.inObjectScope(.container)
+        container.register(DeveloperInfoDao.self) { _ in
+            DeveloperInfoDao()
+        }.inObjectScope(.container)
+        container.register(AppInfoDao.self) { _ in
+            AppInfoDao()
+        }.inObjectScope(.container)
     }
 }

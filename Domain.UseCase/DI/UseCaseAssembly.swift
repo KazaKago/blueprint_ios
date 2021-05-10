@@ -33,5 +33,8 @@ public struct UseCaseAssembly: Assembly {
         container.register(RequestAdditionalGithubReposUseCase.self) { resolver in
             RequestAdditionalGithubReposUseCaseImpl(githubRepository: resolver.resolve(GithubRepository.self)!)
         }.inObjectScope(.container)
+        container.register(GetAboutInfoUseCase.self) { resolver in
+            GetAboutInfoUseCaseImpl(aboutRepository: resolver.resolve(AboutRepository.self)!)
+        }.inObjectScope(.container)
     }
 }
