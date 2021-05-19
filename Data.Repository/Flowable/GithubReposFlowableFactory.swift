@@ -1,5 +1,5 @@
 //
-//  GithubReposFlowableCallback.swift
+//  GithubReposFlowableFactory.swift
 //  Data.Repository
 //
 //  Created by Kensuke Tamura on 2021/05/07.
@@ -13,7 +13,7 @@ import Data_Mapper
 import Data_Api
 import Data_Cache
 
-struct GithubReposFlowableCallback: PaginatingStoreFlowableCallback {
+struct GithubReposFlowableFactory: PaginatingStoreFlowableFactory {
 
     typealias KEY = String
     typealias DATA = [GithubRepoEntity]

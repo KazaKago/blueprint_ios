@@ -48,7 +48,7 @@
 		E32EC23E264427430062C0A8 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E32EC23D264427430062C0A8 /* Swinject */; };
 		E32EC240264427730062C0A8 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E32EC23F264427730062C0A8 /* Swinject */; };
 		E32EC244264427980062C0A8 /* ResourceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC243264427980062C0A8 /* ResourceAssembly.swift */; };
-		E32EC247264429D30062C0A8 /* GithubOrgsFlowableCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC246264429D30062C0A8 /* GithubOrgsFlowableCallback.swift */; };
+		E32EC247264429D30062C0A8 /* GithubOrgsFlowableFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC246264429D30062C0A8 /* GithubOrgsFlowableFactory.swift */; };
 		E32EC24A2644367F0062C0A8 /* GithubOrgEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC2492644367F0062C0A8 /* GithubOrgEntity.swift */; };
 		E32EC24C264436880062C0A8 /* GithubRepoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC24B264436880062C0A8 /* GithubRepoEntity.swift */; };
 		E32EC24E2644428D0062C0A8 /* GithubOrgsStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC24D2644428D0062C0A8 /* GithubOrgsStateManager.swift */; };
@@ -56,7 +56,7 @@
 		E32EC252264443A70062C0A8 /* StoreFlowable in Frameworks */ = {isa = PBXBuildFile; productRef = E32EC251264443A70062C0A8 /* StoreFlowable */; };
 		E32EC256264449400062C0A8 /* GithubOrgResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC255264449400062C0A8 /* GithubOrgResponseMapper.swift */; };
 		E32EC25826444BE90062C0A8 /* GithubRepoResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC25726444BE90062C0A8 /* GithubRepoResponseMapper.swift */; };
-		E32EC25A2644507E0062C0A8 /* GithubReposFlowableCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC2592644507E0062C0A8 /* GithubReposFlowableCallback.swift */; };
+		E32EC25A2644507E0062C0A8 /* GithubReposFlowableFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC2592644507E0062C0A8 /* GithubReposFlowableFactory.swift */; };
 		E32EC25D264455810062C0A8 /* MapperAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC25C264455810062C0A8 /* MapperAssembly.swift */; };
 		E32EC25F264455ED0062C0A8 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E32EC25E264455ED0062C0A8 /* Swinject */; };
 		E32EC26326445B030062C0A8 /* GithubOrgEntityMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32EC26226445B030062C0A8 /* GithubOrgEntityMapper.swift */; };
@@ -654,14 +654,14 @@
 		E32EC237264426730062C0A8 /* ApiAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiAssembly.swift; sourceTree = "<group>"; };
 		E32EC239264426D80062C0A8 /* CacheAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheAssembly.swift; sourceTree = "<group>"; };
 		E32EC243264427980062C0A8 /* ResourceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceAssembly.swift; sourceTree = "<group>"; };
-		E32EC246264429D30062C0A8 /* GithubOrgsFlowableCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubOrgsFlowableCallback.swift; sourceTree = "<group>"; };
+		E32EC246264429D30062C0A8 /* GithubOrgsFlowableFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubOrgsFlowableFactory.swift; sourceTree = "<group>"; };
 		E32EC2492644367F0062C0A8 /* GithubOrgEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubOrgEntity.swift; sourceTree = "<group>"; };
 		E32EC24B264436880062C0A8 /* GithubRepoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepoEntity.swift; sourceTree = "<group>"; };
 		E32EC24D2644428D0062C0A8 /* GithubOrgsStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubOrgsStateManager.swift; sourceTree = "<group>"; };
 		E32EC24F264442DE0062C0A8 /* GithubReposStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubReposStateManager.swift; sourceTree = "<group>"; };
 		E32EC255264449400062C0A8 /* GithubOrgResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubOrgResponseMapper.swift; sourceTree = "<group>"; };
 		E32EC25726444BE90062C0A8 /* GithubRepoResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepoResponseMapper.swift; sourceTree = "<group>"; };
-		E32EC2592644507E0062C0A8 /* GithubReposFlowableCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubReposFlowableCallback.swift; sourceTree = "<group>"; };
+		E32EC2592644507E0062C0A8 /* GithubReposFlowableFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubReposFlowableFactory.swift; sourceTree = "<group>"; };
 		E32EC25C264455810062C0A8 /* MapperAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapperAssembly.swift; sourceTree = "<group>"; };
 		E32EC26226445B030062C0A8 /* GithubOrgEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubOrgEntityMapper.swift; sourceTree = "<group>"; };
 		E32EC26426445B100062C0A8 /* GithubRepoEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepoEntityMapper.swift; sourceTree = "<group>"; };
@@ -1128,8 +1128,8 @@
 		E32EC245264428A10062C0A8 /* Flowable */ = {
 			isa = PBXGroup;
 			children = (
-				E32EC246264429D30062C0A8 /* GithubOrgsFlowableCallback.swift */,
-				E32EC2592644507E0062C0A8 /* GithubReposFlowableCallback.swift */,
+				E32EC246264429D30062C0A8 /* GithubOrgsFlowableFactory.swift */,
+				E32EC2592644507E0062C0A8 /* GithubReposFlowableFactory.swift */,
 			);
 			path = Flowable;
 			sourceTree = "<group>";
@@ -2713,11 +2713,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E32EC247264429D30062C0A8 /* GithubOrgsFlowableCallback.swift in Sources */,
+				E32EC247264429D30062C0A8 /* GithubOrgsFlowableFactory.swift in Sources */,
 				E32EC2192643EAC50062C0A8 /* GithubRepositoryImpl.swift in Sources */,
 				E32EC2202643EBB40062C0A8 /* RepositoryAssembly.swift in Sources */,
 				E32EC29226493F8F0062C0A8 /* AboutRepositoryImpl.swift in Sources */,
-				E32EC25A2644507E0062C0A8 /* GithubReposFlowableCallback.swift in Sources */,
+				E32EC25A2644507E0062C0A8 /* GithubReposFlowableFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

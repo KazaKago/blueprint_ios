@@ -33,7 +33,7 @@ struct GithubRepositoryImpl: GithubRepository {
     }
 
     func followOrgs() -> StatePublisher<[GithubOrg]> {
-        let githubOrgsFlowable = GithubOrgsFlowableCallback(githubService: githubService, githubCache: githubCache, githubOrgResponseMapper: githubOrgResponseMapper).create()
+        let githubOrgsFlowable = GithubOrgsFlowableFactory(githubService: githubService, githubCache: githubCache, githubOrgResponseMapper: githubOrgResponseMapper).create()
         return githubOrgsFlowable.publish().mapContent { data in
             data.map { githubOrgEntity in
                 githubOrgEntityMapper.map(entity: githubOrgEntity)
@@ -42,17 +42,17 @@ struct GithubRepositoryImpl: GithubRepository {
     }
 
     func refreshOrgs() -> AnyPublisher<Void, Never> {
-        let githubOrgsFlowable = GithubOrgsFlowableCallback(githubService: githubService, githubCache: githubCache, githubOrgResponseMapper: githubOrgResponseMapper).create()
+        let githubOrgsFlowable = GithubOrgsFlowableFactory(githubService: githubService, githubCache: githubCache, githubOrgResponseMapper: githubOrgResponseMapper).create()
         return githubOrgsFlowable.refresh()
     }
 
     func requestAdditionalOrgs(continueWhenError: Bool) -> AnyPublisher<Void, Never> {
-        let githubOrgsFlowable = GithubOrgsFlowableCallback(githubService: githubService, githubCache: githubCache, githubOrgResponseMapper: githubOrgResponseMapper).create()
+        let githubOrgsFlowable = GithubOrgsFlowableFactory(githubService: githubService, githubCache: githubCache, githubOrgResponseMapper: githubOrgResponseMapper).create()
         return githubOrgsFlowable.requestAdditionalData(continueWhenError: continueWhenError)
     }
 
     func followRepos(githubOrgName: GithubOrgName) -> StatePublisher<[GithubRepo]> {
-        let githubReposFlowable = GithubReposFlowableCallback(githubService: githubService, githubCache: githubCache, githubRepoResponseMapper: githubRepoResponseMapper, githubOrgName: githubOrgName).create()
+        let githubReposFlowable = GithubReposFlowableFactory(githubService: githubService, githubCache: githubCache, githubRepoResponseMapper: githubRepoResponseMapper, githubOrgName: githubOrgName).create()
         return githubReposFlowable.publish().mapContent { data in
             data.map { githubRepoEntity in
                 githubRepoEntityMapper.map(entity: githubRepoEntity)
@@ -61,12 +61,12 @@ struct GithubRepositoryImpl: GithubRepository {
     }
 
     func refreshRepos(githubOrgName: GithubOrgName) -> AnyPublisher<Void, Never> {
-        let githubReposFlowable = GithubReposFlowableCallback(githubService: githubService, githubCache: githubCache, githubRepoResponseMapper: githubRepoResponseMapper, githubOrgName: githubOrgName).create()
+        let githubReposFlowable = GithubReposFlowableFactory(githubService: githubService, githubCache: githubCache, githubRepoResponseMapper: githubRepoResponseMapper, githubOrgName: githubOrgName).create()
         return githubReposFlowable.refresh()
     }
 
     func requestAdditionalRepos(githubOrgName: GithubOrgName, continueWhenError: Bool) -> AnyPublisher<Void, Never> {
-        let githubReposFlowable = GithubReposFlowableCallback(githubService: githubService, githubCache: githubCache, githubRepoResponseMapper: githubRepoResponseMapper, githubOrgName: githubOrgName).create()
+        let githubReposFlowable = GithubReposFlowableFactory(githubService: githubService, githubCache: githubCache, githubRepoResponseMapper: githubRepoResponseMapper, githubOrgName: githubOrgName).create()
         return githubReposFlowable.requestAdditionalData(continueWhenError: continueWhenError)
     }
 }
