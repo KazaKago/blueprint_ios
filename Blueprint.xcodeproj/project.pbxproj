@@ -695,6 +695,17 @@
 		E357B05D2635ACD800776A83 /* BlueprintUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlueprintUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E357B0612635ACD800776A83 /* BlueprintUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueprintUITests.swift; sourceTree = "<group>"; };
 		E357B0632635ACD800776A83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E36ADEB3265513D400A829CD /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		E36ADEB4265513E400A829CD /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		E36ADEB5265513EE00A829CD /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		E36ADEB6265513FF00A829CD /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
+		E36ADEB72655140B00A829CD /* Develop.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Develop.xcconfig; sourceTree = "<group>"; };
+		E36ADEB82655141C00A829CD /* Debug-Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-Production.xcconfig"; sourceTree = "<group>"; };
+		E36ADEB92655142E00A829CD /* Debug-Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-Staging.xcconfig"; sourceTree = "<group>"; };
+		E36ADEBA2655143800A829CD /* Debug-Develop.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-Develop.xcconfig"; sourceTree = "<group>"; };
+		E36ADEBB2655144500A829CD /* Release-Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-Production.xcconfig"; sourceTree = "<group>"; };
+		E36ADEBC2655147300A829CD /* Release-Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-Staging.xcconfig"; sourceTree = "<group>"; };
+		E36ADEBD2655147F00A829CD /* Release-Develop.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-Develop.xcconfig"; sourceTree = "<group>"; };
 		E374E97626427FEE000EEF48 /* GithubReposView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubReposView.swift; sourceTree = "<group>"; };
 		E3AD076C263AF0FA00C3DD00 /* Domain_Model.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain_Model.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3AD076F263AF0FA00C3DD00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1313,6 +1324,7 @@
 				E357B0442635ACD700776A83 /* BlueprintApp.swift */,
 				E357B0482635ACD700776A83 /* Assets.xcassets */,
 				E357B04A2635ACD700776A83 /* Preview Content */,
+				E36ADEB2265513BE00A829CD /* Config */,
 				E357B04D2635ACD700776A83 /* Info.plist */,
 			);
 			path = Blueprint;
@@ -1342,6 +1354,24 @@
 				E357B0632635ACD800776A83 /* Info.plist */,
 			);
 			path = BlueprintUITests;
+			sourceTree = "<group>";
+		};
+		E36ADEB2265513BE00A829CD /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				E36ADEB3265513D400A829CD /* Debug.xcconfig */,
+				E36ADEB4265513E400A829CD /* Release.xcconfig */,
+				E36ADEB5265513EE00A829CD /* Production.xcconfig */,
+				E36ADEB6265513FF00A829CD /* Staging.xcconfig */,
+				E36ADEB72655140B00A829CD /* Develop.xcconfig */,
+				E36ADEB82655141C00A829CD /* Debug-Production.xcconfig */,
+				E36ADEB92655142E00A829CD /* Debug-Staging.xcconfig */,
+				E36ADEBA2655143800A829CD /* Debug-Develop.xcconfig */,
+				E36ADEBB2655144500A829CD /* Release-Production.xcconfig */,
+				E36ADEBC2655147300A829CD /* Release-Staging.xcconfig */,
+				E36ADEBD2655147F00A829CD /* Release-Develop.xcconfig */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		E3AD076D263AF0FA00C3DD00 /* Domain.Model */ = {
@@ -3110,11 +3140,11 @@
 		};
 		E36ADE2126550FD300A829CD /* Debug-Production */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E36ADEB82655141C00A829CD /* Debug-Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Blueprint/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Blueprint/Info.plist;
@@ -3701,11 +3731,11 @@
 		};
 		E36ADE3926550FF200A829CD /* Debug-Staging */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E36ADEB92655142E00A829CD /* Debug-Staging.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Blueprint/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Blueprint/Info.plist;
@@ -4292,11 +4322,11 @@
 		};
 		E36ADE512655102600A829CD /* Debug-Develop */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E36ADEBA2655143800A829CD /* Debug-Develop.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Blueprint/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Blueprint/Info.plist;
@@ -4877,11 +4907,11 @@
 		};
 		E36ADE692655102F00A829CD /* Release-Production */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E36ADEBB2655144500A829CD /* Release-Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Blueprint/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Blueprint/Info.plist;
@@ -5452,11 +5482,11 @@
 		};
 		E36ADE812655103700A829CD /* Release-Staging */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E36ADEBC2655147300A829CD /* Release-Staging.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Blueprint/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Blueprint/Info.plist;
@@ -6027,11 +6057,11 @@
 		};
 		E36ADE992655103D00A829CD /* Release-Develop */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E36ADEBD2655147F00A829CD /* Release-Develop.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Blueprint/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Blueprint/Info.plist;

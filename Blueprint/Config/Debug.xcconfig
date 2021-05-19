@@ -1,0 +1,13 @@
+//
+//  Debug.xcconfig
+//  Blueprint
+//
+//  Created by Kensuke Tamura on 2021/05/19.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+DEVELOPMENT_TEAM=3WUM9V6RP7
+PROVISIONING_PROFILE_SPECIFIER=match Development *
+CODE_SIGN_IDENTITY=Apple Development

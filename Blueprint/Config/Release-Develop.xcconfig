@@ -1,0 +1,12 @@
+//
+//  Release-Develop.xcconfig
+//  Blueprint
+//
+//  Created by Kensuke Tamura on 2021/05/19.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "Release.xcconfig"
+#include "Develop.xcconfig"
