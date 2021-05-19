@@ -87,6 +87,7 @@
 		E357B0572635ACD800776A83 /* BlueprintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E357B0562635ACD800776A83 /* BlueprintTests.swift */; };
 		E357B0622635ACD800776A83 /* BlueprintUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E357B0612635ACD800776A83 /* BlueprintUITests.swift */; };
 		E374E97726427FEE000EEF48 /* GithubReposView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E374E97626427FEE000EEF48 /* GithubReposView.swift */; };
+		E3A435EC2655419C000BB0AF /* StoreFlowable in Frameworks */ = {isa = PBXBuildFile; productRef = E3A435EB2655419C000BB0AF /* StoreFlowable */; };
 		E3AD0775263AF0FA00C3DD00 /* Domain_Model.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3AD076C263AF0FA00C3DD00 /* Domain_Model.framework */; };
 		E3AD077C263AF0FA00C3DD00 /* Domain_ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AD077B263AF0FA00C3DD00 /* Domain_ModelTests.swift */; };
 		E3AD0781263AF0FA00C3DD00 /* Domain_Model.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3AD076C263AF0FA00C3DD00 /* Domain_Model.framework */; };
@@ -775,6 +776,7 @@
 			files = (
 				E3AD084E263AF2B600C3DD00 /* Data_Api.framework in Frameworks */,
 				E3AD082C263AF29300C3DD00 /* Data_Repository.framework in Frameworks */,
+				E3A435EC2655419C000BB0AF /* StoreFlowable in Frameworks */,
 				E3AD07A4263AF12800C3DD00 /* Domain_UseCase.framework in Frameworks */,
 				E3AD0892263AF81D00C3DD00 /* Data_Resource.framework in Frameworks */,
 				E3AD07E8263AF1BF00C3DD00 /* Presentation_View.framework in Frameworks */,
@@ -1781,6 +1783,7 @@
 			name = Blueprint;
 			packageProductDependencies = (
 				E3AD0955263BE6FC00C3DD00 /* Swinject */,
+				E3A435EB2655419C000BB0AF /* StoreFlowable */,
 			);
 			productName = Blueprint;
 			productReference = E357B0412635ACD700776A83 /* Blueprint.app */;
@@ -6979,6 +6982,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E3AD0954263BE6FC00C3DD00 /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
+		};
+		E3A435EB2655419C000BB0AF /* StoreFlowable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E32EC1FA2643D9800062C0A8 /* XCRemoteSwiftPackageReference "StoreFlowable.swift" */;
+			productName = StoreFlowable;
 		};
 		E3AD0955263BE6FC00C3DD00 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
