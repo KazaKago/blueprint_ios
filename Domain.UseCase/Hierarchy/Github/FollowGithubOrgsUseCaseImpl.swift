@@ -19,7 +19,7 @@ struct FollowGithubOrgsUseCaseImpl: FollowGithubOrgsUseCase {
         self.githubRepository = githubRepository
     }
 
-    func invoke() -> StatePublisher<[GithubOrg]> {
+    func invoke() -> LoadingStatePublisher<[GithubOrg]> {
         githubRepository.followOrgs()
     }
 }

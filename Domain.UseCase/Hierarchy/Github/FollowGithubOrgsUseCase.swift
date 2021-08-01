@@ -11,5 +11,5 @@ import Domain_Model
 
 public protocol FollowGithubOrgsUseCase {
 
-    func invoke() -> StatePublisher<[GithubOrg]>
+    func invoke() -> LoadingStatePublisher<[GithubOrg]>
 }

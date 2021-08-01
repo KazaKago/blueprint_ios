@@ -12,7 +12,7 @@ import Data_Mapper
 import Data_Api
 import Data_Cache
 
-struct GithubOrgsFlowableFactory: PaginatingStoreFlowableFactory {
+struct GithubOrgsFlowableFactory: PaginationStoreFlowableFactory {
 
     typealias KEY = UnitHash
     typealias DATA = [GithubOrgEntity]
@@ -47,25 +47,30 @@ struct GithubOrgsFlowableFactory: PaginatingStoreFlowableFactory {
         }.eraseToAnyPublisher()
     }
 
-    func saveAdditionalDataToCache(cachedData: [GithubOrgEntity]?, newData: [GithubOrgEntity]) -> AnyPublisher<Void, Never> {
+    func saveNextDataToCache(cachedData: [GithubOrgEntity], newData: [GithubOrgEntity]) -> AnyPublisher<Void, Never> {
         Future { promise in
-            githubCache.orgsCache = (cachedData ?? []) + newData
+            githubCache.orgsCache = cachedData + newData
             promise(.success(()))
         }.eraseToAnyPublisher()
     }
 
-    func fetchDataFromOrigin() -> AnyPublisher<FetchingResult<[GithubOrgEntity]>, Error> {
+    func fetchDataFromOrigin() -> AnyPublisher<Fetched<[GithubOrgEntity]>, Error> {
         githubService.getOrgs(since: nil, perPage: Self.PER_PAGE).map { response in
             let data = response.map { githubOrgResponseMapper.map(response: $0) }
-            return FetchingResult(data: data, noMoreAdditionalData: data.isEmpty)
+            return Fetched(
+                data: data,
+                nextKey: data.last?.id.description
+            )
         }.eraseToAnyPublisher()
     }
 
-    func fetchAdditionalDataFromOrigin(cachedData: [GithubOrgEntity]?) -> AnyPublisher<FetchingResult<[GithubOrgEntity]>, Error> {
-        let since = cachedData?.last?.id ?? nil
-        return githubService.getOrgs(since: since, perPage: Self.PER_PAGE).map { response in
+    func fetchNextDataFromOrigin(nextKey: String) -> AnyPublisher<Fetched<[GithubOrgEntity]>, Error> {
+        return githubService.getOrgs(since: Int(nextKey), perPage: Self.PER_PAGE).map { response in
             let data = response.map { githubOrgResponseMapper.map(response: $0) }
-            return FetchingResult(data: data, noMoreAdditionalData: data.isEmpty)
+            return Fetched(
+                data: data,
+                nextKey: data.last?.id.description
+            )
         }.eraseToAnyPublisher()
     }
 

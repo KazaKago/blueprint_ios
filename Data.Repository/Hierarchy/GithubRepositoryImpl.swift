@@ -32,7 +32,7 @@ struct GithubRepositoryImpl: GithubRepository {
         self.githubRepoEntityMapper = githubRepoEntityMapper
     }
 
-    func followOrgs() -> StatePublisher<[GithubOrg]> {
+    func followOrgs() -> LoadingStatePublisher<[GithubOrg]> {
         let githubOrgsFlowable = GithubOrgsFlowableFactory(githubService: githubService, githubCache: githubCache, githubOrgResponseMapper: githubOrgResponseMapper).create()
         return githubOrgsFlowable.publish().mapContent { data in
             data.map { githubOrgEntity in
@@ -48,10 +48,10 @@ struct GithubRepositoryImpl: GithubRepository {
 
     func requestAdditionalOrgs(continueWhenError: Bool) -> AnyPublisher<Void, Never> {
         let githubOrgsFlowable = GithubOrgsFlowableFactory(githubService: githubService, githubCache: githubCache, githubOrgResponseMapper: githubOrgResponseMapper).create()
-        return githubOrgsFlowable.requestAdditionalData(continueWhenError: continueWhenError)
+        return githubOrgsFlowable.requestNextData(continueWhenError: continueWhenError)
     }
 
-    func followRepos(githubOrgName: GithubOrgName) -> StatePublisher<[GithubRepo]> {
+    func followRepos(githubOrgName: GithubOrgName) -> LoadingStatePublisher<[GithubRepo]> {
         let githubReposFlowable = GithubReposFlowableFactory(githubService: githubService, githubCache: githubCache, githubRepoResponseMapper: githubRepoResponseMapper, githubOrgName: githubOrgName).create()
         return githubReposFlowable.publish().mapContent { data in
             data.map { githubRepoEntity in
@@ -67,6 +67,6 @@ struct GithubRepositoryImpl: GithubRepository {
 
     func requestAdditionalRepos(githubOrgName: GithubOrgName, continueWhenError: Bool) -> AnyPublisher<Void, Never> {
         let githubReposFlowable = GithubReposFlowableFactory(githubService: githubService, githubCache: githubCache, githubRepoResponseMapper: githubRepoResponseMapper, githubOrgName: githubOrgName).create()
-        return githubReposFlowable.requestAdditionalData(continueWhenError: continueWhenError)
+        return githubReposFlowable.requestNextData(continueWhenError: continueWhenError)
     }
 }

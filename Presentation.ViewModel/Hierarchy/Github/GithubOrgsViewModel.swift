@@ -66,59 +66,43 @@ public final class GithubOrgsViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { state in
                 state.doAction(
-                    onFixed: {
-                        state.content.doAction(
-                            onExist: { value in
-                                self.githubOrgs = value
-                                self.isMainLoading = false
-                                self.isAdditionalLoading = false
-                                self.mainError = nil
-                                self.additionalError = nil
-                            },
-                            onNotExist: {
-                                self.githubOrgs = []
-                                self.isMainLoading = true
-                                self.isAdditionalLoading = false
-                                self.mainError = nil
-                                self.additionalError = nil
-                            }
-                        )
+                    onLoading: { githubOrgs in
+                        if let githubOrgs = githubOrgs {
+                            self.githubOrgs = githubOrgs
+                            self.isMainLoading = false
+                        } else {
+                            self.githubOrgs = []
+                            self.isMainLoading = true
+                        }
+                        self.isAdditionalLoading = false
+                        self.mainError = nil
+                        self.additionalError = nil
                     },
-                    onLoading: {
-                        state.content.doAction(
-                            onExist: { value in
-                                self.githubOrgs = value
-                                self.isMainLoading = false
-                                self.isAdditionalLoading = true
-                                self.mainError = nil
+                    onCompleted: { githubOrgs, next, _ in
+                        next.doAction(
+                            onFixed: { _ in
+                                self.isAdditionalLoading = false
                                 self.additionalError = nil
                             },
-                            onNotExist: {
-                                self.githubOrgs = []
-                                self.isMainLoading = true
-                                self.isAdditionalLoading = false
-                                self.mainError = nil
+                            onLoading: {
+                                self.isAdditionalLoading = true
                                 self.additionalError = nil
+                            },
+                            onError: { error in
+                                self.isAdditionalLoading = false
+                                self.additionalError = error
                             }
                         )
+                        self.githubOrgs = githubOrgs
+                        self.isMainLoading = false
+                        self.mainError = nil
                     },
                     onError: { error in
-                        state.content.doAction(
-                            onExist: { value in
-                                self.githubOrgs = value
-                                self.isMainLoading = false
-                                self.isAdditionalLoading = false
-                                self.mainError = nil
-                                self.additionalError = error
-                            },
-                            onNotExist: {
-                                self.githubOrgs = []
-                                self.isMainLoading = false
-                                self.isAdditionalLoading = false
-                                self.mainError = error
-                                self.additionalError = nil
-                            }
-                        )
+                        self.githubOrgs = []
+                        self.isMainLoading = false
+                        self.isAdditionalLoading = false
+                        self.mainError = error
+                        self.additionalError = nil
                     }
                 )
             }

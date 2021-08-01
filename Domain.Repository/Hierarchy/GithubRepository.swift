@@ -12,13 +12,13 @@ import Domain_Model
 
 public protocol GithubRepository {
 
-    func followOrgs() -> StatePublisher<[GithubOrg]>
+    func followOrgs() -> LoadingStatePublisher<[GithubOrg]>
 
     func refreshOrgs() -> AnyPublisher<Void, Never>
 
     func requestAdditionalOrgs(continueWhenError: Bool) -> AnyPublisher<Void, Never>
 
-    func followRepos(githubOrgName: GithubOrgName) -> StatePublisher<[GithubRepo]>
+    func followRepos(githubOrgName: GithubOrgName) -> LoadingStatePublisher<[GithubRepo]>
 
     func refreshRepos(githubOrgName: GithubOrgName) -> AnyPublisher<Void, Never>
 

@@ -13,7 +13,7 @@ import Data_Mapper
 import Data_Api
 import Data_Cache
 
-struct GithubReposFlowableFactory: PaginatingStoreFlowableFactory {
+struct GithubReposFlowableFactory: PaginationStoreFlowableFactory {
 
     typealias KEY = String
     typealias DATA = [GithubRepoEntity]
@@ -49,25 +49,31 @@ struct GithubReposFlowableFactory: PaginatingStoreFlowableFactory {
         }.eraseToAnyPublisher()
     }
 
-    func saveAdditionalDataToCache(cachedData: [GithubRepoEntity]?, newData: [GithubRepoEntity]) -> AnyPublisher<Void, Never> {
+    func saveNextDataToCache(cachedData: [GithubRepoEntity], newData: [GithubRepoEntity]) -> AnyPublisher<Void, Never> {
         Future { promise in
-            githubCache.reposCache[key] = (cachedData ?? []) + newData
+            githubCache.reposCache[key] = cachedData + newData
             promise(.success(()))
         }.eraseToAnyPublisher()
     }
 
-    func fetchDataFromOrigin() -> AnyPublisher<FetchingResult<[GithubRepoEntity]>, Error> {
+    func fetchDataFromOrigin() -> AnyPublisher<Fetched<[GithubRepoEntity]>, Error> {
         githubService.getRepos(org: key, page: 1, perPage: Self.PER_PAGE).map { response in
             let data = response.map { githubRepoResponseMapper.map(response: $0) }
-            return FetchingResult(data: data, noMoreAdditionalData: data.isEmpty)
+            return Fetched(
+                data: data,
+                nextKey: !data.isEmpty ? 2.description : nil
+            )
         }.eraseToAnyPublisher()
     }
 
-    func fetchAdditionalDataFromOrigin(cachedData: [GithubRepoEntity]?) -> AnyPublisher<FetchingResult<[GithubRepoEntity]>, Error> {
-        let page = ((cachedData?.count ?? 0) / Self.PER_PAGE + 1)
-        return githubService.getRepos(org: key, page: page, perPage: Self.PER_PAGE).map { response in
+    func fetchNextDataFromOrigin(nextKey: String) -> AnyPublisher<Fetched<[GithubRepoEntity]>, Error> {
+        let nextPage = Int(nextKey)!
+        return githubService.getRepos(org: key, page: nextPage, perPage: Self.PER_PAGE).map { response in
             let data = response.map { githubRepoResponseMapper.map(response: $0) }
-            return FetchingResult(data: data, noMoreAdditionalData: data.isEmpty)
+            return Fetched(
+                data: data,
+                nextKey: !data.isEmpty ? (nextPage + 1).description : nil
+            )
         }.eraseToAnyPublisher()
     }
 
