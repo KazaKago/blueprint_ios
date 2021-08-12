@@ -10,10 +10,10 @@ import Foundation
 public struct AppInfoDao {
 
     public func getVersionName() -> String {
-        return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+        Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
     }
 
     public func getVersionCode() -> Int {
-        return Int(Bundle.main.infoDictionary!["CFBundleVersion"] as! String)!
+        Int(Bundle.main.infoDictionary!["CFBundleVersion"] as! String)!
     }
 }

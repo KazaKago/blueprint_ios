@@ -56,7 +56,7 @@ struct GithubReposView: View {
                 }
             }
             .toolbar {
-                ToolbarItem() {
+                ToolbarItem {
                     if githubReposViewModel.isMainLoading || githubReposViewModel.isAdditionalLoading {
                         ProgressView()
                     } else {

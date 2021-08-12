@@ -58,7 +58,7 @@ struct GithubOrgsView: View {
                         Text("action_about".localized)
                     }
                 }
-                ToolbarItem() {
+                ToolbarItem {
                     if githubOrgsViewModel.isMainLoading || githubOrgsViewModel.isAdditionalLoading {
                         ProgressView()
                     } else {

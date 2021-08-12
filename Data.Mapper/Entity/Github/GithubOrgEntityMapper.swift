@@ -12,7 +12,7 @@ import Data_Cache
 public struct GithubOrgEntityMapper {
 
     public func map(entity: GithubOrgEntity) -> GithubOrg {
-        return GithubOrg(
+        GithubOrg(
             id: GithubOrgId(entity.id),
             name: GithubOrgName(entity.name)
         )

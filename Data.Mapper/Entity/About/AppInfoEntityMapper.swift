@@ -12,7 +12,7 @@ import Data_Resource
 public struct AppInfoEntityMapper {
 
     public func map(versionName: String, versionCode: Int) -> AppInfo {
-        return AppInfo(
+        AppInfo(
             versionName: VersionName(versionName),
             versionCode: VersionCode(versionCode)
         )

@@ -27,14 +27,14 @@ struct AboutRepositoryImpl: AboutRepository {
     }
 
     func getAppInfo() -> AppInfo {
-        return appInfoEntityMapper.map(
+        appInfoEntityMapper.map(
             versionName: appInfoDao.getVersionName(),
             versionCode: appInfoDao.getVersionCode()
         )
     }
 
     func getDeveloperInfo() -> DeveloperInfo {
-        return developerInfoEntityMapper.map(
+        developerInfoEntityMapper.map(
             name: developerInfoDao.getName(),
             emailAddress: developerInfoDao.getEmailAddress(),
             webSite: developerInfoDao.getWebSiteUrl()

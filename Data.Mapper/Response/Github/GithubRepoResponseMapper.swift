@@ -12,7 +12,7 @@ import Data_Cache
 public struct GithubRepoResponseMapper {
 
     public func map(response: GithubRepoResponse) -> GithubRepoEntity {
-        return GithubRepoEntity(
+        GithubRepoEntity(
             id: response.id,
             name: response.fullName,
             url: URL(string: response.htmlUrl)!

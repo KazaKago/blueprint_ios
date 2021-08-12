@@ -65,7 +65,7 @@ struct GithubOrgsFlowableFactory: PaginationStoreFlowableFactory {
     }
 
     func fetchNextDataFromOrigin(nextKey: String) -> AnyPublisher<Fetched<[GithubOrgEntity]>, Error> {
-        return githubService.getOrgs(since: Int(nextKey), perPage: Self.PER_PAGE).map { response in
+        githubService.getOrgs(since: Int(nextKey), perPage: Self.PER_PAGE).map { response in
             let data = response.map { githubOrgResponseMapper.map(response: $0) }
             return Fetched(
                 data: data,

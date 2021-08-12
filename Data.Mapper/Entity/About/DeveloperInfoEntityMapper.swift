@@ -12,7 +12,7 @@ import Data_Resource
 public struct DeveloperInfoEntityMapper {
 
     public func map(name: String, emailAddress: String, webSite: URL) -> DeveloperInfo {
-        return DeveloperInfo(
+        DeveloperInfo(
             name: name,
             mailAddress: Email(emailAddress),
             siteUrl: webSite
