@@ -3148,7 +3148,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_ASSET_PATHS = "\"Blueprint/Preview Content\"";
+				DEVELOPMENT_TEAM = 3WUM9V6RP7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Blueprint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3157,6 +3159,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development *";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3739,7 +3742,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_ASSET_PATHS = "\"Blueprint/Preview Content\"";
+				DEVELOPMENT_TEAM = 3WUM9V6RP7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Blueprint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3748,6 +3753,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development *";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -4330,7 +4336,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_ASSET_PATHS = "\"Blueprint/Preview Content\"";
+				DEVELOPMENT_TEAM = 3WUM9V6RP7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Blueprint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4339,6 +4347,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development *";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -4915,7 +4924,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				DEVELOPMENT_ASSET_PATHS = "\"Blueprint/Preview Content\"";
+				DEVELOPMENT_TEAM = 3WUM9V6RP7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Blueprint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4924,6 +4935,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc *";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -5490,7 +5502,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				DEVELOPMENT_ASSET_PATHS = "\"Blueprint/Preview Content\"";
+				DEVELOPMENT_TEAM = 3WUM9V6RP7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Blueprint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5499,6 +5513,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc *";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -6065,7 +6080,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				DEVELOPMENT_ASSET_PATHS = "\"Blueprint/Preview Content\"";
+				DEVELOPMENT_TEAM = 3WUM9V6RP7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Blueprint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -6074,6 +6091,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc *";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -6901,7 +6919,7 @@
 			repositoryURL = "https://github.com/KazaKago/StoreFlowable.swift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				minimumVersion = 3.0.0;
 			};
 		};
 		E32EC231264423620062C0A8 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
