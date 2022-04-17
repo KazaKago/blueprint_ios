@@ -27,6 +27,126 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E357B0512635ACD800776A83"
+               BuildableName = "BlueprintTests.xctest"
+               BlueprintName = "BlueprintTests"
+               ReferencedContainer = "container:Blueprint.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E357B05C2635ACD800776A83"
+               BuildableName = "BlueprintUITests.xctest"
+               BlueprintName = "BlueprintUITests"
+               ReferencedContainer = "container:Blueprint.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E3AD0840263AF2B600C3DD00"
+               BuildableName = "Data.ApiTests.xctest"
+               BlueprintName = "Data.ApiTests"
+               ReferencedContainer = "container:Blueprint.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E3AD0862263AF2CD00C3DD00"
+               BuildableName = "Data.CacheTests.xctest"
+               BlueprintName = "Data.CacheTests"
+               ReferencedContainer = "container:Blueprint.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E3AD08A6263AF83500C3DD00"
+               BuildableName = "Data.MapperTests.xctest"
+               BlueprintName = "Data.MapperTests"
+               ReferencedContainer = "container:Blueprint.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E3AD081E263AF29300C3DD00"
+               BuildableName = "Data.RepositoryTests.xctest"
+               BlueprintName = "Data.RepositoryTests"
+               ReferencedContainer = "container:Blueprint.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E3AD0884263AF81D00C3DD00"
+               BuildableName = "Data.ResourceTests.xctest"
+               BlueprintName = "Data.ResourceTests"
+               ReferencedContainer = "container:Blueprint.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E3AD0773263AF0FA00C3DD00"
+               BuildableName = "Domain.ModelTests.xctest"
+               BlueprintName = "Domain.ModelTests"
+               ReferencedContainer = "container:Blueprint.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E3AD07B8263AF17600C3DD00"
+               BuildableName = "Domain.RepositoryTests.xctest"
+               BlueprintName = "Domain.RepositoryTests"
+               ReferencedContainer = "container:Blueprint.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E3AD0796263AF12800C3DD00"
+               BuildableName = "Domain.UseCaseTests.xctest"
+               BlueprintName = "Domain.UseCaseTests"
+               ReferencedContainer = "container:Blueprint.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E3AD07FC263AF1F200C3DD00"
+               BuildableName = "Presentation.ViewModelTests.xctest"
+               BlueprintName = "Presentation.ViewModelTests"
+               ReferencedContainer = "container:Blueprint.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E3AD07DA263AF1BF00C3DD00"
+               BuildableName = "Presentation.ViewTests.xctest"
+               BlueprintName = "Presentation.ViewTests"
+               ReferencedContainer = "container:Blueprint.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -56,6 +176,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "E357B0402635ACD700776A83"
+            BuildableName = "Blueprint.app"
+            BlueprintName = "Blueprint"
+            ReferencedContainer = "container:Blueprint.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug-Develop">

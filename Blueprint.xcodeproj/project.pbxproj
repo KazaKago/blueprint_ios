@@ -87,7 +87,6 @@
 		E357B0572635ACD800776A83 /* BlueprintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E357B0562635ACD800776A83 /* BlueprintTests.swift */; };
 		E357B0622635ACD800776A83 /* BlueprintUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E357B0612635ACD800776A83 /* BlueprintUITests.swift */; };
 		E374E97726427FEE000EEF48 /* GithubReposView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E374E97626427FEE000EEF48 /* GithubReposView.swift */; };
-		E3A435EC2655419C000BB0AF /* StoreFlowable in Frameworks */ = {isa = PBXBuildFile; productRef = E3A435EB2655419C000BB0AF /* StoreFlowable */; };
 		E3AD0775263AF0FA00C3DD00 /* Domain_Model.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3AD076C263AF0FA00C3DD00 /* Domain_Model.framework */; };
 		E3AD077C263AF0FA00C3DD00 /* Domain_ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AD077B263AF0FA00C3DD00 /* Domain_ModelTests.swift */; };
 		E3AD0781263AF0FA00C3DD00 /* Domain_Model.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3AD076C263AF0FA00C3DD00 /* Domain_Model.framework */; };
@@ -776,7 +775,6 @@
 			files = (
 				E3AD084E263AF2B600C3DD00 /* Data_Api.framework in Frameworks */,
 				E3AD082C263AF29300C3DD00 /* Data_Repository.framework in Frameworks */,
-				E3A435EC2655419C000BB0AF /* StoreFlowable in Frameworks */,
 				E3AD07A4263AF12800C3DD00 /* Domain_UseCase.framework in Frameworks */,
 				E3AD0892263AF81D00C3DD00 /* Data_Resource.framework in Frameworks */,
 				E3AD07E8263AF1BF00C3DD00 /* Presentation_View.framework in Frameworks */,
@@ -1783,7 +1781,6 @@
 			name = Blueprint;
 			packageProductDependencies = (
 				E3AD0955263BE6FC00C3DD00 /* Swinject */,
-				E3A435EB2655419C000BB0AF /* StoreFlowable */,
 			);
 			productName = Blueprint;
 			productReference = E357B0412635ACD700776A83 /* Blueprint.app */;
@@ -3674,600 +3671,6 @@
 			};
 			name = "Debug-Production";
 		};
-		E36ADE3826550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE3926550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E36ADEB92655142E00A829CD /* Debug-Staging.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_ASSET_PATHS = "\"Blueprint/Preview Content\"";
-				DEVELOPMENT_TEAM = 3WUM9V6RP7;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Blueprint/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development *";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE3A26550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = BlueprintTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.BlueprintTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blueprint.app/Blueprint";
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE3B26550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = BlueprintUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.BlueprintUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Blueprint;
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE3C26550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Presentation.View/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.presentation.view;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE3D26550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Presentation.ViewTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kazakago.blueprint.Presentation-ViewTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blueprint.app/Blueprint";
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE3E26550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Presentation.ViewModel/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.presentation.viewmodel;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE3F26550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Presentation.ViewModelTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kazakago.blueprint.Presentation-ViewModelTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blueprint.app/Blueprint";
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE4026550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Domain.UseCase/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.domain.usecase;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE4126550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Domain.UseCaseTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kazakago.blueprint.Domain-UseCaseTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blueprint.app/Blueprint";
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE4226550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Domain.Model/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.domain.model;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE4326550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Domain.ModelTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kazakago.blueprint.Domain-ModelTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blueprint.app/Blueprint";
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE4426550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Domain.Repository/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.domain.repository;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE4526550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Domain.RepositoryTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kazakago.blueprint.Domain-RepositoryTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blueprint.app/Blueprint";
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE4626550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Data.Repository/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.data.repository;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE4726550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Data.RepositoryTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kazakago.blueprint.Data-RepositoryTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blueprint.app/Blueprint";
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE4826550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Data.Mapper/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.data.mapper;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE4926550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Data.MapperTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kazakago.blueprint.Data-MapperTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blueprint.app/Blueprint";
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE4A26550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Data.Api/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.data.api;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE4B26550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Data.ApiTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kazakago.blueprint.Data-ApiTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blueprint.app/Blueprint";
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE4C26550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Data.Cache/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.data.cache;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE4D26550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Data.CacheTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kazakago.blueprint.Data-CacheTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blueprint.app/Blueprint";
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE4E26550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Data.Resource/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.data.resource;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Debug-Staging";
-		};
-		E36ADE4F26550FF200A829CD /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Data.ResourceTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kazakago.blueprint.Data-ResourceTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blueprint.app/Blueprint";
-			};
-			name = "Debug-Staging";
-		};
 		E36ADE502655102600A829CD /* Debug-Develop */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -5440,584 +4843,6 @@
 			};
 			name = "Release-Production";
 		};
-		E36ADE802655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = "Release-Staging";
-		};
-		E36ADE812655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E36ADEBC2655147300A829CD /* Release-Staging.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				DEVELOPMENT_ASSET_PATHS = "\"Blueprint/Preview Content\"";
-				DEVELOPMENT_TEAM = 3WUM9V6RP7;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Blueprint/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc *";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = "Release-Staging";
-		};
-		E36ADE822655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = BlueprintTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.BlueprintTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blueprint.app/Blueprint";
-			};
-			name = "Release-Staging";
-		};
-		E36ADE832655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = BlueprintUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.BlueprintUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Blueprint;
-			};
-			name = "Release-Staging";
-		};
-		E36ADE842655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Presentation.View/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.presentation.view;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Release-Staging";
-		};
-		E36ADE852655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Presentation.ViewTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kazakago.blueprint.Presentation-ViewTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blueprint.app/Blueprint";
-			};
-			name = "Release-Staging";
-		};
-		E36ADE862655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Presentation.ViewModel/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.presentation.viewmodel;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Release-Staging";
-		};
-		E36ADE872655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Presentation.ViewModelTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kazakago.blueprint.Presentation-ViewModelTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blueprint.app/Blueprint";
-			};
-			name = "Release-Staging";
-		};
-		E36ADE882655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Domain.UseCase/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.domain.usecase;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Release-Staging";
-		};
-		E36ADE892655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Domain.UseCaseTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kazakago.blueprint.Domain-UseCaseTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blueprint.app/Blueprint";
-			};
-			name = "Release-Staging";
-		};
-		E36ADE8A2655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Domain.Model/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.domain.model;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Release-Staging";
-		};
-		E36ADE8B2655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Domain.ModelTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kazakago.blueprint.Domain-ModelTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blueprint.app/Blueprint";
-			};
-			name = "Release-Staging";
-		};
-		E36ADE8C2655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Domain.Repository/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.domain.repository;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Release-Staging";
-		};
-		E36ADE8D2655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Domain.RepositoryTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kazakago.blueprint.Domain-RepositoryTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blueprint.app/Blueprint";
-			};
-			name = "Release-Staging";
-		};
-		E36ADE8E2655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Data.Repository/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.data.repository;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Release-Staging";
-		};
-		E36ADE8F2655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Data.RepositoryTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kazakago.blueprint.Data-RepositoryTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blueprint.app/Blueprint";
-			};
-			name = "Release-Staging";
-		};
-		E36ADE902655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Data.Mapper/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.data.mapper;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Release-Staging";
-		};
-		E36ADE912655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Data.MapperTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kazakago.blueprint.Data-MapperTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blueprint.app/Blueprint";
-			};
-			name = "Release-Staging";
-		};
-		E36ADE922655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Data.Api/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.data.api;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Release-Staging";
-		};
-		E36ADE932655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Data.ApiTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kazakago.blueprint.Data-ApiTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blueprint.app/Blueprint";
-			};
-			name = "Release-Staging";
-		};
-		E36ADE942655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Data.Cache/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.data.cache;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Release-Staging";
-		};
-		E36ADE952655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Data.CacheTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kazakago.blueprint.Data-CacheTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blueprint.app/Blueprint";
-			};
-			name = "Release-Staging";
-		};
-		E36ADE962655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Data.Resource/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kazakago.blueprint.data.resource;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Release-Staging";
-		};
-		E36ADE972655103700A829CD /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Data.ResourceTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kazakago.blueprint.Data-ResourceTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blueprint.app/Blueprint";
-			};
-			name = "Release-Staging";
-		};
 		E36ADE982655103D00A829CD /* Release-Develop */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -6603,10 +5428,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE502655102600A829CD /* Debug-Develop */,
-				E36ADE3826550FF200A829CD /* Debug-Staging */,
 				E36ADE2026550FD300A829CD /* Debug-Production */,
 				E36ADE982655103D00A829CD /* Release-Develop */,
-				E36ADE802655103700A829CD /* Release-Staging */,
 				E36ADE682655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6616,10 +5439,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE512655102600A829CD /* Debug-Develop */,
-				E36ADE3926550FF200A829CD /* Debug-Staging */,
 				E36ADE2126550FD300A829CD /* Debug-Production */,
 				E36ADE992655103D00A829CD /* Release-Develop */,
-				E36ADE812655103700A829CD /* Release-Staging */,
 				E36ADE692655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6629,10 +5450,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE522655102600A829CD /* Debug-Develop */,
-				E36ADE3A26550FF200A829CD /* Debug-Staging */,
 				E36ADE2226550FD300A829CD /* Debug-Production */,
 				E36ADE9A2655103D00A829CD /* Release-Develop */,
-				E36ADE822655103700A829CD /* Release-Staging */,
 				E36ADE6A2655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6642,10 +5461,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE532655102600A829CD /* Debug-Develop */,
-				E36ADE3B26550FF200A829CD /* Debug-Staging */,
 				E36ADE2326550FD300A829CD /* Debug-Production */,
 				E36ADE9B2655103D00A829CD /* Release-Develop */,
-				E36ADE832655103700A829CD /* Release-Staging */,
 				E36ADE6B2655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6655,10 +5472,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE5A2655102600A829CD /* Debug-Develop */,
-				E36ADE4226550FF200A829CD /* Debug-Staging */,
 				E36ADE2A26550FD300A829CD /* Debug-Production */,
 				E36ADEA22655103D00A829CD /* Release-Develop */,
-				E36ADE8A2655103700A829CD /* Release-Staging */,
 				E36ADE722655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6668,10 +5483,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE5B2655102600A829CD /* Debug-Develop */,
-				E36ADE4326550FF200A829CD /* Debug-Staging */,
 				E36ADE2B26550FD300A829CD /* Debug-Production */,
 				E36ADEA32655103D00A829CD /* Release-Develop */,
-				E36ADE8B2655103700A829CD /* Release-Staging */,
 				E36ADE732655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6681,10 +5494,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE582655102600A829CD /* Debug-Develop */,
-				E36ADE4026550FF200A829CD /* Debug-Staging */,
 				E36ADE2826550FD300A829CD /* Debug-Production */,
 				E36ADEA02655103D00A829CD /* Release-Develop */,
-				E36ADE882655103700A829CD /* Release-Staging */,
 				E36ADE702655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6694,10 +5505,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE592655102600A829CD /* Debug-Develop */,
-				E36ADE4126550FF200A829CD /* Debug-Staging */,
 				E36ADE2926550FD300A829CD /* Debug-Production */,
 				E36ADEA12655103D00A829CD /* Release-Develop */,
-				E36ADE892655103700A829CD /* Release-Staging */,
 				E36ADE712655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6707,10 +5516,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE5C2655102600A829CD /* Debug-Develop */,
-				E36ADE4426550FF200A829CD /* Debug-Staging */,
 				E36ADE2C26550FD300A829CD /* Debug-Production */,
 				E36ADEA42655103D00A829CD /* Release-Develop */,
-				E36ADE8C2655103700A829CD /* Release-Staging */,
 				E36ADE742655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6720,10 +5527,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE5D2655102600A829CD /* Debug-Develop */,
-				E36ADE4526550FF200A829CD /* Debug-Staging */,
 				E36ADE2D26550FD300A829CD /* Debug-Production */,
 				E36ADEA52655103D00A829CD /* Release-Develop */,
-				E36ADE8D2655103700A829CD /* Release-Staging */,
 				E36ADE752655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6733,10 +5538,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE542655102600A829CD /* Debug-Develop */,
-				E36ADE3C26550FF200A829CD /* Debug-Staging */,
 				E36ADE2426550FD300A829CD /* Debug-Production */,
 				E36ADE9C2655103D00A829CD /* Release-Develop */,
-				E36ADE842655103700A829CD /* Release-Staging */,
 				E36ADE6C2655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6746,10 +5549,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE552655102600A829CD /* Debug-Develop */,
-				E36ADE3D26550FF200A829CD /* Debug-Staging */,
 				E36ADE2526550FD300A829CD /* Debug-Production */,
 				E36ADE9D2655103D00A829CD /* Release-Develop */,
-				E36ADE852655103700A829CD /* Release-Staging */,
 				E36ADE6D2655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6759,10 +5560,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE562655102600A829CD /* Debug-Develop */,
-				E36ADE3E26550FF200A829CD /* Debug-Staging */,
 				E36ADE2626550FD300A829CD /* Debug-Production */,
 				E36ADE9E2655103D00A829CD /* Release-Develop */,
-				E36ADE862655103700A829CD /* Release-Staging */,
 				E36ADE6E2655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6772,10 +5571,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE572655102600A829CD /* Debug-Develop */,
-				E36ADE3F26550FF200A829CD /* Debug-Staging */,
 				E36ADE2726550FD300A829CD /* Debug-Production */,
 				E36ADE9F2655103D00A829CD /* Release-Develop */,
-				E36ADE872655103700A829CD /* Release-Staging */,
 				E36ADE6F2655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6785,10 +5582,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE5E2655102600A829CD /* Debug-Develop */,
-				E36ADE4626550FF200A829CD /* Debug-Staging */,
 				E36ADE2E26550FD300A829CD /* Debug-Production */,
 				E36ADEA62655103D00A829CD /* Release-Develop */,
-				E36ADE8E2655103700A829CD /* Release-Staging */,
 				E36ADE762655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6798,10 +5593,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE5F2655102600A829CD /* Debug-Develop */,
-				E36ADE4726550FF200A829CD /* Debug-Staging */,
 				E36ADE2F26550FD300A829CD /* Debug-Production */,
 				E36ADEA72655103D00A829CD /* Release-Develop */,
-				E36ADE8F2655103700A829CD /* Release-Staging */,
 				E36ADE772655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6811,10 +5604,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE622655102600A829CD /* Debug-Develop */,
-				E36ADE4A26550FF200A829CD /* Debug-Staging */,
 				E36ADE3226550FD300A829CD /* Debug-Production */,
 				E36ADEAA2655103D00A829CD /* Release-Develop */,
-				E36ADE922655103700A829CD /* Release-Staging */,
 				E36ADE7A2655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6824,10 +5615,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE632655102600A829CD /* Debug-Develop */,
-				E36ADE4B26550FF200A829CD /* Debug-Staging */,
 				E36ADE3326550FD300A829CD /* Debug-Production */,
 				E36ADEAB2655103D00A829CD /* Release-Develop */,
-				E36ADE932655103700A829CD /* Release-Staging */,
 				E36ADE7B2655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6837,10 +5626,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE642655102600A829CD /* Debug-Develop */,
-				E36ADE4C26550FF200A829CD /* Debug-Staging */,
 				E36ADE3426550FD300A829CD /* Debug-Production */,
 				E36ADEAC2655103D00A829CD /* Release-Develop */,
-				E36ADE942655103700A829CD /* Release-Staging */,
 				E36ADE7C2655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6850,10 +5637,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE652655102600A829CD /* Debug-Develop */,
-				E36ADE4D26550FF200A829CD /* Debug-Staging */,
 				E36ADE3526550FD300A829CD /* Debug-Production */,
 				E36ADEAD2655103D00A829CD /* Release-Develop */,
-				E36ADE952655103700A829CD /* Release-Staging */,
 				E36ADE7D2655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6863,10 +5648,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE662655102600A829CD /* Debug-Develop */,
-				E36ADE4E26550FF200A829CD /* Debug-Staging */,
 				E36ADE3626550FD300A829CD /* Debug-Production */,
 				E36ADEAE2655103D00A829CD /* Release-Develop */,
-				E36ADE962655103700A829CD /* Release-Staging */,
 				E36ADE7E2655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6876,10 +5659,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE672655102600A829CD /* Debug-Develop */,
-				E36ADE4F26550FF200A829CD /* Debug-Staging */,
 				E36ADE3726550FD300A829CD /* Debug-Production */,
 				E36ADEAF2655103D00A829CD /* Release-Develop */,
-				E36ADE972655103700A829CD /* Release-Staging */,
 				E36ADE7F2655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6889,10 +5670,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE602655102600A829CD /* Debug-Develop */,
-				E36ADE4826550FF200A829CD /* Debug-Staging */,
 				E36ADE3026550FD300A829CD /* Debug-Production */,
 				E36ADEA82655103D00A829CD /* Release-Develop */,
-				E36ADE902655103700A829CD /* Release-Staging */,
 				E36ADE782655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -6902,10 +5681,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E36ADE612655102600A829CD /* Debug-Develop */,
-				E36ADE4926550FF200A829CD /* Debug-Staging */,
 				E36ADE3126550FD300A829CD /* Debug-Production */,
 				E36ADEA92655103D00A829CD /* Release-Develop */,
-				E36ADE912655103700A829CD /* Release-Staging */,
 				E36ADE792655102F00A829CD /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -7000,11 +5777,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E3AD0954263BE6FC00C3DD00 /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
-		};
-		E3A435EB2655419C000BB0AF /* StoreFlowable */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E32EC1FA2643D9800062C0A8 /* XCRemoteSwiftPackageReference "StoreFlowable.swift" */;
-			productName = StoreFlowable;
 		};
 		E3AD0955263BE6FC00C3DD00 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
