@@ -1,5 +1,5 @@
 //
-//  GithubService.swift
+//  GithubApi.swift
 //  Data.Api
 //
 //  Created by Kensuke Tamura on 2021/05/06.
@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import Alamofire
 
-public struct GithubService {
+public struct GithubApi {
 
     private let baseApiUrl = URL(string: "https://api.github.com/")!
 

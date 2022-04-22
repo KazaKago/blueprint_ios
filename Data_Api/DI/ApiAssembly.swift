@@ -14,8 +14,8 @@ public struct ApiAssembly: Assembly {
     }
 
     public func assemble(container: Container) {
-        container.register(GithubService.self) { _ in
-            GithubService()
+        container.register(GithubApi.self) { _ in
+            GithubApi()
         }.inObjectScope(.container)
     }
 }

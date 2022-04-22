@@ -20,7 +20,7 @@ public struct RepositoryAssembly: Assembly {
 
     public func assemble(container: Container) {
         container.register(GithubRepository.self) { resolver in
-            GithubRepositoryImpl(githubService: resolver.resolve(GithubService.self)!, githubCache: resolver.resolve(GithubCache.self)!, githubOrgResponseMapper: resolver.resolve(GithubOrgResponseMapper.self)!, githubRepoResponseMapper: resolver.resolve(GithubRepoResponseMapper.self)!, githubOrgEntityMapper: resolver.resolve(GithubOrgEntityMapper.self)!, githubRepoEntityMapper: resolver.resolve(GithubRepoEntityMapper.self)!)
+            GithubRepositoryImpl(githubApi: resolver.resolve(GithubApi.self)!, githubCache: resolver.resolve(GithubCache.self)!, githubOrgResponseMapper: resolver.resolve(GithubOrgResponseMapper.self)!, githubRepoResponseMapper: resolver.resolve(GithubRepoResponseMapper.self)!, githubOrgEntityMapper: resolver.resolve(GithubOrgEntityMapper.self)!, githubRepoEntityMapper: resolver.resolve(GithubRepoEntityMapper.self)!)
         }.inObjectScope(.container)
         container.register(AboutRepository.self) { resolver in
             AboutRepositoryImpl(appInfoDao: resolver.resolve(AppInfoDao.self)!, developerInfoDao: resolver.resolve(DeveloperInfoDao.self)!, appInfoEntityMapper: resolver.resolve(AppInfoEntityMapper.self)!, developerInfoEntityMapper: resolver.resolve(DeveloperInfoEntityMapper.self)!)

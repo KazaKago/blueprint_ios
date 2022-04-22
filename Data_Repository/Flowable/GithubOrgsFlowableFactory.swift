@@ -19,12 +19,12 @@ struct GithubOrgsFlowableFactory: PaginationStoreFlowableFactory {
 
     private static let EXPIRED_DURATION = TimeInterval(60 * 30)
     private static let PER_PAGE = 20
-    private let githubService: GithubService
+    private let githubApi: GithubApi
     private let githubCache: GithubCache
     private let githubOrgResponseMapper: GithubOrgResponseMapper
 
-    init(githubService: GithubService, githubCache: GithubCache, githubOrgResponseMapper: GithubOrgResponseMapper) {
-        self.githubService = githubService
+    init(githubApi: GithubApi, githubCache: GithubCache, githubOrgResponseMapper: GithubOrgResponseMapper) {
+        self.githubApi = githubApi
         self.githubCache = githubCache
         self.githubOrgResponseMapper = githubOrgResponseMapper
     }
@@ -53,7 +53,7 @@ struct GithubOrgsFlowableFactory: PaginationStoreFlowableFactory {
     }
 
     func fetchDataFromOrigin(param: UnitHash) -> AnyPublisher<Fetched<[GithubOrgEntity]>, Error> {
-        githubService.getOrgs(since: nil, perPage: Self.PER_PAGE).map { response in
+        githubApi.getOrgs(since: nil, perPage: Self.PER_PAGE).map { response in
             let data = response.map { githubOrgResponseMapper.map(response: $0) }
             return Fetched(
                 data: data,
@@ -63,7 +63,7 @@ struct GithubOrgsFlowableFactory: PaginationStoreFlowableFactory {
     }
 
     func fetchNextDataFromOrigin(nextKey: String, param: UnitHash) -> AnyPublisher<Fetched<[GithubOrgEntity]>, Error> {
-        githubService.getOrgs(since: Int(nextKey), perPage: Self.PER_PAGE).map { response in
+        githubApi.getOrgs(since: Int(nextKey), perPage: Self.PER_PAGE).map { response in
             let data = response.map { githubOrgResponseMapper.map(response: $0) }
             return Fetched(
                 data: data,

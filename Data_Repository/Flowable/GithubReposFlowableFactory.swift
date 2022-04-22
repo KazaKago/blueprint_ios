@@ -20,12 +20,12 @@ struct GithubReposFlowableFactory: PaginationStoreFlowableFactory {
 
     private static let EXPIRED_DURATION = TimeInterval(60 * 30)
     private static let PER_PAGE = 20
-    private let githubService: GithubService
+    private let githubApi: GithubApi
     private let githubCache: GithubCache
     private let githubRepoResponseMapper: GithubRepoResponseMapper
 
-    init(githubService: GithubService, githubCache: GithubCache, githubRepoResponseMapper: GithubRepoResponseMapper) {
-        self.githubService = githubService
+    init(githubApi: GithubApi, githubCache: GithubCache, githubRepoResponseMapper: GithubRepoResponseMapper) {
+        self.githubApi = githubApi
         self.githubCache = githubCache
         self.githubRepoResponseMapper = githubRepoResponseMapper
     }
@@ -54,7 +54,7 @@ struct GithubReposFlowableFactory: PaginationStoreFlowableFactory {
     }
 
     func fetchDataFromOrigin(param: String) -> AnyPublisher<Fetched<[GithubRepoEntity]>, Error> {
-        githubService.getRepos(org: param, page: 1, perPage: Self.PER_PAGE).map { response in
+        githubApi.getRepos(org: param, page: 1, perPage: Self.PER_PAGE).map { response in
             let data = response.map { githubRepoResponseMapper.map(response: $0) }
             return Fetched(
                 data: data,
@@ -65,7 +65,7 @@ struct GithubReposFlowableFactory: PaginationStoreFlowableFactory {
 
     func fetchNextDataFromOrigin(nextKey: String, param: String) -> AnyPublisher<Fetched<[GithubRepoEntity]>, Error> {
         let nextPage = Int(nextKey)!
-        return githubService.getRepos(org: param, page: nextPage, perPage: Self.PER_PAGE).map { response in
+        return githubApi.getRepos(org: param, page: nextPage, perPage: Self.PER_PAGE).map { response in
             let data = response.map { githubRepoResponseMapper.map(response: $0) }
             return Fetched(
                 data: data,
