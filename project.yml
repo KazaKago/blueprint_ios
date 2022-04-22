@@ -1,0 +1,286 @@
+name: Blueprint
+options:
+  bundleIdPrefix: com.kazakago.blueprint
+  deploymentTarget:
+    iOS: 14.0
+configs:
+  Develop-Debug: debug
+  Develop-Release: release
+  Production-Debug: debug
+  Production-Release: release
+schemes:
+  Develop:
+    build:
+      targets:
+        Blueprint: all
+    run:
+      config: Develop-Debug
+    test:
+      config: Develop-Debug
+      targets:
+        - BlueprintTests
+        - BlueprintUITests
+        - Presentation_ViewTests
+        - Presentation_ViewModelTests
+        - Domain_UseCaseTests
+        - Domain_ModelTests
+        - Domain_RepositoryTests
+        - Data_RepositoryTests
+        - Data_MapperTests
+        - Data_ApiTests
+        - Data_CacheTests
+        - Data_ResourceTests
+    profile:
+      config: Develop-Release
+    analyze:
+      config: Develop-Debug
+    archive:
+      config: Develop-Release
+  Production:
+    build:
+      targets:
+        Blueprint: all
+    run:
+      config: Production-Debug
+    test:
+      config: Production-Debug
+      targets:
+        - BlueprintTests
+        - BlueprintUITests
+        - Presentation_ViewTests
+        - Presentation_ViewModelTests
+        - Domain_UseCaseTests
+        - Domain_ModelTests
+        - Domain_RepositoryTests
+        - Data_RepositoryTests
+        - Data_MapperTests
+        - Data_ApiTests
+        - Data_CacheTests
+        - Data_ResourceTests
+    profile:
+      config: Production-Release
+    analyze:
+      config: Production-Debug
+    archive:
+      config: Production-Release
+targets:
+  Blueprint:
+    type: application
+    platform: iOS
+    sources:
+      - path: Blueprint
+    dependencies:
+      - target: Presentation_View
+      - target: Presentation_ViewModel
+      - target: Domain_UseCase
+      - target: Domain_Model
+      - target: Domain_Repository
+      - target: Data_Repository
+      - target: Data_Mapper
+      - target: Data_Api
+      - target: Data_Cache
+      - target: Data_Resource
+      - package: Swinject
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.kazakago.blueprint
+        MARKETING_VERSION: 1.0.0
+        CURRENT_PROJECT_VERSION: 1
+        DEVELOPMENT_TEAM: 3WUM9V6RP7
+      configs:
+        Develop-Debug:
+          PROVISIONING_PROFILE_SPECIFIER: match Development *
+          CODE_SIGN_IDENTITY: Apple Development
+        Develop-Release:
+          PROVISIONING_PROFILE_SPECIFIER: match AdHoc *
+          CODE_SIGN_IDENTITY: Apple Distribution
+        Production-Debug:
+          PROVISIONING_PROFILE_SPECIFIER: match Development *
+          CODE_SIGN_IDENTITY: Apple Development
+        Production-Release:
+          PROVISIONING_PROFILE_SPECIFIER: match AdHoc *
+          CODE_SIGN_IDENTITY: Apple Distribution
+  BlueprintTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: BlueprintTests
+    dependencies:
+      - target: Blueprint
+  BlueprintUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: BlueprintUITests
+    dependencies:
+      - target: Blueprint
+  Presentation_View:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Presentation_View
+    dependencies:
+      - target: Presentation_ViewModel
+      - target: Domain_Model
+      - package: Swinject
+  Presentation_ViewTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Presentation_ViewTests
+    dependencies:
+      - target: Blueprint
+  Presentation_ViewModel:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Presentation_ViewModel
+    dependencies:
+      - target: Domain_UseCase
+      - target: Domain_Model
+      - package: StoreFlowable
+      - package: Swinject
+  Presentation_ViewModelTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Presentation_ViewModelTests
+    dependencies:
+      - target: Blueprint
+  Domain_UseCase:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Domain_UseCase
+    dependencies:
+      - target: Domain_Model
+      - target: Domain_Repository
+      - package: StoreFlowable
+      - package: Swinject
+  Domain_UseCaseTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Domain_UseCaseTests
+    dependencies:
+      - target: Blueprint
+  Domain_Model:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Domain_Model
+  Domain_ModelTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Domain_ModelTests
+    dependencies:
+      - target: Blueprint
+  Domain_Repository:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Domain_Repository
+    dependencies:
+      - target: Domain_Model
+      - package: StoreFlowable
+  Domain_RepositoryTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Domain_RepositoryTests
+    dependencies:
+      - target: Blueprint
+  Data_Repository:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Data_Repository
+    dependencies:
+      - target: Domain_Model
+      - target: Domain_Repository
+      - target: Data_Mapper
+      - target: Data_Api
+      - target: Data_Cache
+      - target: Data_Resource
+      - package: StoreFlowable
+      - package: Swinject
+  Data_RepositoryTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Data_RepositoryTests
+    dependencies:
+      - target: Blueprint
+  Data_Mapper:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Data_Mapper
+    dependencies:
+      - target: Domain_Model
+      - target: Data_Api
+      - target: Data_Cache
+      - target: Data_Resource
+      - package: Swinject
+  Data_MapperTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Data_MapperTests
+    dependencies:
+      - target: Blueprint
+  Data_Api:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Data_Api
+    dependencies:
+      - package: Alamofire
+      - package: Swinject
+  Data_ApiTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Data_ApiTests
+    dependencies:
+      - target: Blueprint
+  Data_Cache:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Data_Cache
+    dependencies:
+      - package: StoreFlowable
+      - package: Swinject
+  Data_CacheTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Data_CacheTests
+    dependencies:
+      - target: Blueprint
+  Data_Resource:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Data_Resource
+    dependencies:
+      - package: Swinject
+  Data_ResourceTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Data_ResourceTests
+    dependencies:
+      - target: Blueprint
+packages:
+  Swinject:
+    url: https://github.com/Swinject/Swinject.git
+    from: 2.0.0
+  StoreFlowable:
+    url: https://github.com/KazaKago/StoreFlowable.swift.git
+    from: 3.0.0
+  Alamofire:
+    url: https://github.com/Alamofire/Alamofire.git
+    from: 5.0.0
