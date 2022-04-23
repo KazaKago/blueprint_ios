@@ -14,7 +14,8 @@ public struct GithubOrgEntityMapper {
     public func map(entity: GithubOrgEntity) -> GithubOrg {
         GithubOrg(
             id: GithubOrgId(entity.id),
-            name: GithubOrgName(entity.name)
+            name: GithubOrgName(entity.name),
+            imageUrl: URL(string: entity.imageUrl)!
         )
     }
 }

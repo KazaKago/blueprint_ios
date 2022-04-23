@@ -34,21 +34,28 @@ struct GithubReposFlowableFactory: PaginationStoreFlowableFactory {
 
     func loadDataFromCache(param: String) -> AnyPublisher<[GithubRepoEntity]?, Never> {
         Future { promise in
-            promise(.success(githubCache.reposCache[param]))
+            let data = githubCache.reposMapCache[param]?.value
+            promise(.success(data))
         }.eraseToAnyPublisher()
     }
 
     func saveDataToCache(newData: [GithubRepoEntity]?, param: String) -> AnyPublisher<Void, Never> {
         Future { promise in
-            githubCache.reposCache[param] = newData
-            githubCache.reposCacheCreatedAt[param] = Date()
+            if let newData = newData {
+                githubCache.reposMapCache[param] = CacheHolder(value: newData)
+            } else {
+                githubCache.reposMapCache[param] = nil
+            }
             promise(.success(()))
         }.eraseToAnyPublisher()
     }
 
     func saveNextDataToCache(cachedData: [GithubRepoEntity], newData: [GithubRepoEntity], param: String) -> AnyPublisher<Void, Never> {
         Future { promise in
-            githubCache.reposCache[param] = cachedData + newData
+            githubCache.reposMapCache[param] = CacheHolder(
+                value: cachedData + newData,
+                createdAt: githubCache.orgNameListCache?.createdAt ?? Date()
+            )
             promise(.success(()))
         }.eraseToAnyPublisher()
     }
@@ -76,7 +83,7 @@ struct GithubReposFlowableFactory: PaginationStoreFlowableFactory {
 
     func needRefresh(cachedData: [GithubRepoEntity], param: String) -> AnyPublisher<Bool, Never> {
         Future { promise in
-            if let createdAt = githubCache.reposCacheCreatedAt[param] {
+            if let createdAt = githubCache.reposMapCache[param]?.createdAt {
                 let expiredAt = createdAt + Self.EXPIRED_DURATION
                 promise(.success(expiredAt < Date()))
             } else {

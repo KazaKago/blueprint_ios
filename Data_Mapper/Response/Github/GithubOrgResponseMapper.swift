@@ -14,7 +14,8 @@ public struct GithubOrgResponseMapper {
     public func map(response: GithubOrgResponse) -> GithubOrgEntity {
         GithubOrgEntity(
             id: response.id,
-            name: response.name
+            name: response.name,
+            imageUrl: response.avatarUrl
         )
     }
 }

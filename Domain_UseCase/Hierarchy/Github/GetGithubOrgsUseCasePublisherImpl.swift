@@ -20,6 +20,6 @@ struct GetGithubOrgsPublisherUseCaseImpl: GetGithubOrgsPublisherUseCase {
     }
 
     func invoke() -> LoadingStatePublisher<[GithubOrg]> {
-        githubRepository.followOrgs()
+        githubRepository.getOrgsPublisher()
     }
 }

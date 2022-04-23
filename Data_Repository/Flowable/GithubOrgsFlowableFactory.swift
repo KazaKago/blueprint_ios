@@ -33,21 +33,31 @@ struct GithubOrgsFlowableFactory: PaginationStoreFlowableFactory {
 
     func loadDataFromCache(param: UnitHash) -> AnyPublisher<[GithubOrgEntity]?, Never> {
         Future { promise in
-            promise(.success(githubCache.orgsCache))
+            let dataList = githubCache.orgNameListCache?.value.compactMap { githubCache.orgMapCache[$0]?.value }
+            promise(.success(dataList))
         }.eraseToAnyPublisher()
     }
 
     func saveDataToCache(newData: [GithubOrgEntity]?, param: UnitHash) -> AnyPublisher<Void, Never> {
         Future { promise in
-            githubCache.orgsCache = newData
-            githubCache.orgsCacheCreatedAt = Date()
+            if let newData = newData {
+                githubCache.orgNameListCache = CacheHolder(value: newData.map { $0.name })
+            } else {
+                githubCache.orgNameListCache = nil
+            }
+            newData?.forEach {
+                githubCache.orgMapCache[$0.name] = CacheHolder(value: $0)
+            }
             promise(.success(()))
         }.eraseToAnyPublisher()
     }
 
     func saveNextDataToCache(cachedData: [GithubOrgEntity], newData: [GithubOrgEntity], param: UnitHash) -> AnyPublisher<Void, Never> {
         Future { promise in
-            githubCache.orgsCache = cachedData + newData
+            githubCache.orgNameListCache = CacheHolder(
+                value: cachedData.map { $0.name } + newData.map { $0.name },
+                createdAt: githubCache.orgNameListCache?.createdAt ?? Date()
+            )
             promise(.success(()))
         }.eraseToAnyPublisher()
     }
@@ -74,7 +84,7 @@ struct GithubOrgsFlowableFactory: PaginationStoreFlowableFactory {
 
     func needRefresh(cachedData: [GithubOrgEntity], param: UnitHash) -> AnyPublisher<Bool, Never> {
         Future { promise in
-            if let createdAt = githubCache.orgsCacheCreatedAt {
+            if let createdAt = githubCache.orgNameListCache?.createdAt {
                 let expiredAt = createdAt + Self.EXPIRED_DURATION
                 promise(.success(expiredAt < Date()))
             } else {

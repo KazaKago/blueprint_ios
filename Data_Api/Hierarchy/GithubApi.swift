@@ -23,6 +23,12 @@ public struct GithubApi {
             .publishResponse([GithubOrgResponse].self)
     }
 
+    public func getOrg(org: String) -> AnyPublisher<GithubOrgResponse, Error> {
+        let urlComponents = URLComponents(url: baseApiUrl.appendingPathComponent("orgs/\(org)"), resolvingAgainstBaseURL: true)!
+        return AF.request(urlComponents)
+            .publishResponse(GithubOrgResponse.self)
+    }
+
     public func getRepos(org: String, page: Int?, perPage: Int) -> AnyPublisher<[GithubRepoResponse], Error> {
         var urlComponents = URLComponents(url: baseApiUrl.appendingPathComponent("orgs/\(org)/repos"), resolvingAgainstBaseURL: true)!
         urlComponents.queryItems = [

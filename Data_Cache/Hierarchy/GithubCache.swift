@@ -8,9 +8,7 @@
 import Foundation
 
 public class GithubCache {
-    public var orgsCache: [GithubOrgEntity]?
-    public var orgsCacheCreatedAt: Date?
-
-    public var reposCache: [String: [GithubRepoEntity]] = [:]
-    public var reposCacheCreatedAt: [String: Date] = [:]
+    public var orgNameListCache: CacheHolder<[String]>? = nil
+    public var orgMapCache: [String: CacheHolder<GithubOrgEntity>] = [:]
+    public var reposMapCache: [String: CacheHolder<[GithubRepoEntity]>] = [:]
 }
