@@ -12,8 +12,7 @@ import Domain_Model
 
 public final class AboutViewModel : ObservableObject {
 
-    @Published public var appInfo: AppInfo?
-    @Published public var developerInfo: DeveloperInfo?
+    @Published public var uiState: AboutUiState = .loading
     private let getAboutInfoUseCase: GetAboutInfoUseCase
 
     public init(getAboutInfoUseCase: GetAboutInfoUseCase) {
@@ -26,7 +25,9 @@ public final class AboutViewModel : ObservableObject {
 
     private func loadAboutInfo() {
         let aboutInfo = getAboutInfoUseCase.invoke()
-        appInfo = aboutInfo.appInfo
-        developerInfo = aboutInfo.developerInfo
+        uiState = AboutUiState.completed(
+            appInfo: aboutInfo.appInfo,
+            developerInfo: aboutInfo.developerInfo
+        )
     }
 }
