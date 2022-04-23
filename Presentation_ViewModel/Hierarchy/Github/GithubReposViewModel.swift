@@ -68,9 +68,9 @@ public final class GithubReposViewModel : ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { state in
                 state.doAction(
-                    onLoading: { githubRepos in
-                        if let githubRepos = githubRepos {
-                            self.githubRepos = githubRepos
+                    onLoading: { githubOrgAndRepos in
+                        if let githubOrgAndRepos = githubOrgAndRepos {
+                            self.githubRepos = githubOrgAndRepos.githubRepos
                             self.isMainLoading = false
                         } else {
                             self.githubRepos = []
@@ -80,7 +80,7 @@ public final class GithubReposViewModel : ObservableObject {
                         self.mainError = nil
                         self.additionalError = nil
                     },
-                    onCompleted: { githubRepos, next, _ in
+                    onCompleted: { githubOrgAndRepos, next, _ in
                         next.doAction(
                             onFixed: { _ in
                                 self.isAdditionalLoading = false
@@ -95,7 +95,7 @@ public final class GithubReposViewModel : ObservableObject {
                                 self.additionalError = error
                             }
                         )
-                        self.githubRepos = githubRepos
+                        self.githubRepos = githubOrgAndRepos.githubRepos
                         self.isMainLoading = false
                         self.mainError = nil
                     },

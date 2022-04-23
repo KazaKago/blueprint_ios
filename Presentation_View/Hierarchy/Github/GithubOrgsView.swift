@@ -54,7 +54,7 @@ struct GithubOrgsView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    NavigationLink(destination: AboutView()) {
+                    NavigationLink(destination: AboutScreenController()) {
                         Text("action_about".localized)
                     }
                 }

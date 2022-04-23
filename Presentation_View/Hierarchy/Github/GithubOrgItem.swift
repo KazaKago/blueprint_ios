@@ -27,6 +27,6 @@ struct GithubOrgItem: View {
 
 struct GithubOrgItem_Previews: PreviewProvider {
     static var previews: some View {
-        GithubOrgItem(githubOrg: GithubOrg(id: GithubOrgId(1223), name: GithubOrgName("Organization Name")))
+        GithubOrgItem(githubOrg: GithubOrg(id: GithubOrgId(1223), name: GithubOrgName("Organization Name"), imageUrl: URL(string: "https://avatars.githubusercontent.com/u/7742104?v=4")!))
     }
 }
