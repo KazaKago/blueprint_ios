@@ -16,10 +16,10 @@ public struct ViewModelAssembly: Assembly {
 
     public func assemble(container: Container) {
         container.register(GithubOrgsViewModel.self) { resolver in
-            GithubOrgsViewModel(followGithubOrgsUseCase: resolver.resolve(FollowGithubOrgsUseCase.self)!, refreshGithubOrgsUseCase: resolver.resolve(RefreshGithubOrgsUseCase.self)!, requestAdditionalGithubOrgsUseCase: resolver.resolve(RequestAdditionalGithubOrgsUseCase.self)!)
+            GithubOrgsViewModel(getGithubOrgsPublisherUseCase: resolver.resolve(GetGithubOrgsPublisherUseCase.self)!, refreshGithubOrgsUseCase: resolver.resolve(RefreshGithubOrgsUseCase.self)!, requestAdditionalGithubOrgsUseCase: resolver.resolve(RequestAdditionalGithubOrgsUseCase.self)!)
         }
         container.register(GithubReposViewModel.self) { resolver, githubOrgName in
-            GithubReposViewModel(followGithubReposUseCase: resolver.resolve(FollowGithubReposUseCase.self)!, refreshGithubReposUseCase: resolver.resolve(RefreshGithubReposUseCase.self)!, requestAdditionalGithubReposUseCase: resolver.resolve(RequestAdditionalGithubReposUseCase.self)!, githubOrgName: githubOrgName)
+            GithubReposViewModel(getGithubReposPublisherUseCase: resolver.resolve(GetGithubReposPublisherUseCase.self)!, refreshGithubReposUseCase: resolver.resolve(RefreshGithubReposUseCase.self)!, requestAdditionalGithubReposUseCase: resolver.resolve(RequestAdditionalGithubReposUseCase.self)!, githubOrgName: githubOrgName)
         }
         container.register(AboutViewModel.self) { resolver in
             AboutViewModel(getAboutInfoUseCase: resolver.resolve(GetAboutInfoUseCase.self)!)

@@ -15,11 +15,11 @@ public struct UseCaseAssembly: Assembly {
     }
 
     public func assemble(container: Container) {
-        container.register(FollowGithubOrgsUseCase.self) { resolver in
-            FollowGithubOrgsUseCaseImpl(githubRepository: resolver.resolve(GithubRepository.self)!)
+        container.register(GetGithubOrgsPublisherUseCase.self) { resolver in
+            GetGithubOrgsPublisherUseCaseImpl(githubRepository: resolver.resolve(GithubRepository.self)!)
         }.inObjectScope(.container)
-        container.register(FollowGithubReposUseCase.self) { resolver in
-            FollowGithubReposUseCaseImpl(githubRepository: resolver.resolve(GithubRepository.self)!)
+        container.register(GetGithubReposPublisherUseCase.self) { resolver in
+            GetGithubReposPublisherUseCaseImpl(githubRepository: resolver.resolve(GithubRepository.self)!)
         }.inObjectScope(.container)
         container.register(RefreshGithubOrgsUseCase.self) { resolver in
             RefreshGithubOrgsUseCaseImpl(githubRepository: resolver.resolve(GithubRepository.self)!)

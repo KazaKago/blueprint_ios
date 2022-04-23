@@ -1,5 +1,5 @@
 //
-//  FollowGithubOrgsUseCaseImpl.swift
+//  GetGithubReposPublisherUseCaseImpl.swift
 //  Domain.UseCase
 //
 //  Created by Kensuke Tamura on 2021/05/06.
@@ -11,7 +11,7 @@ import StoreFlowable
 import Domain_Model
 import Domain_Repository
 
-struct FollowGithubOrgsUseCaseImpl: FollowGithubOrgsUseCase {
+struct GetGithubReposPublisherUseCaseImpl: GetGithubReposPublisherUseCase {
 
     private let githubRepository: GithubRepository
 
@@ -19,7 +19,7 @@ struct FollowGithubOrgsUseCaseImpl: FollowGithubOrgsUseCase {
         self.githubRepository = githubRepository
     }
 
-    func invoke() -> LoadingStatePublisher<[GithubOrg]> {
-        githubRepository.followOrgs()
+    func invoke(githubOrgName: GithubOrgName) -> LoadingStatePublisher<[GithubRepo]> {
+        githubRepository.followRepos(githubOrgName: githubOrgName)
     }
 }

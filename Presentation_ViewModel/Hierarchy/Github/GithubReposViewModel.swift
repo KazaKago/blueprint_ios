@@ -18,13 +18,13 @@ public final class GithubReposViewModel : ObservableObject {
     @Published public var isAdditionalLoading: Bool = false
     @Published public var mainError: Error?
     @Published public var additionalError: Error?
-    private let followGithubReposUseCase: FollowGithubReposUseCase
+    private let getGithubReposPublisherUseCase: GetGithubReposPublisherUseCase
     private let refreshGithubReposUseCase: RefreshGithubReposUseCase
     private let requestAdditionalGithubReposUseCase: RequestAdditionalGithubReposUseCase
     private var cancellableSet = Set<AnyCancellable>()
 
-    public init(followGithubReposUseCase: FollowGithubReposUseCase, refreshGithubReposUseCase: RefreshGithubReposUseCase, requestAdditionalGithubReposUseCase: RequestAdditionalGithubReposUseCase, githubOrgName: GithubOrgName) {
-        self.followGithubReposUseCase = followGithubReposUseCase
+    public init(getGithubReposPublisherUseCase: GetGithubReposPublisherUseCase, refreshGithubReposUseCase: RefreshGithubReposUseCase, requestAdditionalGithubReposUseCase: RequestAdditionalGithubReposUseCase, githubOrgName: GithubOrgName) {
+        self.getGithubReposPublisherUseCase = getGithubReposPublisherUseCase
         self.refreshGithubReposUseCase = refreshGithubReposUseCase
         self.requestAdditionalGithubReposUseCase = requestAdditionalGithubReposUseCase
         self.githubOrgName = githubOrgName
@@ -64,7 +64,7 @@ public final class GithubReposViewModel : ObservableObject {
     }
 
     private func subscribe() {
-        followGithubReposUseCase.invoke(githubOrgName: githubOrgName)
+        getGithubReposPublisherUseCase.invoke(githubOrgName: githubOrgName)
             .receive(on: DispatchQueue.main)
             .sink { state in
                 state.doAction(
