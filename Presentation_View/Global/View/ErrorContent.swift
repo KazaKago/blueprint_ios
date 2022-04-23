@@ -1,13 +1,13 @@
 //
-//  ErrorItem.swift
-//  Example
+//  ErrorContent.swift
+//  Presentation_View
 //
-//  Created by Kensuke Tamura on 2020/12/26.
+//  Created by Kensuke Tamura on 2022/04/23.
 //
 
 import SwiftUI
 
-struct ErrorItem: View {
+struct ErrorContent: View {
 
     let error: Error
     let retry: () -> Void
@@ -23,13 +23,14 @@ struct ErrorItem: View {
                 retry()
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding()
     }
 }
 
-struct ErrorItem_Previews: PreviewProvider {
+struct ErrorContent_Previews: PreviewProvider {
     static var previews: some View {
-        ErrorItem(error: DummyError.dummy, retry: {})
+        ErrorContent(error: DummyError.dummy, retry: {})
     }
 
     private enum DummyError: Error {

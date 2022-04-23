@@ -14,7 +14,7 @@ public struct MainView: View {
 
     public var body: some View {
         NavigationView {
-            GithubOrgsView()
+            GithubOrgsController()
         }
     }
 }

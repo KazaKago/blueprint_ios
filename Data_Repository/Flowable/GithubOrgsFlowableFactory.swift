@@ -22,14 +22,14 @@ struct GithubOrgsFlowableFactory: PaginationStoreFlowableFactory {
     private let githubApi: GithubApi
     private let githubCache: GithubCache
     private let githubOrgResponseMapper: GithubOrgResponseMapper
+    let flowableDataStateManager: FlowableDataStateManager<UnitHash>
 
-    init(githubApi: GithubApi, githubCache: GithubCache, githubOrgResponseMapper: GithubOrgResponseMapper) {
+    init(githubApi: GithubApi, githubCache: GithubCache, githubOrgResponseMapper: GithubOrgResponseMapper, githubOrgsStateManager: GithubOrgsStateManager) {
         self.githubApi = githubApi
         self.githubCache = githubCache
         self.githubOrgResponseMapper = githubOrgResponseMapper
+        self.flowableDataStateManager = githubOrgsStateManager
     }
-
-    let flowableDataStateManager: FlowableDataStateManager<UnitHash> = GithubOrgsStateManager.shared
 
     func loadDataFromCache(param: UnitHash) -> AnyPublisher<[GithubOrgEntity]?, Never> {
         Future { promise in
@@ -58,6 +58,9 @@ struct GithubOrgsFlowableFactory: PaginationStoreFlowableFactory {
                 value: cachedData.map { $0.name } + newData.map { $0.name },
                 createdAt: githubCache.orgNameListCache?.createdAt ?? Date()
             )
+            newData.forEach {
+                githubCache.orgMapCache[$0.name] = CacheHolder(value: $0)
+            }
             promise(.success(()))
         }.eraseToAnyPublisher()
     }

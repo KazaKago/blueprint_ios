@@ -8,10 +8,4 @@
 import Foundation
 import StoreFlowable
 
-public class GithubOrgsStateManager: FlowableDataStateManager<UnitHash> {
-
-    public static let shared = GithubOrgsStateManager()
-
-    private override init() {
-    }
-}
+public class GithubOrgsStateManager: FlowableDataStateManager<UnitHash> {}

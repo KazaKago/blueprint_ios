@@ -22,18 +22,34 @@ struct GithubRepositoryImpl: GithubRepository {
     private let githubRepoResponseMapper: GithubRepoResponseMapper
     private let githubOrgEntityMapper: GithubOrgEntityMapper
     private let githubRepoEntityMapper: GithubRepoEntityMapper
+    private let githubOrgsFlowableFactory: GithubOrgsFlowableFactory
+    private let githubOrgFlowableFactory: GithubOrgFlowableFactory
+    private let githubReposFlowableFactory: GithubReposFlowableFactory
 
-    init(githubApi: GithubApi, githubCache: GithubCache, githubOrgResponseMapper: GithubOrgResponseMapper, githubRepoResponseMapper: GithubRepoResponseMapper, githubOrgEntityMapper: GithubOrgEntityMapper, githubRepoEntityMapper: GithubRepoEntityMapper) {
+    init(
+        githubApi: GithubApi,
+        githubCache: GithubCache,
+        githubOrgResponseMapper: GithubOrgResponseMapper,
+        githubRepoResponseMapper: GithubRepoResponseMapper,
+        githubOrgEntityMapper: GithubOrgEntityMapper,
+        githubRepoEntityMapper: GithubRepoEntityMapper,
+        githubOrgsFlowableFactory: GithubOrgsFlowableFactory,
+        githubOrgFlowableFactory: GithubOrgFlowableFactory,
+        githubReposFlowableFactory: GithubReposFlowableFactory
+    ) {
         self.githubApi = githubApi
         self.githubCache = githubCache
         self.githubOrgResponseMapper = githubOrgResponseMapper
         self.githubRepoResponseMapper = githubRepoResponseMapper
         self.githubOrgEntityMapper = githubOrgEntityMapper
         self.githubRepoEntityMapper = githubRepoEntityMapper
+        self.githubOrgsFlowableFactory = githubOrgsFlowableFactory
+        self.githubOrgFlowableFactory = githubOrgFlowableFactory
+        self.githubReposFlowableFactory = githubReposFlowableFactory
     }
 
     func getOrgsPublisher() -> LoadingStatePublisher<[GithubOrg]> {
-        let githubOrgsFlowable = GithubOrgsFlowableFactory(githubApi: githubApi, githubCache: githubCache, githubOrgResponseMapper: githubOrgResponseMapper).create(UnitHash())
+        let githubOrgsFlowable = githubOrgsFlowableFactory.create(UnitHash())
         return githubOrgsFlowable.publish().mapContent { data in
             data.map { githubOrgEntity in
                 githubOrgEntityMapper.map(entity: githubOrgEntity)
@@ -42,24 +58,24 @@ struct GithubRepositoryImpl: GithubRepository {
     }
 
     func getOrgPublisher(githubOrgName: GithubOrgName) -> LoadingStatePublisher<GithubOrg> {
-        let githubOrgFlowable = GithubOrgFlowableFactory(githubApi: githubApi, githubCache: githubCache, githubOrgResponseMapper: githubOrgResponseMapper).create(githubOrgName.value)
+        let githubOrgFlowable = githubOrgFlowableFactory.create(githubOrgName.value)
         return githubOrgFlowable.publish().mapContent { data in
             githubOrgEntityMapper.map(entity: data)
         }.eraseToAnyPublisher()
     }
 
     func refreshOrgs() -> AnyPublisher<Void, Never> {
-        let githubOrgsFlowable = GithubOrgsFlowableFactory(githubApi: githubApi, githubCache: githubCache, githubOrgResponseMapper: githubOrgResponseMapper).create(UnitHash())
+        let githubOrgsFlowable = githubOrgsFlowableFactory.create(UnitHash())
         return githubOrgsFlowable.refresh()
     }
 
     func requestAdditionalOrgs(continueWhenError: Bool) -> AnyPublisher<Void, Never> {
-        let githubOrgsFlowable = GithubOrgsFlowableFactory(githubApi: githubApi, githubCache: githubCache, githubOrgResponseMapper: githubOrgResponseMapper).create(UnitHash())
+        let githubOrgsFlowable = githubOrgsFlowableFactory.create(UnitHash())
         return githubOrgsFlowable.requestNextData(continueWhenError: continueWhenError)
     }
 
     func getReposPublisher(githubOrgName: GithubOrgName) -> LoadingStatePublisher<[GithubRepo]> {
-        let githubReposFlowable = GithubReposFlowableFactory(githubApi: githubApi, githubCache: githubCache, githubRepoResponseMapper: githubRepoResponseMapper).create(githubOrgName.value)
+        let githubReposFlowable = githubReposFlowableFactory.create(githubOrgName.value)
         return githubReposFlowable.publish().mapContent { data in
             data.map { githubRepoEntity in
                 githubRepoEntityMapper.map(entity: githubRepoEntity)
@@ -68,12 +84,12 @@ struct GithubRepositoryImpl: GithubRepository {
     }
 
     func refreshRepos(githubOrgName: GithubOrgName) -> AnyPublisher<Void, Never> {
-        let githubReposFlowable = GithubReposFlowableFactory(githubApi: githubApi, githubCache: githubCache, githubRepoResponseMapper: githubRepoResponseMapper).create(githubOrgName.value)
+        let githubReposFlowable = githubReposFlowableFactory.create(githubOrgName.value)
         return githubReposFlowable.refresh()
     }
 
     func requestAdditionalRepos(githubOrgName: GithubOrgName, continueWhenError: Bool) -> AnyPublisher<Void, Never> {
-        let githubReposFlowable = GithubReposFlowableFactory(githubApi: githubApi, githubCache: githubCache, githubRepoResponseMapper: githubRepoResponseMapper).create(githubOrgName.value)
+        let githubReposFlowable = githubReposFlowableFactory.create(githubOrgName.value)
         return githubReposFlowable.requestNextData(continueWhenError: continueWhenError)
     }
 }

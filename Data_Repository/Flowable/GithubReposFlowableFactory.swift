@@ -23,14 +23,14 @@ struct GithubReposFlowableFactory: PaginationStoreFlowableFactory {
     private let githubApi: GithubApi
     private let githubCache: GithubCache
     private let githubRepoResponseMapper: GithubRepoResponseMapper
+    let flowableDataStateManager: FlowableDataStateManager<String>
 
-    init(githubApi: GithubApi, githubCache: GithubCache, githubRepoResponseMapper: GithubRepoResponseMapper) {
+    init(githubApi: GithubApi, githubCache: GithubCache, githubRepoResponseMapper: GithubRepoResponseMapper, githubReposStateManager: GithubReposStateManager) {
         self.githubApi = githubApi
         self.githubCache = githubCache
         self.githubRepoResponseMapper = githubRepoResponseMapper
+        self.flowableDataStateManager = githubReposStateManager
     }
-
-    let flowableDataStateManager: FlowableDataStateManager<String> = GithubReposStateManager.shared
 
     func loadDataFromCache(param: String) -> AnyPublisher<[GithubRepoEntity]?, Never> {
         Future { promise in

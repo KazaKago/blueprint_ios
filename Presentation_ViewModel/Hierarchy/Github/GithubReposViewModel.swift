@@ -12,12 +12,7 @@ import Domain_Model
 
 public final class GithubReposViewModel : ObservableObject {
 
-    @Published public var githubOrgName: GithubOrgName
-    @Published public var githubRepos: [GithubRepo] = []
-    @Published public var isMainLoading: Bool = false
-    @Published public var isAdditionalLoading: Bool = false
-    @Published public var mainError: Error?
-    @Published public var additionalError: Error?
+    @Published public var uiState: GithubReposUiState
     private let getGithubReposPublisherUseCase: GetGithubReposPublisherUseCase
     private let refreshGithubReposUseCase: RefreshGithubReposUseCase
     private let requestAdditionalGithubReposUseCase: RequestAdditionalGithubReposUseCase
@@ -27,7 +22,7 @@ public final class GithubReposViewModel : ObservableObject {
         self.getGithubReposPublisherUseCase = getGithubReposPublisherUseCase
         self.refreshGithubReposUseCase = refreshGithubReposUseCase
         self.requestAdditionalGithubReposUseCase = requestAdditionalGithubReposUseCase
-        self.githubOrgName = githubOrgName
+        self.uiState = .loading(githubOrgName: githubOrgName)
     }
 
     public func initialize() {
@@ -36,75 +31,60 @@ public final class GithubReposViewModel : ObservableObject {
     }
 
     public func refresh() {
-        refreshGithubReposUseCase.invoke(githubOrgName: githubOrgName)
+        refreshGithubReposUseCase.invoke(githubOrgName: uiState.getGithubName())
             .receive(on: DispatchQueue.main)
             .sink {}
             .store(in: &cancellableSet)
     }
 
     public func retry() {
-        refreshGithubReposUseCase.invoke(githubOrgName: githubOrgName)
+        refreshGithubReposUseCase.invoke(githubOrgName: uiState.getGithubName())
             .receive(on: DispatchQueue.main)
             .sink {}
             .store(in: &cancellableSet)
     }
 
     public func requestAdditional() {
-        requestAdditionalGithubReposUseCase.invoke(githubOrgName: githubOrgName, continueWhenError: false)
+        requestAdditionalGithubReposUseCase.invoke(githubOrgName: uiState.getGithubName(), continueWhenError: false)
             .receive(on: DispatchQueue.main)
             .sink {}
             .store(in: &cancellableSet)
     }
 
     public func retryAdditional() {
-        requestAdditionalGithubReposUseCase.invoke(githubOrgName: githubOrgName, continueWhenError: true)
+        requestAdditionalGithubReposUseCase.invoke(githubOrgName: uiState.getGithubName(), continueWhenError: true)
             .receive(on: DispatchQueue.main)
             .sink {}
             .store(in: &cancellableSet)
     }
 
     private func subscribe() {
-        getGithubReposPublisherUseCase.invoke(githubOrgName: githubOrgName)
+        getGithubReposPublisherUseCase.invoke(githubOrgName: uiState.getGithubName())
             .receive(on: DispatchQueue.main)
             .sink { state in
                 state.doAction(
                     onLoading: { githubOrgAndRepos in
                         if let githubOrgAndRepos = githubOrgAndRepos {
-                            self.githubRepos = githubOrgAndRepos.githubRepos
-                            self.isMainLoading = false
+                            self.uiState = .completed(githubOrg: githubOrgAndRepos.githubOrg, githubRepos: githubOrgAndRepos.githubRepos)
                         } else {
-                            self.githubRepos = []
-                            self.isMainLoading = true
+                            self.uiState = .loading(githubOrgName: self.uiState.getGithubName())
                         }
-                        self.isAdditionalLoading = false
-                        self.mainError = nil
-                        self.additionalError = nil
                     },
                     onCompleted: { githubOrgAndRepos, next, _ in
                         next.doAction(
                             onFixed: { _ in
-                                self.isAdditionalLoading = false
-                                self.additionalError = nil
+                                self.uiState = .completed(githubOrg: githubOrgAndRepos.githubOrg, githubRepos: githubOrgAndRepos.githubRepos)
                             },
                             onLoading: {
-                                self.isAdditionalLoading = true
-                                self.additionalError = nil
+                                self.uiState = .additionalLoading(githubOrg: githubOrgAndRepos.githubOrg, githubRepos: githubOrgAndRepos.githubRepos)
                             },
                             onError: { error in
-                                self.isAdditionalLoading = false
-                                self.additionalError = error
+                                self.uiState = .additionalError(githubOrg: githubOrgAndRepos.githubOrg, githubRepos: githubOrgAndRepos.githubRepos, error: error)
                             }
                         )
-                        self.githubRepos = githubOrgAndRepos.githubRepos
-                        self.isMainLoading = false
-                        self.mainError = nil
                     },
                     onError: { error in
-                        self.githubRepos = []
-                        self.isMainLoading = false
-                        self.isAdditionalLoading = false
-                        self.mainError = error
-                        self.additionalError = nil
+                        self.uiState = .error(githubOrgName: self.uiState.getGithubName(), error: error)
                     }
                 )
             }

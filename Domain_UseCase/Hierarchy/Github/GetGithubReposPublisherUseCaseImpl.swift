@@ -20,9 +20,10 @@ struct GetGithubReposPublisherUseCaseImpl: GetGithubReposPublisherUseCase {
     }
 
     func invoke(githubOrgName: GithubOrgName) -> LoadingStatePublisher<GithubOrgAndRepos> {
-        githubRepository.getOrgPublisher(githubOrgName: githubOrgName)
-            .zipState(githubRepository.getReposPublisher(githubOrgName: githubOrgName)) { githubOrg, githubRepos in
-                GithubOrgAndRepos(githubOrg: githubOrg, githubRepos: githubRepos)
-            }
+        let orgPublisher = githubRepository.getOrgPublisher(githubOrgName: githubOrgName)
+        let reposPublisher = githubRepository.getReposPublisher(githubOrgName: githubOrgName)
+        return orgPublisher.combineState(reposPublisher) { githubOrg, githubRepos in
+            GithubOrgAndRepos(githubOrg: githubOrg, githubRepos: githubRepos)
+        }
     }
 }

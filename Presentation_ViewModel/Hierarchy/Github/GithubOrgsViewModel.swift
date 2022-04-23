@@ -12,11 +12,7 @@ import Domain_Model
 
 public final class GithubOrgsViewModel: ObservableObject {
 
-    @Published public var githubOrgs: [GithubOrg] = []
-    @Published public var isMainLoading: Bool = false
-    @Published public var isAdditionalLoading: Bool = false
-    @Published public var mainError: Error?
-    @Published public var additionalError: Error?
+    @Published public var uiState: GithubOrgsUiState = .loading
     private let getGithubOrgsPublisherUseCase: GetGithubOrgsPublisherUseCase
     private let refreshGithubOrgsUseCase: RefreshGithubOrgsUseCase
     private let requestAdditionalGithubOrgsUseCase: RequestAdditionalGithubOrgsUseCase
@@ -68,41 +64,26 @@ public final class GithubOrgsViewModel: ObservableObject {
                 state.doAction(
                     onLoading: { githubOrgs in
                         if let githubOrgs = githubOrgs {
-                            self.githubOrgs = githubOrgs
-                            self.isMainLoading = false
+                            self.uiState = .completed(githubOrgs: githubOrgs)
                         } else {
-                            self.githubOrgs = []
-                            self.isMainLoading = true
+                            self.uiState = .loading
                         }
-                        self.isAdditionalLoading = false
-                        self.mainError = nil
-                        self.additionalError = nil
                     },
                     onCompleted: { githubOrgs, next, _ in
                         next.doAction(
                             onFixed: { _ in
-                                self.isAdditionalLoading = false
-                                self.additionalError = nil
+                                self.uiState = .completed(githubOrgs: githubOrgs)
                             },
                             onLoading: {
-                                self.isAdditionalLoading = true
-                                self.additionalError = nil
+                                self.uiState = .additionalLoading(githubOrgs: githubOrgs)
                             },
                             onError: { error in
-                                self.isAdditionalLoading = false
-                                self.additionalError = error
+                                self.uiState = .additionalError(githubOrgs: githubOrgs, error: error)
                             }
                         )
-                        self.githubOrgs = githubOrgs
-                        self.isMainLoading = false
-                        self.mainError = nil
                     },
                     onError: { error in
-                        self.githubOrgs = []
-                        self.isMainLoading = false
-                        self.isAdditionalLoading = false
-                        self.mainError = error
-                        self.additionalError = nil
+                        self.uiState = .error(error: error)
                     }
                 )
             }

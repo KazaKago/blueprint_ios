@@ -8,10 +8,4 @@
 import Foundation
 import StoreFlowable
 
-public class GithubReposStateManager: FlowableDataStateManager<String> {
-
-    public static let shared = GithubReposStateManager()
-
-    private override init() {
-    }
-}
+public class GithubReposStateManager: FlowableDataStateManager<String> {}

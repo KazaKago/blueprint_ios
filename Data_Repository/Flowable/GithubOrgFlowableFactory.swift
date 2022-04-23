@@ -21,14 +21,14 @@ struct GithubOrgFlowableFactory: StoreFlowableFactory {
     private let githubApi: GithubApi
     private let githubCache: GithubCache
     private let githubOrgResponseMapper: GithubOrgResponseMapper
+    let flowableDataStateManager: FlowableDataStateManager<String>
 
-    init(githubApi: GithubApi, githubCache: GithubCache, githubOrgResponseMapper: GithubOrgResponseMapper) {
+    init(githubApi: GithubApi, githubCache: GithubCache, githubOrgResponseMapper: GithubOrgResponseMapper, githubOrgStateManager: GithubOrgStateManager) {
         self.githubApi = githubApi
         self.githubCache = githubCache
         self.githubOrgResponseMapper = githubOrgResponseMapper
+        self.flowableDataStateManager = githubOrgStateManager
     }
-
-    let flowableDataStateManager: FlowableDataStateManager<String> = GithubOrgStateManager.shared
 
     func loadDataFromCache(param: String) -> AnyPublisher<GithubOrgEntity?, Never> {
         Future { promise in

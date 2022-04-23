@@ -17,5 +17,14 @@ public struct CacheAssembly: Assembly {
         container.register(GithubCache.self) { _ in
             GithubCache()
         }.inObjectScope(.container)
+        container.register(GithubOrgStateManager.self) { _ in
+            GithubOrgStateManager()
+        }.inObjectScope(.container)
+        container.register(GithubOrgsStateManager.self) { _ in
+            GithubOrgsStateManager()
+        }.inObjectScope(.container)
+        container.register(GithubReposStateManager.self) { _ in
+            GithubReposStateManager()
+        }.inObjectScope(.container)
     }
 }
