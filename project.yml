@@ -80,6 +80,7 @@ targets:
       - target: Data_Api
       - target: Data_Cache
       - target: Data_Resource
+      - package: StoreFlowable
       - package: Swinject
     settings:
       base:
