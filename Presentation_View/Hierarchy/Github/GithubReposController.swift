@@ -20,10 +20,10 @@ struct GithubReposController: View {
     var body: some View {
         GithubReposScreen(
             uiState: viewModel.uiState,
-            onBottomReached: viewModel.requestAdditional,
+            onBottomReached: viewModel.requestAddition,
             onRefresh: viewModel.refresh,
             onRetry: viewModel.retry,
-            onRetryAdditional: viewModel.retryAdditional
+            onRetryAdditional: viewModel.retryAddition
         ).onAppear(perform: viewModel.initialize)
     }
 }

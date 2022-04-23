@@ -44,14 +44,14 @@ public final class GithubReposViewModel : ObservableObject {
             .store(in: &cancellableSet)
     }
 
-    public func requestAdditional() {
+    public func requestAddition() {
         requestAdditionalGithubReposUseCase.invoke(githubOrgName: uiState.getGithubName(), continueWhenError: false)
             .receive(on: DispatchQueue.main)
             .sink {}
             .store(in: &cancellableSet)
     }
 
-    public func retryAdditional() {
+    public func retryAddition() {
         requestAdditionalGithubReposUseCase.invoke(githubOrgName: uiState.getGithubName(), continueWhenError: true)
             .receive(on: DispatchQueue.main)
             .sink {}
