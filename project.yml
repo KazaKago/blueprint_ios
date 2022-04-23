@@ -2,7 +2,7 @@ name: Blueprint
 options:
   bundleIdPrefix: com.kazakago.blueprint
   deploymentTarget:
-    iOS: 14.0
+    iOS: 15.0
 configs:
   Develop-Debug: debug
   Develop-Release: release
