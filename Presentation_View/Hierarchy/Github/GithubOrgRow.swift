@@ -1,5 +1,5 @@
 //
-//  GithubOrgItem.swift
+//  GithubOrgRow.swift
 //  Example
 //
 //  Created by Kensuke Tamura on 2020/12/26.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Domain_Model
 
-struct GithubOrgItem: View {
+struct GithubOrgRow: View {
 
     let githubOrg: GithubOrg
 
@@ -38,6 +38,6 @@ struct GithubOrgItem: View {
 
 struct GithubOrgItem_Previews: PreviewProvider {
     static var previews: some View {
-        GithubOrgItem(githubOrg: GithubOrg(id: GithubOrgId(1223), name: GithubOrgName("Organization Name"), imageUrl: URL(string: "https://avatars.githubusercontent.com/u/7742104?v=4")!))
+        GithubOrgRow(githubOrg: GithubOrg(id: GithubOrgId(1223), name: GithubOrgName("Organization Name"), imageUrl: URL(string: "https://avatars.githubusercontent.com/u/7742104?v=4")!))
     }
 }

@@ -1,5 +1,5 @@
 //
-//  LoadingItem.swift
+//  LoadingRow.swift
 //  Example
 //
 //  Created by Kensuke Tamura on 2020/12/26.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LoadingItem: View {
+struct LoadingRow: View {
 
     var body: some View {
         HStack {
@@ -21,6 +21,6 @@ struct LoadingItem: View {
 
 struct LoadingItem_Previews: PreviewProvider {
     static var previews: some View {
-        LoadingItem()
+        LoadingRow()
     }
 }

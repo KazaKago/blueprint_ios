@@ -1,5 +1,5 @@
 //
-//  ErrorItem.swift
+//  ErrorRow.swift
 //  Example
 //
 //  Created by Kensuke Tamura on 2020/12/26.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ErrorItem: View {
+struct ErrorRow: View {
 
     let error: Error
     let retry: () -> Void
@@ -29,7 +29,7 @@ struct ErrorItem: View {
 
 struct ErrorItem_Previews: PreviewProvider {
     static var previews: some View {
-        ErrorItem(error: DummyError.dummy, retry: {})
+        ErrorRow(error: DummyError.dummy, retry: {})
     }
 
     private enum DummyError: Error {

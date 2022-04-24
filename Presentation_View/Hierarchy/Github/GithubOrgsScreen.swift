@@ -37,7 +37,7 @@ struct GithubOrgsScreen: View {
                 List {
                     ForEach(uiState.getGithubOrgsOrEmpty()) { githubOrg in
                         NavigationLink(destination: GithubReposController(userName: githubOrg.name)) {
-                            GithubOrgItem(githubOrg: githubOrg)
+                            GithubOrgRow(githubOrg: githubOrg)
                                 .onAppear {
                                     if githubOrg == uiState.getGithubOrgsOrEmpty().last {
                                         onBottomReached()
@@ -47,9 +47,9 @@ struct GithubOrgsScreen: View {
                     }
                     switch uiState {
                     case .additionalLoading:
-                        LoadingItem()
+                        LoadingRow()
                     case .additionalError(_, let error):
-                        ErrorItem(error: error, retry: onRetryAdditional)
+                        ErrorRow(error: error, retry: onRetryAdditional)
                     case .loading, .completed, .error:
                         EmptyView()
                     }

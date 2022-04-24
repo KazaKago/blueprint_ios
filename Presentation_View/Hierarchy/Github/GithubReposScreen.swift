@@ -36,7 +36,7 @@ struct GithubReposScreen: View {
             ZStack {
                 List {
                     ForEach(uiState.getGithubReposOrEmpty()) { githubRepo in
-                        GithubRepoItem(githubRepo: githubRepo)
+                        GithubRepoRow(githubRepo: githubRepo)
                             .onAppear {
                                 if githubRepo == uiState.getGithubReposOrEmpty().last {
                                     onBottomReached()
@@ -45,9 +45,9 @@ struct GithubReposScreen: View {
                     }
                     switch uiState {
                     case .additionalLoading:
-                        LoadingItem()
+                        LoadingRow()
                     case .additionalError(_, _, let error):
-                        ErrorItem(error: error, retry: onRetryAdditional)
+                        ErrorRow(error: error, retry: onRetryAdditional)
                     case .loading, .completed, .error:
                         EmptyView()
                     }

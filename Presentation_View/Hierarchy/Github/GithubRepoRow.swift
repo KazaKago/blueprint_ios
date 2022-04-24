@@ -1,5 +1,5 @@
 //
-//  GithubRepoItem.swift
+//  GithubRepoRow.swift
 //  Presentation.View
 //
 //  Created by Kensuke Tamura on 2021/05/05.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Domain_Model
 
-struct GithubRepoItem: View {
+struct GithubRepoRow: View {
 
     let githubRepo: GithubRepo
 
@@ -31,6 +31,6 @@ struct GithubRepoItem: View {
 
 struct GithubRepoItem_Previews: PreviewProvider {
     static var previews: some View {
-        GithubRepoItem(githubRepo: GithubRepo(id: GithubRepoId(1223), name: "User Name", url: URL(string: "http://example.com")!))
+        GithubRepoRow(githubRepo: GithubRepo(id: GithubRepoId(1223), name: "User Name", url: URL(string: "http://example.com")!))
     }
 }
