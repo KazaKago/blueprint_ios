@@ -53,7 +53,7 @@ struct GithubOrgsScreen: View {
                     case .loading, .completed, .error:
                         EmptyView()
                     }
-                }
+                }.refreshable { onRefresh() }
                 switch uiState {
                 case .loading:
                     LoadingContent()
@@ -64,24 +64,9 @@ struct GithubOrgsScreen: View {
                 }
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem {
                     NavigationLink(destination: AboutController()) {
                         Text("action_about".localized)
-                    }
-                }
-                ToolbarItem {
-                    switch uiState {
-                    case .loading, .additionalLoading:
-                        ProgressView()
-                    case .completed, .error, .additionalError:
-                        Button("refresh".localized) {
-                            onRefresh()
-                            if let first = uiState.getGithubOrgsOrEmpty().first {
-                                withAnimation {
-                                    scrollProxy.scrollTo(first.id)
-                                }
-                            }
-                        }
                     }
                 }
             }

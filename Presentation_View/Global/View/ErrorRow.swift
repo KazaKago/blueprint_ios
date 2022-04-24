@@ -27,7 +27,7 @@ struct ErrorRow: View {
     }
 }
 
-struct ErrorItem_Previews: PreviewProvider {
+struct ErrorRow_Previews: PreviewProvider {
     static var previews: some View {
         ErrorRow(error: DummyError.dummy, retry: {})
     }

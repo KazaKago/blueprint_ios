@@ -29,7 +29,7 @@ struct GithubRepoRow: View {
     }
 }
 
-struct GithubRepoItem_Previews: PreviewProvider {
+struct GithubRepoRow_Previews: PreviewProvider {
     static var previews: some View {
         GithubRepoRow(githubRepo: GithubRepo(id: GithubRepoId(1223), name: "User Name", url: URL(string: "http://example.com")!))
     }

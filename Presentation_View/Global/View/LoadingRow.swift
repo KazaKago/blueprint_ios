@@ -19,7 +19,7 @@ struct LoadingRow: View {
     }
 }
 
-struct LoadingItem_Previews: PreviewProvider {
+struct LoadingRow_Previews: PreviewProvider {
     static var previews: some View {
         LoadingRow()
     }

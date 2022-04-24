@@ -35,6 +35,12 @@ struct GithubReposScreen: View {
         ScrollViewReader { scrollProxy in
             ZStack {
                 List {
+                    switch uiState {
+                    case .completed(let githubOrg, _), .additionalLoading(let githubOrg, _), .additionalError(let githubOrg, _, _):
+                        GithubRepoTopRow(githubOrg: githubOrg)
+                    case .loading, .error:
+                        EmptyView()
+                    }
                     ForEach(uiState.getGithubReposOrEmpty()) { githubRepo in
                         GithubRepoRow(githubRepo: githubRepo)
                             .onAppear {
@@ -51,7 +57,7 @@ struct GithubReposScreen: View {
                     case .loading, .completed, .error:
                         EmptyView()
                     }
-                }
+                }.refreshable { onRefresh() }
                 switch uiState {
                 case .loading:
                     LoadingContent()
@@ -59,21 +65,6 @@ struct GithubReposScreen: View {
                     ErrorContent(error: error, retry: onRetry)
                 case .completed, .additionalLoading, .additionalError:
                     EmptyView()
-                }
-            }
-            .toolbar {
-                ToolbarItem {
-                    switch uiState {
-                    case .loading, .additionalLoading:
-                        ProgressView()
-                    case .completed, .error, .additionalError:
-                        Button("refresh".localized) {
-                            onRefresh()
-                            if let first = uiState.getGithubReposOrEmpty().first {
-                                withAnimation { scrollProxy.scrollTo(first.id) }
-                            }
-                        }
-                    }
                 }
             }
             .navigationBarTitle(uiState.getGithubName().value)
