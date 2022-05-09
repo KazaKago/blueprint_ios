@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  MainScreen.swift
 //  Presentation.View
 //
 //  Created by Kensuke Tamura on 2021/04/30.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct MainView: View {
+public struct MainScreen: View {
 
     public init() {
     }
@@ -19,8 +19,8 @@ public struct MainView: View {
     }
 }
 
-struct MainView_Previews: PreviewProvider {
+struct MainScreen_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainScreen()
     }
 }
