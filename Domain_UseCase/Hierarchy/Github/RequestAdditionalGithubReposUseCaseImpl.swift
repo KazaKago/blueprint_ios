@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Combine
 import Domain_Model
 import Domain_Repository
 
@@ -18,7 +17,7 @@ struct RequestAdditionalGithubReposUseCaseImpl: RequestAdditionalGithubReposUseC
         self.githubRepository = githubRepository
     }
 
-    func invoke(githubOrgName: GithubOrgName, continueWhenError: Bool) -> AnyPublisher<Void, Never> {
-        githubRepository.requestAdditionalRepos(githubOrgName: githubOrgName, continueWhenError: continueWhenError)
+    func invoke(githubOrgName: GithubOrgName, continueWhenError: Bool) async {
+        await githubRepository.requestAdditionalRepos(githubOrgName: githubOrgName, continueWhenError: continueWhenError)
     }
 }

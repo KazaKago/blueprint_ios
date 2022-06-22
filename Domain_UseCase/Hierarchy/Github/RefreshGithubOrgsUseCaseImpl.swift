@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Combine
 import Domain_Repository
 
 struct RefreshGithubOrgsUseCaseImpl: RefreshGithubOrgsUseCase {
@@ -17,7 +16,7 @@ struct RefreshGithubOrgsUseCaseImpl: RefreshGithubOrgsUseCase {
         self.githubRepository = githubRepository
     }
 
-    func invoke() -> AnyPublisher<Void, Never> {
-        githubRepository.refreshOrgs()
+    func invoke() async {
+        await githubRepository.refreshOrgs()
     }
 }

@@ -6,10 +6,9 @@
 //
 
 import Foundation
-import Combine
 import Domain_Model
 
 public protocol RequestAdditionalGithubReposUseCase {
 
-    func invoke(githubOrgName: GithubOrgName, continueWhenError: Bool) -> AnyPublisher<Void, Never>
+    func invoke(githubOrgName: GithubOrgName, continueWhenError: Bool) async
 }

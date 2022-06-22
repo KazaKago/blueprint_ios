@@ -6,23 +6,24 @@
 //
 
 import Foundation
-import Combine
 import StoreFlowable
 import Domain_Model
 
 public protocol GithubRepository {
 
-    func getOrgsPublisher() -> LoadingStatePublisher<[GithubOrg]>
+    func getOrgsPublisher() -> LoadingStateSequence<[GithubOrg]>
 
-    func getOrgPublisher(githubOrgName: GithubOrgName) -> LoadingStatePublisher<GithubOrg>
+    func refreshOrgs() async
 
-    func refreshOrgs() -> AnyPublisher<Void, Never>
+    func requestAdditionalOrgs(continueWhenError: Bool) async
 
-    func requestAdditionalOrgs(continueWhenError: Bool) -> AnyPublisher<Void, Never>
+    func getOrgPublisher(githubOrgName: GithubOrgName) -> LoadingStateSequence<GithubOrg>
 
-    func getReposPublisher(githubOrgName: GithubOrgName) -> LoadingStatePublisher<[GithubRepo]>
+    func refreshOrg(githubOrgName: GithubOrgName) async
 
-    func refreshRepos(githubOrgName: GithubOrgName) -> AnyPublisher<Void, Never>
+    func getReposPublisher(githubOrgName: GithubOrgName) -> LoadingStateSequence<[GithubRepo]>
 
-    func requestAdditionalRepos(githubOrgName: GithubOrgName, continueWhenError: Bool) -> AnyPublisher<Void, Never>
+    func refreshRepos(githubOrgName: GithubOrgName) async
+
+    func requestAdditionalRepos(githubOrgName: GithubOrgName, continueWhenError: Bool) async
 }

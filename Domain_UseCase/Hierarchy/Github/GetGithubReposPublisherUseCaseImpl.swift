@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Combine
 import StoreFlowable
 import Domain_Model
 import Domain_Repository
@@ -19,7 +18,7 @@ struct GetGithubReposPublisherUseCaseImpl: GetGithubReposPublisherUseCase {
         self.githubRepository = githubRepository
     }
 
-    func invoke(githubOrgName: GithubOrgName) -> LoadingStatePublisher<GithubOrgAndRepos> {
+    func invoke(githubOrgName: GithubOrgName) -> LoadingStateSequence<GithubOrgAndRepos> {
         let orgPublisher = githubRepository.getOrgPublisher(githubOrgName: githubOrgName)
         let reposPublisher = githubRepository.getReposPublisher(githubOrgName: githubOrgName)
         return orgPublisher.combineState(reposPublisher) { githubOrg, githubRepos in

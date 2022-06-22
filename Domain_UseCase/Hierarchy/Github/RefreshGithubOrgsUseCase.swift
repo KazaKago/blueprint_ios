@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import Combine
 
 public protocol RefreshGithubOrgsUseCase {
 
-    func invoke() -> AnyPublisher<Void, Never>
+    func invoke() async
 }

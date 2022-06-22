@@ -19,6 +19,6 @@ struct GithubOrgsController: View {
             onRefresh: viewModel.refresh,
             onRetry: viewModel.retry,
             onRetryAdditional: viewModel.retryAddition
-        ).onAppear(perform: viewModel.initialize)
+        ).task { await viewModel.subscribe() }
     }
 }

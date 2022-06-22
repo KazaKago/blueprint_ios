@@ -6,36 +6,35 @@
 //
 
 import Foundation
-import Combine
 import Alamofire
 
 public struct GithubApi {
 
     private let baseApiUrl = URL(string: "https://api.github.com/")!
 
-    public func getOrgs(since: Int?, perPage: Int) -> AnyPublisher<[GithubOrgResponse], Error> {
+    public func getOrgs(since: Int?, perPage: Int) async throws -> [GithubOrgResponse] {
         var urlComponents = URLComponents(url: baseApiUrl.appendingPathComponent("organizations"), resolvingAgainstBaseURL: true)!
         urlComponents.queryItems = [
             URLQueryItem(name: "per_page", value: perPage.description),
             URLQueryItem(name: "since", value: since?.description),
         ]
-        return AF.request(urlComponents)
-            .publishResponse([GithubOrgResponse].self)
+        return try await AF.request(urlComponents)
+            .publish([GithubOrgResponse].self)
     }
 
-    public func getOrg(org: String) -> AnyPublisher<GithubOrgResponse, Error> {
+    public func getOrg(org: String) async throws -> GithubOrgResponse {
         let urlComponents = URLComponents(url: baseApiUrl.appendingPathComponent("orgs/\(org)"), resolvingAgainstBaseURL: true)!
-        return AF.request(urlComponents)
-            .publishResponse(GithubOrgResponse.self)
+        return try await AF.request(urlComponents)
+            .publish(GithubOrgResponse.self)
     }
 
-    public func getRepos(org: String, page: Int?, perPage: Int) -> AnyPublisher<[GithubRepoResponse], Error> {
+    public func getRepos(org: String, page: Int?, perPage: Int) async throws -> [GithubRepoResponse] {
         var urlComponents = URLComponents(url: baseApiUrl.appendingPathComponent("orgs/\(org)/repos"), resolvingAgainstBaseURL: true)!
         urlComponents.queryItems = [
             URLQueryItem(name: "per_page", value: perPage.description),
             URLQueryItem(name: "page", value: page?.description),
         ]
-        return AF.request(urlComponents)
-            .publishResponse([GithubRepoResponse].self)
+        return try await AF.request(urlComponents)
+            .publish([GithubRepoResponse].self)
     }
 }

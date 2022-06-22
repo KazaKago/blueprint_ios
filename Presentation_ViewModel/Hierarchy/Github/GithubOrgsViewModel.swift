@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Combine
 import Domain_UseCase
 import Domain_Model
 
@@ -16,7 +15,6 @@ public final class GithubOrgsViewModel: ObservableObject {
     private let getGithubOrgsPublisherUseCase: GetGithubOrgsPublisherUseCase
     private let refreshGithubOrgsUseCase: RefreshGithubOrgsUseCase
     private let requestAdditionalGithubOrgsUseCase: RequestAdditionalGithubOrgsUseCase
-    private var cancellableSet = Set<AnyCancellable>()
 
     public init(getGithubOrgsPublisherUseCase: GetGithubOrgsPublisherUseCase, refreshGithubOrgsUseCase: RefreshGithubOrgsUseCase, requestAdditionalGithubOrgsUseCase: RequestAdditionalGithubOrgsUseCase) {
         self.getGithubOrgsPublisherUseCase = getGithubOrgsPublisherUseCase
@@ -24,69 +22,58 @@ public final class GithubOrgsViewModel: ObservableObject {
         self.requestAdditionalGithubOrgsUseCase = requestAdditionalGithubOrgsUseCase
     }
 
-    public func initialize() {
-        cancellableSet.removeAll()
-        subscribe()
-    }
-
     public func refresh() {
-        refreshGithubOrgsUseCase.invoke()
-            .receive(on: DispatchQueue.main)
-            .sink {}
-            .store(in: &cancellableSet)
+        Task {
+            await refreshGithubOrgsUseCase.invoke()
+        }
     }
 
     public func retry() {
-        refreshGithubOrgsUseCase.invoke()
-            .receive(on: DispatchQueue.main)
-            .sink {}
-            .store(in: &cancellableSet)
+        Task {
+            await refreshGithubOrgsUseCase.invoke()
+        }
     }
 
     public func requestAddition() {
-        requestAdditionalGithubOrgsUseCase.invoke(continueWhenError: false)
-            .receive(on: DispatchQueue.main)
-            .sink {}
-            .store(in: &cancellableSet)
+        Task {
+            await requestAdditionalGithubOrgsUseCase.invoke(continueWhenError: false)
+        }
     }
 
     public func retryAddition() {
-        requestAdditionalGithubOrgsUseCase.invoke(continueWhenError: true)
-            .receive(on: DispatchQueue.main)
-            .sink {}
-            .store(in: &cancellableSet)
+        Task {
+            await requestAdditionalGithubOrgsUseCase.invoke(continueWhenError: true)
+        }
     }
 
-    private func subscribe() {
-        getGithubOrgsPublisherUseCase.invoke()
-            .receive(on: DispatchQueue.main)
-            .sink { state in
-                state.doAction(
-                    onLoading: { githubOrgs in
-                        if let githubOrgs = githubOrgs {
-                            self.uiState = .completed(githubOrgs: githubOrgs)
-                        } else {
-                            self.uiState = .loading
-                        }
-                    },
-                    onCompleted: { githubOrgs, next, _ in
-                        next.doAction(
-                            onFixed: { _ in
-                                self.uiState = .completed(githubOrgs: githubOrgs)
-                            },
-                            onLoading: {
-                                self.uiState = .additionalLoading(githubOrgs: githubOrgs)
-                            },
-                            onError: { error in
-                                self.uiState = .additionalError(githubOrgs: githubOrgs, error: error)
-                            }
-                        )
-                    },
-                    onError: { error in
-                        self.uiState = .error(error: error)
+    @MainActor
+    public func subscribe() async {
+        for await loadingState in getGithubOrgsPublisherUseCase.invoke() {
+            loadingState.doAction(
+                onLoading: { githubOrgs in
+                    if let githubOrgs = githubOrgs {
+                        self.uiState = .completed(githubOrgs: githubOrgs)
+                    } else {
+                        self.uiState = .loading
                     }
-                )
-            }
-            .store(in: &cancellableSet)
+                },
+                onCompleted: { githubOrgs, next, _ in
+                    next.doAction(
+                        onFixed: { _ in
+                            self.uiState = .completed(githubOrgs: githubOrgs)
+                        },
+                        onLoading: {
+                            self.uiState = .additionalLoading(githubOrgs: githubOrgs)
+                        },
+                        onError: { error in
+                            self.uiState = .additionalError(githubOrgs: githubOrgs, error: error)
+                        }
+                    )
+                },
+                onError: { error in
+                    self.uiState = .error(error: error)
+                }
+            )
+        }
     }
 }

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Combine
 import Domain_UseCase
 import Domain_Model
 
@@ -16,7 +15,6 @@ public final class GithubReposViewModel : ObservableObject {
     private let getGithubReposPublisherUseCase: GetGithubReposPublisherUseCase
     private let refreshGithubReposUseCase: RefreshGithubReposUseCase
     private let requestAdditionalGithubReposUseCase: RequestAdditionalGithubReposUseCase
-    private var cancellableSet = Set<AnyCancellable>()
 
     public init(getGithubReposPublisherUseCase: GetGithubReposPublisherUseCase, refreshGithubReposUseCase: RefreshGithubReposUseCase, requestAdditionalGithubReposUseCase: RequestAdditionalGithubReposUseCase, githubOrgName: GithubOrgName) {
         self.getGithubReposPublisherUseCase = getGithubReposPublisherUseCase
@@ -25,69 +23,58 @@ public final class GithubReposViewModel : ObservableObject {
         self.uiState = .loading(githubOrgName: githubOrgName)
     }
 
-    public func initialize() {
-        cancellableSet.removeAll()
-        subscribe()
-    }
-
     public func refresh() {
-        refreshGithubReposUseCase.invoke(githubOrgName: uiState.getGithubName())
-            .receive(on: DispatchQueue.main)
-            .sink {}
-            .store(in: &cancellableSet)
+        Task {
+            await refreshGithubReposUseCase.invoke(githubOrgName: uiState.getGithubName())
+        }
     }
 
     public func retry() {
-        refreshGithubReposUseCase.invoke(githubOrgName: uiState.getGithubName())
-            .receive(on: DispatchQueue.main)
-            .sink {}
-            .store(in: &cancellableSet)
+        Task {
+            await refreshGithubReposUseCase.invoke(githubOrgName: uiState.getGithubName())
+        }
     }
 
     public func requestAddition() {
-        requestAdditionalGithubReposUseCase.invoke(githubOrgName: uiState.getGithubName(), continueWhenError: false)
-            .receive(on: DispatchQueue.main)
-            .sink {}
-            .store(in: &cancellableSet)
+        Task {
+            await requestAdditionalGithubReposUseCase.invoke(githubOrgName: uiState.getGithubName(), continueWhenError: false)
+        }
     }
 
     public func retryAddition() {
-        requestAdditionalGithubReposUseCase.invoke(githubOrgName: uiState.getGithubName(), continueWhenError: true)
-            .receive(on: DispatchQueue.main)
-            .sink {}
-            .store(in: &cancellableSet)
+        Task {
+            await requestAdditionalGithubReposUseCase.invoke(githubOrgName: uiState.getGithubName(), continueWhenError: true)
+        }
     }
 
-    private func subscribe() {
-        getGithubReposPublisherUseCase.invoke(githubOrgName: uiState.getGithubName())
-            .receive(on: DispatchQueue.main)
-            .sink { state in
-                state.doAction(
-                    onLoading: { githubOrgAndRepos in
-                        if let githubOrgAndRepos = githubOrgAndRepos {
-                            self.uiState = .completed(githubOrg: githubOrgAndRepos.githubOrg, githubRepos: githubOrgAndRepos.githubRepos)
-                        } else {
-                            self.uiState = .loading(githubOrgName: self.uiState.getGithubName())
-                        }
-                    },
-                    onCompleted: { githubOrgAndRepos, next, _ in
-                        next.doAction(
-                            onFixed: { _ in
-                                self.uiState = .completed(githubOrg: githubOrgAndRepos.githubOrg, githubRepos: githubOrgAndRepos.githubRepos)
-                            },
-                            onLoading: {
-                                self.uiState = .additionalLoading(githubOrg: githubOrgAndRepos.githubOrg, githubRepos: githubOrgAndRepos.githubRepos)
-                            },
-                            onError: { error in
-                                self.uiState = .additionalError(githubOrg: githubOrgAndRepos.githubOrg, githubRepos: githubOrgAndRepos.githubRepos, error: error)
-                            }
-                        )
-                    },
-                    onError: { error in
-                        self.uiState = .error(githubOrgName: self.uiState.getGithubName(), error: error)
+    @MainActor
+    public func subscribe() async {
+        for await loadingState in getGithubReposPublisherUseCase.invoke(githubOrgName: uiState.getGithubName()) {
+            loadingState.doAction(
+                onLoading: { githubOrgAndRepos in
+                    if let githubOrgAndRepos = githubOrgAndRepos {
+                        self.uiState = .completed(githubOrg: githubOrgAndRepos.githubOrg, githubRepos: githubOrgAndRepos.githubRepos)
+                    } else {
+                        self.uiState = .loading(githubOrgName: self.uiState.getGithubName())
                     }
-                )
-            }
-            .store(in: &cancellableSet)
+                },
+                onCompleted: { githubOrgAndRepos, next, _ in
+                    next.doAction(
+                        onFixed: { _ in
+                            self.uiState = .completed(githubOrg: githubOrgAndRepos.githubOrg, githubRepos: githubOrgAndRepos.githubRepos)
+                        },
+                        onLoading: {
+                            self.uiState = .additionalLoading(githubOrg: githubOrgAndRepos.githubOrg, githubRepos: githubOrgAndRepos.githubRepos)
+                        },
+                        onError: { error in
+                            self.uiState = .additionalError(githubOrg: githubOrgAndRepos.githubOrg, githubRepos: githubOrgAndRepos.githubRepos, error: error)
+                        }
+                    )
+                },
+                onError: { error in
+                    self.uiState = .error(githubOrgName: self.uiState.getGithubName(), error: error)
+                }
+            )
+        }
     }
 }

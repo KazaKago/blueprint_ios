@@ -14,17 +14,14 @@ public struct CacheAssembly: Assembly {
     }
 
     public func assemble(container: Container) {
-        container.register(GithubCache.self) { _ in
-            GithubCache()
+        container.register(GithubOrgCacher.self) { _ in
+            GithubOrgCacher()
         }.inObjectScope(.container)
-        container.register(GithubOrgStateManager.self) { _ in
-            GithubOrgStateManager()
+        container.register(GithubOrgsCacher.self) { _ in
+            GithubOrgsCacher()
         }.inObjectScope(.container)
-        container.register(GithubOrgsStateManager.self) { _ in
-            GithubOrgsStateManager()
-        }.inObjectScope(.container)
-        container.register(GithubReposStateManager.self) { _ in
-            GithubReposStateManager()
+        container.register(GithubReposCacher.self) { _ in
+            GithubReposCacher()
         }.inObjectScope(.container)
     }
 }

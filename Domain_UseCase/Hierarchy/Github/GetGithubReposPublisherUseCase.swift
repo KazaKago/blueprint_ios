@@ -11,5 +11,5 @@ import Domain_Model
 
 public protocol GetGithubReposPublisherUseCase {
 
-    func invoke(githubOrgName: GithubOrgName) -> LoadingStatePublisher<GithubOrgAndRepos>
+    func invoke(githubOrgName: GithubOrgName) -> LoadingStateSequence<GithubOrgAndRepos>
 }

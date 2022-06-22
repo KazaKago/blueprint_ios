@@ -281,7 +281,7 @@ packages:
     from: 2.0.0
   StoreFlowable:
     url: https://github.com/KazaKago/StoreFlowable.swift.git
-    from: 3.0.0
+    from: 4.0.0
   Alamofire:
     url: https://github.com/Alamofire/Alamofire.git
     from: 5.0.0

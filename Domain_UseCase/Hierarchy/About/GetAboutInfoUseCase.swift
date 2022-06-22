@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Combine
 import Domain_Model
 
 public protocol GetAboutInfoUseCase {

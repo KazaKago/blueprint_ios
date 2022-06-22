@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import Combine
 
 public protocol RequestAdditionalGithubOrgsUseCase {
 
-    func invoke(continueWhenError: Bool) -> AnyPublisher<Void, Never>
+    func invoke(continueWhenError: Bool) async
 }
