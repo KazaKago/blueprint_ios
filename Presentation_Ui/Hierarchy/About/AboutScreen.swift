@@ -6,16 +6,16 @@
 //
 
 import SwiftUI
-import Presentation_ViewModel
+import Presentation_UiState
 import Domain_Model
 
-struct AboutScreen: View {
+public struct AboutScreen: View {
 
     let uiState: AboutUiState
     let onClickWebSite: (_ url: URL) -> Void
     let onClickMail: (_ mail: Email) -> Void
 
-    init(
+    public init(
         uiState: AboutUiState,
         onClickWebSite: @escaping (_ url: URL) -> Void,
         onClickMail: @escaping (_ mail: Email) -> Void
@@ -25,7 +25,7 @@ struct AboutScreen: View {
         self.onClickMail = onClickMail
     }
 
-    var body: some View {
+    public var body: some View {
         ScrollView {
             VStack {
                 Group {

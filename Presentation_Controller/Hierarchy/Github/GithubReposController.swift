@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import Presentation_Ui
 import Presentation_ViewModel
 import Domain_Model
 
 struct GithubReposController: View {
 
-    @ObservedObject private var viewModel: GithubReposViewModel
+    @ObservedObject
+    private var viewModel: GithubReposViewModel
 
     init(userName: GithubOrgName) {
         viewModel = resolver().resolve(GithubReposViewModel.self, argument: userName)!

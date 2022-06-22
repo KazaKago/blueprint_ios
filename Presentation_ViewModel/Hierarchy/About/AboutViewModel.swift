@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Presentation_UiState
 import Domain_UseCase
 import Domain_Model
 
@@ -18,11 +19,7 @@ public final class AboutViewModel : ObservableObject {
         self.getAboutInfoUseCase = getAboutInfoUseCase
     }
 
-    public func initialize() {
-        loadAboutInfo()
-    }
-
-    private func loadAboutInfo() {
+    public func loadAboutInfo() {
         let aboutInfo = getAboutInfoUseCase.invoke()
         uiState = AboutUiState.completed(
             appInfo: aboutInfo.appInfo,

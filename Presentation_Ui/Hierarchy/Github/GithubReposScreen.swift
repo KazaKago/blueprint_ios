@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
-import Presentation_ViewModel
+import Presentation_UiState
 import Domain_Model
 
-struct GithubReposScreen: View {
+public struct GithubReposScreen: View {
 
     let uiState: GithubReposUiState
     let onBottomReached: () -> Void
@@ -17,7 +17,7 @@ struct GithubReposScreen: View {
     let onRetry: () -> Void
     let onRetryAdditional: () -> Void
 
-    init(
+    public init(
         uiState: GithubReposUiState,
         onBottomReached: @escaping () -> Void,
         onRefresh: @escaping () -> Void,
@@ -31,7 +31,7 @@ struct GithubReposScreen: View {
         self.onRetryAdditional = onRetryAdditional
     }
 
-    var body: some View {
+    public var body: some View {
         ScrollViewReader { scrollProxy in
             ZStack {
                 List {

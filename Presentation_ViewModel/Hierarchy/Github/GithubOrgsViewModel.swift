@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Presentation_UiState
 import Domain_UseCase
 import Domain_Model
 

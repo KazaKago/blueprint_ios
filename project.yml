@@ -20,7 +20,9 @@ schemes:
       targets:
         - BlueprintTests
         - BlueprintUITests
-        - Presentation_ViewTests
+        - Presentation_ControllerTests
+        - Presentation_UiTests
+        - Presentation_UiStateTests
         - Presentation_ViewModelTests
         - Domain_UseCaseTests
         - Domain_ModelTests
@@ -47,7 +49,9 @@ schemes:
       targets:
         - BlueprintTests
         - BlueprintUITests
-        - Presentation_ViewTests
+        - Presentation_ControllerTests
+        - Presentation_UiTests
+        - Presentation_UiStateTests
         - Presentation_ViewModelTests
         - Domain_UseCaseTests
         - Domain_ModelTests
@@ -70,7 +74,9 @@ targets:
     sources:
       - path: Blueprint
     dependencies:
-      - target: Presentation_View
+      - target: Presentation_Controller
+      - target: Presentation_Ui
+      - target: Presentation_UiState
       - target: Presentation_ViewModel
       - target: Domain_UseCase
       - target: Domain_Model
@@ -115,20 +121,51 @@ targets:
       - path: BlueprintUITests
     dependencies:
       - target: Blueprint
-  Presentation_View:
+  Presentation_Controller:
     type: framework
     platform: iOS
     sources:
-      - path: Presentation_View
+      - path: Presentation_Controller
     dependencies:
+      - target: Presentation_Ui
+      - target: Presentation_UiState
       - target: Presentation_ViewModel
       - target: Domain_Model
       - package: Swinject
-  Presentation_ViewTests:
+  Presentation_ControllerTests:
     type: bundle.unit-test
     platform: iOS
     sources:
-      - path: Presentation_ViewTests
+      - path: Presentation_ControllerTests
+    dependencies:
+      - target: Blueprint
+  Presentation_Ui:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Presentation_Ui
+    dependencies:
+      - target: Presentation_UiState
+      - target: Domain_Model
+  Presentation_UiTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Presentation_UiTests
+    dependencies:
+      - target: Blueprint
+  Presentation_UiState:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Presentation_UiState
+    dependencies:
+      - target: Domain_Model
+  Presentation_UiStateTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Presentation_UiStateTests
     dependencies:
       - target: Blueprint
   Presentation_ViewModel:

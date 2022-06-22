@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Presentation_View
+import Presentation_Controller
 
 @main
 struct BlueprintApp: App {
@@ -17,7 +17,7 @@ struct BlueprintApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainScreen()
+            MainController()
         }
     }
 }

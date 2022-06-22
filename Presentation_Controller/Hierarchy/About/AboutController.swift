@@ -6,17 +6,19 @@
 //
 
 import SwiftUI
+import Presentation_Ui
 import Presentation_ViewModel
 
 struct AboutController: View {
 
-    @ObservedObject private var viewModel: AboutViewModel = resolver().resolve(AboutViewModel.self)!
+    @ObservedObject
+    private var viewModel: AboutViewModel = resolver().resolve(AboutViewModel.self)!
 
     var body: some View {
         AboutScreen(
             uiState: viewModel.uiState,
             onClickWebSite: { url in UIApplication.shared.open(url) },
             onClickMail: { email in UIApplication.shared.open(email.toURL()) }
-        ).onAppear(perform: viewModel.initialize)
+        ).task { viewModel.loadAboutInfo() }
     }
 }

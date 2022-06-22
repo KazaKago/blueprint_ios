@@ -6,37 +6,43 @@
 //
 
 import SwiftUI
-import Presentation_ViewModel
+import Presentation_UiState
 import Domain_Model
 
-struct GithubOrgsScreen: View {
+public struct GithubOrgsScreen<GithubRepoDestination: View, AboutDestination: View>: View {
 
     let uiState: GithubOrgsUiState
     let onBottomReached: () -> Void
     let onRefresh: () -> Void
     let onRetry: () -> Void
     let onRetryAdditional: () -> Void
+    let githubReposDestination: (_ githubOrg: GithubOrg) -> GithubRepoDestination
+    let aboutDestination: () -> AboutDestination
 
-    init(
+    public init(
         uiState: GithubOrgsUiState,
         onBottomReached: @escaping () -> Void,
         onRefresh: @escaping () -> Void,
         onRetry: @escaping () -> Void,
-        onRetryAdditional: @escaping () -> Void
+        onRetryAdditional: @escaping () -> Void,
+        githubReposDestination: @escaping (_ githubOrg: GithubOrg) -> GithubRepoDestination,
+        aboutDestination: @escaping () -> AboutDestination
     ) {
         self.uiState = uiState
         self.onBottomReached = onBottomReached
         self.onRefresh = onRefresh
         self.onRetry = onRetry
         self.onRetryAdditional = onRetryAdditional
+        self.githubReposDestination = githubReposDestination
+        self.aboutDestination = aboutDestination
     }
 
-    var body: some View {
+    public var body: some View {
         ScrollViewReader { scrollProxy in
             ZStack {
                 List {
                     ForEach(uiState.getGithubOrgsOrEmpty()) { githubOrg in
-                        NavigationLink(destination: GithubReposController(userName: githubOrg.name)) {
+                        NavigationLink(destination: githubReposDestination(githubOrg)) {
                             GithubOrgRow(githubOrg: githubOrg)
                                 .onAppear {
                                     if githubOrg == uiState.getGithubOrgsOrEmpty().last {
@@ -65,7 +71,7 @@ struct GithubOrgsScreen: View {
             }
             .toolbar {
                 ToolbarItem {
-                    NavigationLink(destination: AboutController()) {
+                    NavigationLink(destination: aboutDestination()) {
                         Text("action_about".localized)
                     }
                 }
@@ -82,7 +88,9 @@ struct GithubOrgsScreenOnLoading_Preview: PreviewProvider {
             onBottomReached: {},
             onRefresh: {},
             onRetry: {},
-            onRetryAdditional: {}
+            onRetryAdditional: {},
+            githubReposDestination: { _ in Spacer() },
+            aboutDestination: { Spacer() }
         )
     }
 }
@@ -98,7 +106,9 @@ struct GithubOrgsScreenOnCompleted_Preview: PreviewProvider {
             onBottomReached: {},
             onRefresh: {},
             onRetry: {},
-            onRetryAdditional: {}
+            onRetryAdditional: {},
+            githubReposDestination: { _ in Spacer() },
+            aboutDestination: { Spacer() }
         )
     }
 }
@@ -110,7 +120,9 @@ struct GithubOrgsScreenOnError_Preview: PreviewProvider {
             onBottomReached: {},
             onRefresh: {},
             onRetry: {},
-            onRetryAdditional: {}
+            onRetryAdditional: {},
+            githubReposDestination: { _ in Spacer() },
+            aboutDestination: { Spacer() }
         )
     }
 
@@ -130,7 +142,9 @@ struct GithubOrgsScreenOnAdditionalLoading_Preview: PreviewProvider {
             onBottomReached: {},
             onRefresh: {},
             onRetry: {},
-            onRetryAdditional: {}
+            onRetryAdditional: {},
+            githubReposDestination: { _ in Spacer() },
+            aboutDestination: { Spacer() }
         )
     }
 }
@@ -149,7 +163,9 @@ struct GithubOrgsScreenOnAdditionalError_Preview: PreviewProvider {
             onBottomReached: {},
             onRefresh: {},
             onRetry: {},
-            onRetryAdditional: {}
+            onRetryAdditional: {},
+            githubReposDestination: { _ in Spacer() },
+            aboutDestination: { Spacer() }
         )
     }
 
