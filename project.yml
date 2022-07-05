@@ -88,6 +88,30 @@ targets:
       - target: Data_Resource
       - package: StoreFlowable
       - package: Swinject
+    info:
+      path: Blueprint/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        LSRequiresIPhoneOS: true
+        UIApplicationSceneManifest: {
+          UIApplicationSupportsMultipleScenes: true
+        }
+        UIApplicationSupportsIndirectInputEvents: true
+        UILaunchScreen: {}
+        UIRequiredDeviceCapabilities: [armv7]
+        UISupportedInterfaceOrientations: [
+          UIInterfaceOrientationPortrait,
+          UIInterfaceOrientationLandscapeLeft,
+          UIInterfaceOrientationLandscapeRight,
+        ]
+        UISupportedInterfaceOrientations~ipad: [
+          UIInterfaceOrientationPortrait,
+          UIInterfaceOrientationPortraitUpsideDown,
+          UIInterfaceOrientationLandscapeLeft,
+          UIInterfaceOrientationLandscapeRight,
+        ]
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.kazakago.blueprint
@@ -114,6 +138,12 @@ targets:
       - path: BlueprintTests
     dependencies:
       - target: Blueprint
+    info:
+      path: BlueprintTests/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   BlueprintUITests:
     type: bundle.ui-testing
     platform: iOS
@@ -121,6 +151,12 @@ targets:
       - path: BlueprintUITests
     dependencies:
       - target: Blueprint
+    info:
+      path: BlueprintUITests/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Presentation_Controller:
     type: framework
     platform: iOS
@@ -132,6 +168,12 @@ targets:
       - target: Presentation_ViewModel
       - target: Domain_Model
       - package: Swinject
+    info:
+      path: Presentation_Controller/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Presentation_ControllerTests:
     type: bundle.unit-test
     platform: iOS
@@ -139,6 +181,12 @@ targets:
       - path: Presentation_ControllerTests
     dependencies:
       - target: Blueprint
+    info:
+      path: Presentation_ControllerTests/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Presentation_Ui:
     type: framework
     platform: iOS
@@ -147,6 +195,12 @@ targets:
     dependencies:
       - target: Presentation_UiState
       - target: Domain_Model
+    info:
+      path: Presentation_Ui/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Presentation_UiTests:
     type: bundle.unit-test
     platform: iOS
@@ -154,6 +208,12 @@ targets:
       - path: Presentation_UiTests
     dependencies:
       - target: Blueprint
+    info:
+      path: Presentation_UiTests/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Presentation_UiState:
     type: framework
     platform: iOS
@@ -161,6 +221,12 @@ targets:
       - path: Presentation_UiState
     dependencies:
       - target: Domain_Model
+    info:
+      path: Presentation_UiState/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Presentation_UiStateTests:
     type: bundle.unit-test
     platform: iOS
@@ -168,6 +234,12 @@ targets:
       - path: Presentation_UiStateTests
     dependencies:
       - target: Blueprint
+    info:
+      path: Presentation_UiStateTests/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Presentation_ViewModel:
     type: framework
     platform: iOS
@@ -178,6 +250,12 @@ targets:
       - target: Domain_Model
       - package: StoreFlowable
       - package: Swinject
+    info:
+      path: Presentation_ViewModel/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Presentation_ViewModelTests:
     type: bundle.unit-test
     platform: iOS
@@ -185,6 +263,12 @@ targets:
       - path: Presentation_ViewModelTests
     dependencies:
       - target: Blueprint
+    info:
+      path: Presentation_ViewModelTests/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Domain_UseCase:
     type: framework
     platform: iOS
@@ -195,6 +279,12 @@ targets:
       - target: Domain_Repository
       - package: StoreFlowable
       - package: Swinject
+    info:
+      path: Domain_UseCase/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Domain_UseCaseTests:
     type: bundle.unit-test
     platform: iOS
@@ -202,11 +292,23 @@ targets:
       - path: Domain_UseCaseTests
     dependencies:
       - target: Blueprint
+    info:
+      path: Domain_UseCaseTests/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Domain_Model:
     type: framework
     platform: iOS
     sources:
       - path: Domain_Model
+    info:
+      path: Domain_Model/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Domain_ModelTests:
     type: bundle.unit-test
     platform: iOS
@@ -214,6 +316,12 @@ targets:
       - path: Domain_ModelTests
     dependencies:
       - target: Blueprint
+    info:
+      path: Domain_ModelTests/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Domain_Repository:
     type: framework
     platform: iOS
@@ -222,6 +330,12 @@ targets:
     dependencies:
       - target: Domain_Model
       - package: StoreFlowable
+    info:
+      path: Domain_Repository/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Domain_RepositoryTests:
     type: bundle.unit-test
     platform: iOS
@@ -229,6 +343,12 @@ targets:
       - path: Domain_RepositoryTests
     dependencies:
       - target: Blueprint
+    info:
+      path: Domain_RepositoryTests/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Data_Repository:
     type: framework
     platform: iOS
@@ -243,6 +363,12 @@ targets:
       - target: Data_Resource
       - package: StoreFlowable
       - package: Swinject
+    info:
+      path: Data_Repository/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Data_RepositoryTests:
     type: bundle.unit-test
     platform: iOS
@@ -250,6 +376,12 @@ targets:
       - path: Data_RepositoryTests
     dependencies:
       - target: Blueprint
+    info:
+      path: Data_RepositoryTests/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Data_Mapper:
     type: framework
     platform: iOS
@@ -261,6 +393,12 @@ targets:
       - target: Data_Cache
       - target: Data_Resource
       - package: Swinject
+    info:
+      path: Data_Mapper/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Data_MapperTests:
     type: bundle.unit-test
     platform: iOS
@@ -268,6 +406,12 @@ targets:
       - path: Data_MapperTests
     dependencies:
       - target: Blueprint
+    info:
+      path: Data_MapperTests/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Data_Api:
     type: framework
     platform: iOS
@@ -276,6 +420,12 @@ targets:
     dependencies:
       - package: Alamofire
       - package: Swinject
+    info:
+      path: Data_Api/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Data_ApiTests:
     type: bundle.unit-test
     platform: iOS
@@ -283,6 +433,12 @@ targets:
       - path: Data_ApiTests
     dependencies:
       - target: Blueprint
+    info:
+      path: Data_ApiTests/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Data_Cache:
     type: framework
     platform: iOS
@@ -291,6 +447,12 @@ targets:
     dependencies:
       - package: StoreFlowable
       - package: Swinject
+    info:
+      path: Data_Cache/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Data_CacheTests:
     type: bundle.unit-test
     platform: iOS
@@ -298,6 +460,12 @@ targets:
       - path: Data_CacheTests
     dependencies:
       - target: Blueprint
+    info:
+      path: Data_CacheTests/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Data_Resource:
     type: framework
     platform: iOS
@@ -305,6 +473,12 @@ targets:
       - path: Data_Resource
     dependencies:
       - package: Swinject
+    info:
+      path: Data_Resource/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   Data_ResourceTests:
     type: bundle.unit-test
     platform: iOS
@@ -312,6 +486,12 @@ targets:
       - path: Data_ResourceTests
     dependencies:
       - target: Blueprint
+    info:
+      path: Data_ResourceTests/Info.plist
+      properties:
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
 packages:
   Swinject:
     url: https://github.com/Swinject/Swinject.git
