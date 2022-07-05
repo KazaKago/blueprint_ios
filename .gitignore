@@ -110,3 +110,4 @@ xcuserdata/
 
 ### XcodeGen ###
 *.xcodeproj
+Info.plist
